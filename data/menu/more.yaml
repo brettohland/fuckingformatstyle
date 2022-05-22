@@ -1,0 +1,10 @@
+---
+more:
+  - name: Releases
+    ref: "https://github.com/thegeeklab/ansible-later/releases"
+    external: true
+    icon: "gdoc_download"
+  - name: "View Source"
+    ref: "https://github.com/thegeeklab/ansible-later"
+    external: true
+    icon: "gdoc_github"
