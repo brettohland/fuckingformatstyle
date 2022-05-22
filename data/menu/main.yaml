@@ -1,0 +1,79 @@
+---
+main:
+  - name: FormatStyle The Missing Manual
+    ref: "/"
+    external: true
+    icon: "gdoc_home"
+    sub:
+      - name: The Basics
+        ref: "/#the-basics"
+        external: true
+        sub:
+        - name: Sensible Defaults
+          ref: "/#sensible-defaults"
+          external: true
+        - name: Outputting AttributedStrings
+          ref: "/#dates"
+        - name: SwiftUI Support
+          ref: "/#dates"
+          external: true
+          external: true
+      - name: Dates
+        ref: "/#dates"
+        external: true
+        sub:
+          - name: DateStyle & TimeStyle
+            ref: "/#dates"
+            external: true
+          - name: Compositing Using dateTime
+            ref: "/#dates"
+            external: true
+            sub: 
+            - name: Customizing Units
+              ref: "/#dates"
+              external: true
+          - name: ISO8601
+            ref: "/#dates"
+            external: true
+          - name: Date Range (Components)
+            ref: "/#dates"
+            external: true
+            sub:
+              - name: Further Customization
+                ref: "/#dates"
+                external: true
+          - name: Date Range (Interval)
+            ref: "/#dates"
+            external: true
+          - name: Relative Distance
+            ref: "/#dates"
+            external: true
+          - name: Verbatim
+            ref: "/#dates"
+            external: true
+      - name: Lists
+        ref: "/#dates"
+        external: true
+      - name: Measurements
+        ref: "/#dates"
+        external: true
+        sub:
+          - name: Cutomizing
+            ref: "/#dates"
+            external: true
+      - name: Numbers
+        ref: "/#dates"
+        external: true
+        sub:
+          - name: Percentages
+            ref: "/#dates"
+            external: true
+          - name: Currency
+            ref: "/#dates"
+            external: true
+      - name: Names
+        ref: "/#dates"
+        external: true
+      - name: Byte Counts
+        ref: "/#dates"
+        external: true
