@@ -152,7 +152,7 @@ See <a href="/#interval-date-style-date-range">Interval Style</a>
 
 Use the components format style if you want a plain language representation of the distance between the earliest and latest dates in a date range. This is similar to the relative date format style (but for date ranges).
 
-See <a href="/#datetime-compositing-single-date">Components Style</a>
+See <a href="/#components-date-style-date-range">Components Style</a>
 
 {{< /expand >}}
 

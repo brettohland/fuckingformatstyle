@@ -52,7 +52,7 @@ main:
         ref: "#interval-date-style-date-range"
         external: true
       - name: Components Style
-        ref: "#datetime-compositing-single-date"
+        ref: "#components-date-style-date-range"
         external: true
   - name: Measurement Style
     ref: "#measurement-style"
