@@ -1,4 +1,4 @@
-baseURL = 'fuckingformatstyle.com'
+baseURL = 'https://fuckingformatstyle.com/'
 languageCode = 'en-us'
 title = 'Fucking Format Style!'
 theme = "hugo-geekdoc"
