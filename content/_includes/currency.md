@@ -22,7 +22,7 @@ At its simplest, you can call the `.formatted(.number.rounded())` method on any 
 
 <pre class="splash"><code><span class="type">Decimal</span>(<span class="number">0.59</span>).<span class="call">formatted</span>(.<span class="call">currency</span>(code: <span class="string">"GBP"</span>).<span class="call">rounded</span>())   <span class="comment">// "£0.59"</span>
 <span class="type">Decimal</span>(<span class="number">0.599</span>).<span class="call">formatted</span>(.<span class="call">currency</span>(code: <span class="string">"GBP"</span>).<span class="call">rounded</span>())  <span class="comment">// "£0.60"</span>
-<span class="type">Decimal</span>(<span class="number">0.5999</span>).<span class="call">formatted</span>(.<span class="call">currency</span>(code: <span class="string">"GBP"</span>).<span class="call">rounded</span>()) <span class="comment">// "£0.60"</span></code></pre>`
+<span class="type">Decimal</span>(<span class="number">0.5999</span>).<span class="call">formatted</span>(.<span class="call">currency</span>(code: <span class="string">"GBP"</span>).<span class="call">rounded</span>()) <span class="comment">// "£0.60"</span></code></pre>
 
 Using the full instance method, you can access more granular settings: `.number.rounded(rule:increment:)`.
 

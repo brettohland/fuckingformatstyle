@@ -23,7 +23,7 @@ At its simplest, you can call the `.formatted(.number.rounded())` method on any 
 <pre class="splash"><code><span class="type">Double</span>(<span class="number">1.9999999</span>).<span class="call">formatted</span>(.<span class="dotAccess">number</span>.<span class="call">rounded</span>())  <span class="comment">// "2"</span>
 <span class="type">Decimal</span>(<span class="number">1.9999999</span>).<span class="call">formatted</span>(.<span class="dotAccess">number</span>.<span class="call">rounded</span>()) <span class="comment">// "2"</span>
 <span class="type">Float</span>(<span class="number">1.9999999</span>).<span class="call">formatted</span>(.<span class="dotAccess">number</span>.<span class="call">rounded</span>())   <span class="comment">// "2"</span>
-<span class="type">Int</span>(<span class="number">1.9999999</span>).<span class="call">formatted</span>(.<span class="dotAccess">number</span>.<span class="call">rounded</span>())     <span class="comment">// "1"</span></code></pre>`
+<span class="type">Int</span>(<span class="number">1.9999999</span>).<span class="call">formatted</span>(.<span class="dotAccess">number</span>.<span class="call">rounded</span>())     <span class="comment">// "1"</span></code></pre>
 
 Using the full instance method, you can access more granular settings: `.number.rounded(rule:increment:)`.
 

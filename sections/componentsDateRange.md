@@ -1,4 +1,5 @@
 ---
+sitemap_ignore: true
 ---
 ### Available fields
 
@@ -33,21 +34,21 @@ testRange.formatted(.components(style: .condensedAbbreviated, fields: [.day, .mo
 
 let appleReferenceDay = Date(timeIntervalSinceReferenceDate: 0)
 let twosday = Calendar(identifier: .gregorian).date(from: twosdayDateComponents)!
-let secondRange = appleReferenceDay..<twosday
+let secondRange = appleReferenceDay .. <twosday
 
-// "21 yrs, 1 mth, 3 wks, 9 hr, 1,342 sec"
+// 21 yrs, 1 mth, 3 wks, 9 hr, 1,342 sec
 secondRange.formatted(.components(style: .abbreviated, fields: [.day, .month, .year, .hour, .second, .week]))
 
-// "21yrs 1mth 3wks 9hr 1,342sec"
+// 21yrs 1mth 3wks 9hr 1,342sec
 secondRange.formatted(.components(style: .narrow, fields: [.day, .month, .year, .hour, .second, .week]))
 
-// "21 years, 1 month, 3 weeks, 9 hours, 1,342 seconds"
+// 21 years, 1 month, 3 weeks, 9 hours, 1,342 seconds
 secondRange.formatted(.components(style: .wide, fields: [.day, .month, .year, .hour, .second, .week]))
 
-// "twenty-one years, one month, three weeks, nine hours, one thousand three hundred forty-two seconds"
+// twenty-one years, one month, three weeks, nine hours, one thousand three hundred forty-two seconds
 secondRange.formatted(.components(style: .spellOut, fields: [.day, .month, .year, .hour, .second, .week]))
 
-// "21y 1mo 3w 9h 1,342s"
+// 21y 1mo 3w 9h 1,342s
 secondRange.formatted(.components(style: .condensedAbbreviated, fields: [.day, .month, .year, .hour, .second, .week]))
 ```
 
@@ -57,7 +58,7 @@ You can set the locale by appending the `locale()` method onto the end of the fo
 
 ```
 let franceLocale = Locale(identifier: "fr_FR")
-// "vingt-et-un ans, un mois, trois semaines, neuf heures et mille trois cent quarante-deux secondes"
+// vingt-et-un ans, un mois, trois semaines, neuf heures et mille trois cent quarante-deux secondes
 secondRange.formatted(.components(style: .spellOut, fields: [.day, .month, .year, .hour, .second, .week]).locale(franceLocale))
 ```
 

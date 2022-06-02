@@ -4,7 +4,11 @@ HOST=lunenburg.dreamhost.com
 FCK=fuckingformatstyle.com
 GOSH=goshdarnformatstyle.com
 
-hugo --destination public/${FCK} && rsync -avz --delete public/${FCK} ${USER}@${HOST}:~/${FCK}
-hugo --destination public/${FCK} --confic config-gosh.toml --destination public/${GOSH} && rsync -avz --delete public/${GOSH} ${USER}@${HOST}:~/${GOSH}
+hugo 
+rm -rf public/_includes
+rsync -avz --delete public/ ${USER}@${HOST}:~/${FCK}
+hugo --config config-gosh.toml 
+rm -rf public/_includes
+rsync -avz --delete public/ ${USER}@${HOST}:~/${GOSH}
 
 exit 0

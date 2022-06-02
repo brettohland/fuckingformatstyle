@@ -1,12 +1,11 @@
 ---
+sitemap_ignore: true
 ---
 ## How do I even know where to start?
 
 You can start off by reading [The Basics](/#the-basics).
 
-If you have a specific need and aren't quite sure how to execute it, you can…
-
-{{< expand "Choose your own adventure" "⇅" >}}
+If you have a specific need and aren't quite sure how to execute it, follow along:
 
 #### I have a
 
@@ -196,7 +195,5 @@ See <a href ="/#byte-count-style">Byte Count Style</a>
 You can easily bend the `FormatStyle` protocol to your will and arbitrarily convert any type into any type.
 
 See <a href ="/#custom-format-style">Custom FormatStyle (with locale and attributed string support)</a>
-
-{{< /expand >}}
 
 {{< /expand >}}

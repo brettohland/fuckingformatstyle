@@ -1,4 +1,5 @@
 ---
+sitemap_ignore: true
 ---
 ### Available Properties
 
@@ -24,7 +25,7 @@ Double(1.9999999).formatted(.number.rounded())  // "2"
 Decimal(1.9999999).formatted(.number.rounded()) // "2"
 Float(1.9999999).formatted(.number.rounded())   // "2"
 Int(1.9999999).formatted(.number.rounded())     // "1"
-````
+```
 
 Using the full instance method, you can access more granular settings: `.number.rounded(rule:increment:)`.
 

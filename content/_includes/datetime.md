@@ -40,7 +40,7 @@ twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</s
 The symbols can be chained together to mix and match your desired string.
 
 <pre class="splash"><code>twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">year</span>().<span class="call">month</span>().<span class="call">day</span>().<span class="call">hour</span>().<span class="call">minute</span>().<span class="call">second</span>()) <span class="comment">// "Feb 22, 2022, 2:22:22 AM"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">second</span>().<span class="call">minute</span>().<span class="call">hour</span>().<span class="call">day</span>().<span class="call">month</span>().<span class="call">year</span>()) <span class="comment">// "Feb 22, 2022, 2:22:22 AM"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">second</span>().<span class="call">minute</span>().<span class="call">hour</span>().<span class="call">day</span>().<span class="call">month</span>().<span class="call">year</span>()) <span class="comment">// "Feb 22, 2022, 2:22:22 AM"</span></code></pre>
 
 {{< hint type=important >}}
 
@@ -56,35 +56,37 @@ Each symbol has customization options.
 
 <pre class="splash"><code>twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">day</span>(.<span class="dotAccess">twoDigits</span>)) <span class="comment">// "22"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">day</span>(.<span class="dotAccess">ordinalOfDayInMonth</span>)) <span class="comment">// "4"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">day</span>(.<span class="dotAccess">defaultDigits</span>)) <span class="comment">// "22"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">day</span>(.<span class="dotAccess">defaultDigits</span>)) <span class="comment">// "22"</span></code></pre>
 
 #### Day of Year
 
 <pre class="splash"><code>twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">dayOfYear</span>(.<span class="dotAccess">defaultDigits</span>)) <span class="comment">// "53"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">dayOfYear</span>(.<span class="dotAccess">threeDigits</span>)) <span class="comment">// "053"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">dayOfYear</span>(.<span class="dotAccess">twoDigits</span>)) <span class="comment">// "53"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">dayOfYear</span>(.<span class="dotAccess">twoDigits</span>)) <span class="comment">// "53"</span></code></pre>
 #### Era
 
 <pre class="splash"><code>twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">era</span>(.<span class="dotAccess">abbreviated</span>)) <span class="comment">// "AD"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">era</span>(.<span class="dotAccess">narrow</span>)) <span class="comment">// "A"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">era</span>(.<span class="dotAccess">wide</span>)) <span class="comment">// "Anno Domini"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">era</span>(.<span class="dotAccess">wide</span>)) <span class="comment">// "Anno Domini"</span></code></pre>
 
 #### Hour
 
-Each of the following methods accepts an `AMPMStyle`
+Each of the following methods accepts an `AMPMStyle`.
 
-| `AMPMStyle` | Description |
-| omitted | Hides the day period marker (AM/PM). <br>For example, `8` (for 8 in the morning), `1` (for 1 in the afternoon) if used with `defaultDigits`. <br>Or `08`, `01` if used with `twoDigits`.|
-| narrow | Narrow day period if the locale prefers using day period with hour. <br>For example, `8`, `8a`, `13`, `1p` if used with `defaultDigits`. <br>Or `08`, `08a`, `13`, `01p` if used with `twoDigits`.|
-| abbreviated | Abbreviated day period if the locale prefers using day period with hour. <br>For example, `8`, `8 AM`, `13`, `1 PM` if used with `defaultDigits`. <br>Or `08`, `08 AM`, `13`, `01 PM` if used with `twoDigits`.|
-| wide | Wide day period if the locale prefers using day period with hour. <br>For example, `8`, `8 A.M.`, `13`, `1 P.M.` if used with `defaultDigits`. <br>Or, `08`, `08 A.M.`, `13`, `01 P.M.` if used with `twoDigits`. |
+| AMPMStyle | Description                                                                                                                                                                                                       | 
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| omitted     | Hides the day period marker (AM/PM). <br>For example, `8` (for 8 in the morning), `1` (for 1 in the afternoon) if used with `defaultDigits`. <br>Or `08`, `01` if used with `twoDigits`.                          |
+| narrow      | Narrow day period if the locale prefers using day period with hour. <br>For example, `8`, `8a`, `13`, `1p` if used with `defaultDigits`. <br>Or `08`, `08a`, `13`, `01p` if used with `twoDigits`.                |
+| abbreviated | Abbreviated day period if the locale prefers using day period with hour. <br>For example, `8`, `8 AM`, `13`, `1 PM` if used with `defaultDigits`. <br>Or `08`, `08 AM`, `13`, `01 PM` if used with `twoDigits`.   |
+| wide        | Wide day period if the locale prefers using day period with hour. <br>For example, `8`, `8 A.M.`, `13`, `1 P.M.` if used with `defaultDigits`. <br>Or, `08`, `08 A.M.`, `13`, `01 P.M.` if used with `twoDigits`. |
 
-| Option | Description |
-| -- | --- |
-| defaultDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) | The preferred numeric hour format for the locale with minimum digits. Whether the period symbol (AM/PM) will be shown depends on the locale. |
-| twoDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) | The preferred two-digit hour format for the locale, zero padded if necessary. Whether the period symbol (AM/PM) will be shown depends on the locale. |
-| conversationalDefaultDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) |Behaves like `defaultDigits`: the preferred numeric hour format for the locale with minimum digits. May also use conversational period formats. |
-| conversationalTwoDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) | Behaves like `twoDigits`: two-digit hour format for the locale, zero padded if necessary. May also use conversational period formats. |
+| Option                                                                    | Description                                                                                                                                          |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| defaultDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle)               | The preferred numeric hour format for the locale with minimum digits. Whether the period symbol (AM/PM) will be shown depends on the locale.         |
+| twoDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle)                   | The preferred two-digit hour format for the locale, zero padded if necessary. Whether the period symbol (AM/PM) will be shown depends on the locale. |
+| conversationalDefaultDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) | Behaves like `defaultDigits`: the preferred numeric hour format for the locale with minimum digits. May also use conversational period formats.      |
+| conversationalTwoDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle)     | Behaves like `twoDigits`: two-digit hour format for the locale, zero padded if necessary. May also use conversational period formats.                |
+
 
 <pre class="splash"><code>twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">hour</span>(.<span class="call">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess">wide</span>))) <span class="comment">// "2 AM"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">hour</span>(.<span class="call">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess">narrow</span>))) <span class="comment">// "2 a"</span>
@@ -101,12 +103,12 @@ twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</s
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">hour</span>(.<span class="call">twoDigits</span>(amPM: .<span class="dotAccess">wide</span>))) <span class="comment">// "02 AM"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">hour</span>(.<span class="call">twoDigits</span>(amPM: .<span class="dotAccess">narrow</span>))) <span class="comment">// "02 a"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">hour</span>(.<span class="call">twoDigits</span>(amPM: .<span class="dotAccess">abbreviated</span>))) <span class="comment">// "02 AM"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">hour</span>(.<span class="call">twoDigits</span>(amPM: .<span class="dotAccess">omitted</span>))) <span class="comment">// "02"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">hour</span>(.<span class="call">twoDigits</span>(amPM: .<span class="dotAccess">omitted</span>))) <span class="comment">// "02"</span></code></pre>
 
 #### Minute
 
 <pre class="splash"><code>twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">minute</span>(.<span class="dotAccess">twoDigits</span>)) <span class="comment">// "22"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">minute</span>(.<span class="dotAccess">defaultDigits</span>)) <span class="comment">// "22"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">minute</span>(.<span class="dotAccess">defaultDigits</span>)) <span class="comment">// "22"</span></code></pre>
 
 #### Month
 
@@ -114,7 +116,7 @@ twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</s
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">month</span>(.<span class="dotAccess">twoDigits</span>)) <span class="comment">// "02"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">month</span>(.<span class="dotAccess">wide</span>)) <span class="comment">// "February"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">month</span>(.<span class="dotAccess">abbreviated</span>)) <span class="comment">// "Feb"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">month</span>(.<span class="dotAccess">narrow</span>)) <span class="comment">// "F"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">month</span>(.<span class="dotAccess">narrow</span>)) <span class="comment">// "F"</span></code></pre>
 
 #### Quarter
 
@@ -122,12 +124,12 @@ twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</s
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">quarter</span>(.<span class="dotAccess">abbreviated</span>)) <span class="comment">// "Q1"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">quarter</span>(.<span class="dotAccess">wide</span>)) <span class="comment">// "1st quarter"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">quarter</span>(.<span class="dotAccess">twoDigits</span>)) <span class="comment">// "01"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">quarter</span>(.<span class="dotAccess">oneDigit</span>)) <span class="comment">// "1"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">quarter</span>(.<span class="dotAccess">oneDigit</span>)) <span class="comment">// "1"</span></code></pre>
 
 #### Second
 
 <pre class="splash"><code>twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">second</span>(.<span class="dotAccess">twoDigits</span>)) <span class="comment">// "22"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">second</span>(.<span class="dotAccess">defaultDigits</span>)) <span class="comment">// "22"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">second</span>(.<span class="dotAccess">defaultDigits</span>)) <span class="comment">// "22"</span></code></pre>
 
 #### Second Fraction
 
@@ -145,13 +147,13 @@ twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</s
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">timeZone</span>(.<span class="call">iso8601</span>(.<span class="dotAccess">long</span>))) <span class="comment">// "-07:00"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">timeZone</span>(.<span class="call">iso8601</span>(.<span class="dotAccess">short</span>))) <span class="comment">// "-07:00"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">timeZone</span>(.<span class="call">specificName</span>(.<span class="dotAccess">short</span>))) <span class="comment">// "MST"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">timeZone</span>(.<span class="call">specificName</span>(.<span class="dotAccess">long</span>))) <span class="comment">// "Mountain Standard Time"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">timeZone</span>(.<span class="call">specificName</span>(.<span class="dotAccess">long</span>))) <span class="comment">// "Mountain Standard Time"</span></code></pre>
 
 #### Week
 
 <pre class="splash"><code>twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">week</span>(.<span class="dotAccess">defaultDigits</span>)) <span class="comment">// "9"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">week</span>(.<span class="dotAccess">twoDigits</span>)) <span class="comment">// "09"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">week</span>(.<span class="dotAccess">weekOfMonth</span>)) <span class="comment">// "9"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">week</span>(.<span class="dotAccess">weekOfMonth</span>)) <span class="comment">// "9"</span></code></pre>
 
 #### Weekday
 
@@ -160,7 +162,7 @@ twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</s
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">weekday</span>(.<span class="dotAccess">short</span>)) <span class="comment">// "Tu"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">weekday</span>(.<span class="dotAccess">oneDigit</span>)) <span class="comment">// "3"</span>
 twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">weekday</span>(.<span class="dotAccess">wide</span>)) <span class="comment">// "Tuesday"</span>
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">weekday</span>(.<span class="dotAccess">narrow</span>)) <span class="comment">// "T"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">dateTime</span>.<span class="call">weekday</span>(.<span class="dotAccess">narrow</span>)) <span class="comment">// "T"</span></code></pre>
 
 #### Year
 
