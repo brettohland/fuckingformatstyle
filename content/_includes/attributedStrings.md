@@ -13,7 +13,7 @@ Many of the format styles listed throughout will output attributed strings by ap
 
 These attributed strings give us the ability to style individual elements of the string.
 
-<pre class="splash"><code><span class="number">0.88</span>.<span class="call">formatted</span>(.<span class="dotAccess">percent</span>.<span class="property">attributed</span>)</code></pre>
+<pre class="splash"><code><span class="number token">0.88</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">percent</span>.<span class="property token">attributed</span>)</code></pre>
 
 Outputs:
 
@@ -21,40 +21,40 @@ Outputs:
 
 You can then use the Attributed String API to access these elements to add your own styles.
 
-<pre class="splash"><code><span class="keyword">struct</span> ContentView: <span class="type">View</span> {
-    <span class="keyword">var</span> percentAttributed: <span class="type">AttributedString</span> {
-        <span class="keyword">var</span> percentAttributedString = <span class="number">0.8890</span>.<span class="call">formatted</span>(.<span class="dotAccess">percent</span>.<span class="property">attributed</span>)
-        percentAttributedString.<span class="property">swiftUI</span>.<span class="property">font</span> = .<span class="dotAccess">title</span>
-        percentAttributedString.<span class="property">runs</span>.<span class="call">forEach</span> { run <span class="keyword">in
-            if let</span> numberRun = run.<span class="property">numberPart</span> {
-                <span class="keyword">switch</span> numberRun {
-                <span class="keyword">case</span> .<span class="dotAccess">integer</span>:
-                    percentAttributedString[run.<span class="property">range</span>].foregroundColor = .<span class="dotAccess">orange</span>
-                <span class="keyword">case</span> .<span class="dotAccess">fraction</span>:
-                    percentAttributedString[run.<span class="property">range</span>].foregroundColor = .<span class="dotAccess">blue</span>
+<pre class="splash"><code><span class="keyword token">struct</span> ContentView: <span class="type token">View</span> {
+    <span class="keyword token">var</span> percentAttributed: <span class="type token">AttributedString</span> {
+        <span class="keyword token">var</span> percentAttributedString = <span class="number token">0.8890</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">percent</span>.<span class="property token">attributed</span>)
+        percentAttributedString.<span class="property token">swiftUI</span>.<span class="property token">font</span> = .<span class="dotAccess token">title</span>
+        percentAttributedString.<span class="property token">runs</span>.<span class="call token">forEach</span> { run <span class="keyword token">in
+            if let</span> numberRun = run.<span class="property token">numberPart</span> {
+                <span class="keyword token">switch</span> numberRun {
+                <span class="keyword token">case</span> .<span class="dotAccess token">integer</span>:
+                    percentAttributedString[run.<span class="property token">range</span>].foregroundColor = .<span class="dotAccess token">orange</span>
+                <span class="keyword token">case</span> .<span class="dotAccess token">fraction</span>:
+                    percentAttributedString[run.<span class="property token">range</span>].foregroundColor = .<span class="dotAccess token">blue</span>
                 }
             }
 
-            <span class="keyword">if let</span> symbolRun = run.<span class="property">numberSymbol</span> {
-                <span class="keyword">switch</span> symbolRun {
-                <span class="keyword">case</span> .<span class="dotAccess">percent</span>:
-                    percentAttributedString[run.<span class="property">range</span>].foregroundColor = .<span class="dotAccess">green</span>
-                <span class="keyword">case</span> .<span class="dotAccess">decimalSeparator</span>:
-                    percentAttributedString[run.<span class="property">range</span>].foregroundColor = .<span class="dotAccess">red</span>
-                <span class="keyword">default</span>:
-                    <span class="keyword">break</span>
+            <span class="keyword token">if let</span> symbolRun = run.<span class="property token">numberSymbol</span> {
+                <span class="keyword token">switch</span> symbolRun {
+                <span class="keyword token">case</span> .<span class="dotAccess token">percent</span>:
+                    percentAttributedString[run.<span class="property token">range</span>].foregroundColor = .<span class="dotAccess token">green</span>
+                <span class="keyword token">case</span> .<span class="dotAccess token">decimalSeparator</span>:
+                    percentAttributedString[run.<span class="property token">range</span>].foregroundColor = .<span class="dotAccess token">red</span>
+                <span class="keyword token">default</span>:
+                    <span class="keyword token">break</span>
                 }
             }
         }
 
-        <span class="keyword">return</span> percentAttributedString
+        <span class="keyword token">return</span> percentAttributedString
     }
 
-    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> {
-        <span class="type">VStack</span> {
-            <span class="type">Text</span>(percentAttributed)
+    <span class="keyword token">var</span> body: <span class="keyword token">some</span> <span class="type token">View</span> {
+        <span class="type token">VStack</span> {
+            <span class="type token">Text</span>(percentAttributed)
         }
-        .<span class="call">padding</span>()
+        .<span class="call token">padding</span>()
     }
 }</code></pre>
 
