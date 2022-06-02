@@ -33,21 +33,21 @@ testRange.<span class="call">formatted</span>(.<span class="call">components</sp
 
 <span class="keyword">let</span> appleReferenceDay = <span class="type">Date</span>(timeIntervalSinceReferenceDate: <span class="number">0</span>)
 <span class="keyword">let</span> twosday = <span class="type">Calendar</span>(identifier: .<span class="dotAccess">gregorian</span>).<span class="call">date</span>(from: twosdayDateComponents)!
-<span class="keyword">let</span> secondRange = appleReferenceDay..&lt;twosday
+<span class="keyword">let</span> secondRange = appleReferenceDay .. &lt;twosday
 
-<span class="comment">// "21 yrs, 1 mth, 3 wks, 9 hr, 1,342 sec"</span>
+<span class="comment">// 21 yrs, 1 mth, 3 wks, 9 hr, 1,342 sec</span>
 secondRange.<span class="call">formatted</span>(.<span class="call">components</span>(style: .<span class="dotAccess">abbreviated</span>, fields: [.<span class="dotAccess">day</span>, .<span class="dotAccess">month</span>, .<span class="dotAccess">year</span>, .<span class="dotAccess">hour</span>, .<span class="dotAccess">second</span>, .<span class="dotAccess">week</span>]))
 
-<span class="comment">// "21yrs 1mth 3wks 9hr 1,342sec"</span>
+<span class="comment">// 21yrs 1mth 3wks 9hr 1,342sec</span>
 secondRange.<span class="call">formatted</span>(.<span class="call">components</span>(style: .<span class="dotAccess">narrow</span>, fields: [.<span class="dotAccess">day</span>, .<span class="dotAccess">month</span>, .<span class="dotAccess">year</span>, .<span class="dotAccess">hour</span>, .<span class="dotAccess">second</span>, .<span class="dotAccess">week</span>]))
 
-<span class="comment">// "21 years, 1 month, 3 weeks, 9 hours, 1,342 seconds"</span>
+<span class="comment">// 21 years, 1 month, 3 weeks, 9 hours, 1,342 seconds</span>
 secondRange.<span class="call">formatted</span>(.<span class="call">components</span>(style: .<span class="dotAccess">wide</span>, fields: [.<span class="dotAccess">day</span>, .<span class="dotAccess">month</span>, .<span class="dotAccess">year</span>, .<span class="dotAccess">hour</span>, .<span class="dotAccess">second</span>, .<span class="dotAccess">week</span>]))
 
-<span class="comment">// "twenty-one years, one month, three weeks, nine hours, one thousand three hundred forty-two seconds"</span>
+<span class="comment">// twenty-one years, one month, three weeks, nine hours, one thousand three hundred forty-two seconds</span>
 secondRange.<span class="call">formatted</span>(.<span class="call">components</span>(style: .<span class="dotAccess">spellOut</span>, fields: [.<span class="dotAccess">day</span>, .<span class="dotAccess">month</span>, .<span class="dotAccess">year</span>, .<span class="dotAccess">hour</span>, .<span class="dotAccess">second</span>, .<span class="dotAccess">week</span>]))
 
-<span class="comment">// "21y 1mo 3w 9h 1,342s"</span>
+<span class="comment">// 21y 1mo 3w 9h 1,342s</span>
 secondRange.<span class="call">formatted</span>(.<span class="call">components</span>(style: .<span class="dotAccess">condensedAbbreviated</span>, fields: [.<span class="dotAccess">day</span>, .<span class="dotAccess">month</span>, .<span class="dotAccess">year</span>, .<span class="dotAccess">hour</span>, .<span class="dotAccess">second</span>, .<span class="dotAccess">week</span>]))</code></pre>
 
 ### Locale
@@ -55,7 +55,7 @@ secondRange.<span class="call">formatted</span>(.<span class="call">components</
 You can set the locale by appending the `locale()` method onto the end of the format style.
 
 <pre class="splash"><code><span class="keyword">let</span> franceLocale = <span class="type">Locale</span>(identifier: <span class="string">"fr_FR"</span>)
-<span class="comment">// "vingt-et-un ans, un mois, trois semaines, neuf heures et mille trois cent quarante-deux secondes"</span>
+<span class="comment">// vingt-et-un ans, un mois, trois semaines, neuf heures et mille trois cent quarante-deux secondes</span>
 secondRange.<span class="call">formatted</span>(.<span class="call">components</span>(style: .<span class="dotAccess">spellOut</span>, fields: [.<span class="dotAccess">day</span>, .<span class="dotAccess">month</span>, .<span class="dotAccess">year</span>, .<span class="dotAccess">hour</span>, .<span class="dotAccess">second</span>, .<span class="dotAccess">week</span>]).<span class="call">locale</span>(franceLocale))</code></pre>
 
 ### Fully Customizing & Setting Calendar

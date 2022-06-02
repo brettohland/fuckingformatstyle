@@ -1,4 +1,5 @@
 ---
+sitemap_ignore: true
 ---
 | Symbol            | Description                             |
 | ----------------- | --------------------------------------- |
@@ -43,7 +44,7 @@ The symbols can be chained together to mix and match your desired string.
 ```
 twosday.formatted(.dateTime.year().month().day().hour().minute().second()) // "Feb 22, 2022, 2:22:22 AM"
 twosday.formatted(.dateTime.second().minute().hour().day().month().year()) // "Feb 22, 2022, 2:22:22 AM"
-````
+```
 
 {{< hint type=important >}}
 
@@ -61,7 +62,7 @@ Each symbol has customization options.
 twosday.formatted(.dateTime.day(.twoDigits)) // "22"
 twosday.formatted(.dateTime.day(.ordinalOfDayInMonth)) // "4"
 twosday.formatted(.dateTime.day(.defaultDigits)) // "22"
-````
+```
 
 #### Day of Year
 
@@ -69,31 +70,33 @@ twosday.formatted(.dateTime.day(.defaultDigits)) // "22"
 twosday.formatted(.dateTime.dayOfYear(.defaultDigits)) // "53"
 twosday.formatted(.dateTime.dayOfYear(.threeDigits)) // "053"
 twosday.formatted(.dateTime.dayOfYear(.twoDigits)) // "53"
-````
+```
 #### Era
 
 ```
 twosday.formatted(.dateTime.era(.abbreviated)) // "AD"
 twosday.formatted(.dateTime.era(.narrow)) // "A"
 twosday.formatted(.dateTime.era(.wide)) // "Anno Domini"
-````
+```
 
 #### Hour
 
-Each of the following methods accepts an `AMPMStyle`
+Each of the following methods accepts an `AMPMStyle`.
 
-| `AMPMStyle` | Description |
-| omitted | Hides the day period marker (AM/PM). <br>For example, `8` (for 8 in the morning), `1` (for 1 in the afternoon) if used with `defaultDigits`. <br>Or `08`, `01` if used with `twoDigits`.|
-| narrow | Narrow day period if the locale prefers using day period with hour. <br>For example, `8`, `8a`, `13`, `1p` if used with `defaultDigits`. <br>Or `08`, `08a`, `13`, `01p` if used with `twoDigits`.|
-| abbreviated | Abbreviated day period if the locale prefers using day period with hour. <br>For example, `8`, `8 AM`, `13`, `1 PM` if used with `defaultDigits`. <br>Or `08`, `08 AM`, `13`, `01 PM` if used with `twoDigits`.|
-| wide | Wide day period if the locale prefers using day period with hour. <br>For example, `8`, `8 A.M.`, `13`, `1 P.M.` if used with `defaultDigits`. <br>Or, `08`, `08 A.M.`, `13`, `01 P.M.` if used with `twoDigits`. |
+| AMPMStyle | Description                                                                                                                                                                                                       | 
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| omitted     | Hides the day period marker (AM/PM). <br>For example, `8` (for 8 in the morning), `1` (for 1 in the afternoon) if used with `defaultDigits`. <br>Or `08`, `01` if used with `twoDigits`.                          |
+| narrow      | Narrow day period if the locale prefers using day period with hour. <br>For example, `8`, `8a`, `13`, `1p` if used with `defaultDigits`. <br>Or `08`, `08a`, `13`, `01p` if used with `twoDigits`.                |
+| abbreviated | Abbreviated day period if the locale prefers using day period with hour. <br>For example, `8`, `8 AM`, `13`, `1 PM` if used with `defaultDigits`. <br>Or `08`, `08 AM`, `13`, `01 PM` if used with `twoDigits`.   |
+| wide        | Wide day period if the locale prefers using day period with hour. <br>For example, `8`, `8 A.M.`, `13`, `1 P.M.` if used with `defaultDigits`. <br>Or, `08`, `08 A.M.`, `13`, `01 P.M.` if used with `twoDigits`. |
 
-| Option | Description |
-| -- | --- |
-| defaultDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) | The preferred numeric hour format for the locale with minimum digits. Whether the period symbol (AM/PM) will be shown depends on the locale. |
-| twoDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) | The preferred two-digit hour format for the locale, zero padded if necessary. Whether the period symbol (AM/PM) will be shown depends on the locale. |
-| conversationalDefaultDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) |Behaves like `defaultDigits`: the preferred numeric hour format for the locale with minimum digits. May also use conversational period formats. |
-| conversationalTwoDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) | Behaves like `twoDigits`: two-digit hour format for the locale, zero padded if necessary. May also use conversational period formats. |
+| Option                                                                    | Description                                                                                                                                          |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| defaultDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle)               | The preferred numeric hour format for the locale with minimum digits. Whether the period symbol (AM/PM) will be shown depends on the locale.         |
+| twoDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle)                   | The preferred two-digit hour format for the locale, zero padded if necessary. Whether the period symbol (AM/PM) will be shown depends on the locale. |
+| conversationalDefaultDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle) | Behaves like `defaultDigits`: the preferred numeric hour format for the locale with minimum digits. May also use conversational period formats.      |
+| conversationalTwoDigits(amPM: Date.FormatStyle.Symbol.Hour.AMPMStyle)     | Behaves like `twoDigits`: two-digit hour format for the locale, zero padded if necessary. May also use conversational period formats.                |
+
 
 ```
 twosday.formatted(.dateTime.hour(.conversationalDefaultDigits(amPM: .wide))) // "2 AM"
@@ -112,14 +115,14 @@ twosday.formatted(.dateTime.hour(.twoDigits(amPM: .wide))) // "02 AM"
 twosday.formatted(.dateTime.hour(.twoDigits(amPM: .narrow))) // "02 a"
 twosday.formatted(.dateTime.hour(.twoDigits(amPM: .abbreviated))) // "02 AM"
 twosday.formatted(.dateTime.hour(.twoDigits(amPM: .omitted))) // "02"
-````
+```
 
 #### Minute
 
 ```
 twosday.formatted(.dateTime.minute(.twoDigits)) // "22"
 twosday.formatted(.dateTime.minute(.defaultDigits)) // "22"
-````
+```
 
 #### Month
 
@@ -129,7 +132,7 @@ twosday.formatted(.dateTime.month(.twoDigits)) // "02"
 twosday.formatted(.dateTime.month(.wide)) // "February"
 twosday.formatted(.dateTime.month(.abbreviated)) // "Feb"
 twosday.formatted(.dateTime.month(.narrow)) // "F"
-````
+```
 
 #### Quarter
 
@@ -139,14 +142,14 @@ twosday.formatted(.dateTime.quarter(.abbreviated)) // "Q1"
 twosday.formatted(.dateTime.quarter(.wide)) // "1st quarter"
 twosday.formatted(.dateTime.quarter(.twoDigits)) // "01"
 twosday.formatted(.dateTime.quarter(.oneDigit)) // "1"
-````
+```
 
 #### Second
 
 ```
 twosday.formatted(.dateTime.second(.twoDigits)) // "22"
 twosday.formatted(.dateTime.second(.defaultDigits)) // "22"
-````
+```
 
 #### Second Fraction
 
@@ -168,7 +171,7 @@ twosday.formatted(.dateTime.timeZone(.iso8601(.long))) // "-07:00"
 twosday.formatted(.dateTime.timeZone(.iso8601(.short))) // "-07:00"
 twosday.formatted(.dateTime.timeZone(.specificName(.short))) // "MST"
 twosday.formatted(.dateTime.timeZone(.specificName(.long))) // "Mountain Standard Time"
-````
+```
 
 #### Week
 
@@ -176,7 +179,7 @@ twosday.formatted(.dateTime.timeZone(.specificName(.long))) // "Mountain Standar
 twosday.formatted(.dateTime.week(.defaultDigits)) // "9"
 twosday.formatted(.dateTime.week(.twoDigits)) // "09"
 twosday.formatted(.dateTime.week(.weekOfMonth)) // "9"
-````
+```
 
 #### Weekday
 
@@ -187,7 +190,7 @@ twosday.formatted(.dateTime.weekday(.short)) // "Tu"
 twosday.formatted(.dateTime.weekday(.oneDigit)) // "3"
 twosday.formatted(.dateTime.weekday(.wide)) // "Tuesday"
 twosday.formatted(.dateTime.weekday(.narrow)) // "T"
-````
+```
 
 #### Year
 

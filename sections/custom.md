@@ -1,4 +1,5 @@
 ---
+sitemap_ignore: true
 ---
 As a protocol, `FormatStyle` is quite simple to conform to:
 

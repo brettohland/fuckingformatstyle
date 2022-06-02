@@ -1,4 +1,5 @@
 ---
+sitemap_ignore: true
 ---
 ### Available Properties
 
@@ -23,7 +24,7 @@ At its simplest, you can call the `.formatted(.number.rounded())` method on any 
 Decimal(0.59).formatted(.currency(code: "GBP").rounded())   // "£0.59"
 Decimal(0.599).formatted(.currency(code: "GBP").rounded())  // "£0.60"
 Decimal(0.5999).formatted(.currency(code: "GBP").rounded()) // "£0.60"
-````
+```
 
 Using the full instance method, you can access more granular settings: `.number.rounded(rule:increment:)`.
 

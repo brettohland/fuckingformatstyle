@@ -39,7 +39,7 @@ twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">long<
 twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">long</span>, time: .<span class="dotAccess">standard</span>) <span class="comment">// "February 22, 2022, 2:22:22 AM"</span>
 twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">numeric</span>, time: .<span class="dotAccess">complete</span>) <span class="comment">// "2/22/2022, 2:22:22 AM MST"</span>
 twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">numeric</span>, time: .<span class="dotAccess">shortened</span>) <span class="comment">// "2/22/2022, 2:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">numeric</span>, time: .<span class="dotAccess">standard</span>) <span class="comment">// "2/22/2022, 2:22:22 AM"</span></code></pre>`
+twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">numeric</span>, time: .<span class="dotAccess">standard</span>) <span class="comment">// "2/22/2022, 2:22:22 AM"</span></code></pre>
 
 ### Setting the Locale & Calendar
 
@@ -81,4 +81,4 @@ You can also extend the `FormatStyle` protocol as a way of simplifying access to
     <span class="keyword">static var</span> frenchHebrew: <span class="type">FrenchHebrewStyle</span> { .<span class="keyword">init</span>() }
 }
 
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">frenchHebrew</span>) <span class="comment">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>`
+twosday.<span class="call">formatted</span>(.<span class="dotAccess">frenchHebrew</span>) <span class="comment">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>

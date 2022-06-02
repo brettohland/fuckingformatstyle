@@ -1,4 +1,5 @@
 ---
+sitemap_ignore: true
 ---
 ### DateStyle and TimeStyle
 
@@ -40,7 +41,7 @@ twosday.formatted(date: .long, time: .standard) // "February 22, 2022, 2:22:22 A
 twosday.formatted(date: .numeric, time: .complete) // "2/22/2022, 2:22:22 AM MST"
 twosday.formatted(date: .numeric, time: .shortened) // "2/22/2022, 2:22 AM"
 twosday.formatted(date: .numeric, time: .standard) // "2/22/2022, 2:22:22 AM"
-````
+```
 
 ### Setting the Locale & Calendar
 
@@ -86,4 +87,4 @@ extension FormatStyle where Self == FrenchHebrewStyle {
 }
 
 twosday.formatted(.frenchHebrew) // "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"
-````
+```

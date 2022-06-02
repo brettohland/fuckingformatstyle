@@ -1,4 +1,5 @@
 ---
+sitemap_ignore: true
 ---
 [If you're curious, here's Apple's list of supported units.](https://developer.apple.com/documentation/foundation/dimension)
 
@@ -40,7 +41,7 @@ let franceLocale = Locale(identifier: "fr_FR")
 gForce.formatted(.measurement(width: .wide).locale(franceLocale))        // "1 fois l’accélération de pesanteur terrestre"
 gForce.formatted(.measurement(width: .narrow).locale(franceLocale))      // "1G"
 gForce.formatted(.measurement(width: .abbreviated).locale(franceLocale)) // "1 force g"
-````
+```
 
 ### Initializing a Measurement Style
 

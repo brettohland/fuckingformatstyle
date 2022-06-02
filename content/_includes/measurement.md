@@ -35,7 +35,7 @@ You can set the locale by appending the `locale()` method onto the end of the fo
 
 gForce.<span class="call">formatted</span>(.<span class="call">measurement</span>(width: .<span class="dotAccess">wide</span>).<span class="call">locale</span>(franceLocale))        <span class="comment">// "1 fois l’accélération de pesanteur terrestre"</span>
 gForce.<span class="call">formatted</span>(.<span class="call">measurement</span>(width: .<span class="dotAccess">narrow</span>).<span class="call">locale</span>(franceLocale))      <span class="comment">// "1G"</span>
-gForce.<span class="call">formatted</span>(.<span class="call">measurement</span>(width: .<span class="dotAccess">abbreviated</span>).<span class="call">locale</span>(franceLocale)) <span class="comment">// "1 force g"</span></code></pre>`
+gForce.<span class="call">formatted</span>(.<span class="call">measurement</span>(width: .<span class="dotAccess">abbreviated</span>).<span class="call">locale</span>(franceLocale)) <span class="comment">// "1 force g"</span></code></pre>
 
 ### Initializing a Measurement Style
 

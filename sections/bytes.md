@@ -1,4 +1,5 @@
 ---
+sitemap_ignore: true
 ---
 ### Available Options
 
