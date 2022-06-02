@@ -19,66 +19,66 @@ To customize the display, you have the option of including a `DateStyle` or a `T
 | `.shortened`     | Shortened hour, minute, and second for your locale |
 | `.omitted`       | Omits the time from display                        | 
 
-<pre class="splash"><code>twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">abbreviated</span>, time: .<span class="dotAccess">omitted</span>) <span class="comment">// "Feb 22, 2022"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">complete</span>, time: .<span class="dotAccess">omitted</span>) <span class="comment">// "Tuesday, February 22, 2022"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">long</span>, time: .<span class="dotAccess">omitted</span>) <span class="comment">// "February 22, 2022"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">numeric</span>, time: .<span class="dotAccess">omitted</span>) <span class="comment">// "2/22/2022"</span>
+<pre class="splash"><code>twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">abbreviated</span>, time: .<span class="dotAccess token">omitted</span>) <span class="comment token">// "Feb 22, 2022"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">complete</span>, time: .<span class="dotAccess token">omitted</span>) <span class="comment token">// "Tuesday, February 22, 2022"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">long</span>, time: .<span class="dotAccess token">omitted</span>) <span class="comment token">// "February 22, 2022"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">numeric</span>, time: .<span class="dotAccess token">omitted</span>) <span class="comment token">// "2/22/2022"</span>
 
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">omitted</span>, time: .<span class="dotAccess">complete</span>) <span class="comment">// "2:22:22 AM MST"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">omitted</span>, time: .<span class="dotAccess">shortened</span>) <span class="comment">// "2:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">omitted</span>, time: .<span class="dotAccess">standard</span>) <span class="comment">// "2:22:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">omitted</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "2:22:22 AM MST"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">omitted</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "2:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">omitted</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "2:22:22 AM"</span>
 
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">abbreviated</span>, time: .<span class="dotAccess">complete</span>) <span class="comment">// "Feb 22, 2022, 2:22:22 AM MST"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">abbreviated</span>, time: .<span class="dotAccess">shortened</span>) <span class="comment">// "Feb 22, 2022, 2:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">abbreviated</span>, time: .<span class="dotAccess">standard</span>) <span class="comment">// "Feb 22, 2022, 2:22:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">complete</span>, time: .<span class="dotAccess">complete</span>) <span class="comment">// "Tuesday, February 22, 2022, 2:22:22 AM MST"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">complete</span>, time: .<span class="dotAccess">shortened</span>) <span class="comment">// "Tuesday, February 22, 2022, 2:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">complete</span>, time: .<span class="dotAccess">standard</span>) <span class="comment">// "Tuesday, February 22, 2022, 2:22:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">long</span>, time: .<span class="dotAccess">complete</span>) <span class="comment">// "February 22, 2022, 2:22:22 AM MST"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">long</span>, time: .<span class="dotAccess">shortened</span>) <span class="comment">// "February 22, 2022, 2:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">long</span>, time: .<span class="dotAccess">standard</span>) <span class="comment">// "February 22, 2022, 2:22:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">numeric</span>, time: .<span class="dotAccess">complete</span>) <span class="comment">// "2/22/2022, 2:22:22 AM MST"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">numeric</span>, time: .<span class="dotAccess">shortened</span>) <span class="comment">// "2/22/2022, 2:22 AM"</span>
-twosday.<span class="call">formatted</span>(date: .<span class="dotAccess">numeric</span>, time: .<span class="dotAccess">standard</span>) <span class="comment">// "2/22/2022, 2:22:22 AM"</span></code></pre>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">abbreviated</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "Feb 22, 2022, 2:22:22 AM MST"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">abbreviated</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "Feb 22, 2022, 2:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">abbreviated</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "Feb 22, 2022, 2:22:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">complete</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "Tuesday, February 22, 2022, 2:22:22 AM MST"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">complete</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "Tuesday, February 22, 2022, 2:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">complete</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "Tuesday, February 22, 2022, 2:22:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">long</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "February 22, 2022, 2:22:22 AM MST"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">long</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "February 22, 2022, 2:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">long</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "February 22, 2022, 2:22:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">numeric</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "2/22/2022, 2:22:22 AM MST"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">numeric</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "2/22/2022, 2:22 AM"</span>
+twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">numeric</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "2/22/2022, 2:22:22 AM"</span></code></pre>
 
 ### Setting the Locale & Calendar
 
 In order to set the Locale and Calendar of the output string, you need to initialize an instance of `Date.FormatStyle`.
 
-<pre class="splash"><code><span class="keyword">let</span> frenchHebrew = <span class="type">Date</span>.<span class="type">FormatStyle</span>(
-    date: .<span class="dotAccess">complete</span>,
-    time: .<span class="dotAccess">complete</span>,
-    locale: <span class="type">Locale</span>(identifier: <span class="string">"fr_FR"</span>),
-    calendar: <span class="type">Calendar</span>(identifier: .<span class="dotAccess">hebrew</span>),
-    timeZone: <span class="type">TimeZone</span>(secondsFromGMT: <span class="number">0</span>)!,
-    capitalizationContext: .<span class="dotAccess">standalone</span>
+<pre class="splash"><code><span class="keyword token">let</span> frenchHebrew = <span class="type token">Date</span>.<span class="type token">FormatStyle</span>(
+    date: .<span class="dotAccess token">complete</span>,
+    time: .<span class="dotAccess token">complete</span>,
+    locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>),
+    calendar: <span class="type token">Calendar</span>(identifier: .<span class="dotAccess token">hebrew</span>),
+    timeZone: <span class="type token">TimeZone</span>(secondsFromGMT: <span class="number token">0</span>)!,
+    capitalizationContext: .<span class="dotAccess token">standalone</span>
 )
 
-twosday.<span class="call">formatted</span>(frenchHebrew) <span class="comment">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span>
-frenchHebrew.<span class="call">format</span>(twosday) <span class="comment">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>
+twosday.<span class="call token">formatted</span>(frenchHebrew) <span class="comment token">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span>
+frenchHebrew.<span class="call token">format</span>(twosday) <span class="comment token">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>
 
 You can also extend the `FormatStyle` protocol as a way of simplifying access to your new custom `Date.FormatStyle`
 
-<pre class="splash"><code><span class="keyword">struct</span> FrenchHebrewStyle: <span class="type">FormatStyle</span> {
-    <span class="keyword">typealias</span> FormatInput = <span class="type">Date</span>
-    <span class="keyword">typealias</span> FormatOutput = <span class="type">String</span>
+<pre class="splash"><code><span class="keyword token">struct</span> FrenchHebrewStyle: <span class="type token">FormatStyle</span> {
+    <span class="keyword token">typealias</span> FormatInput = <span class="type token">Date</span>
+    <span class="keyword token">typealias</span> FormatOutput = <span class="type token">String</span>
 
-    <span class="keyword">static let</span> frenchHebrew = <span class="type">Date</span>.<span class="type">FormatStyle</span>(
-        date: .<span class="dotAccess">complete</span>,
-        time: .<span class="dotAccess">complete</span>,
-        locale: <span class="type">Locale</span>(identifier: <span class="string">"fr_FR"</span>),
-        calendar: <span class="type">Calendar</span>(identifier: .<span class="dotAccess">hebrew</span>),
-        timeZone: <span class="type">TimeZone</span>(secondsFromGMT: <span class="number">0</span>)!,
-        capitalizationContext: .<span class="dotAccess">standalone</span>
+    <span class="keyword token">static let</span> frenchHebrew = <span class="type token">Date</span>.<span class="type token">FormatStyle</span>(
+        date: .<span class="dotAccess token">complete</span>,
+        time: .<span class="dotAccess token">complete</span>,
+        locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>),
+        calendar: <span class="type token">Calendar</span>(identifier: .<span class="dotAccess token">hebrew</span>),
+        timeZone: <span class="type token">TimeZone</span>(secondsFromGMT: <span class="number token">0</span>)!,
+        capitalizationContext: .<span class="dotAccess token">standalone</span>
     )
 
-    <span class="keyword">func</span> format(<span class="keyword">_</span> value: <span class="type">Date</span>) -&gt; <span class="type">String</span> {
-        <span class="type">FrenchHebrewStyle</span>.<span class="property">frenchHebrew</span>.<span class="call">format</span>(value)
+    <span class="keyword token">func</span> format(<span class="keyword token">_</span> value: <span class="type token">Date</span>) -&gt; <span class="type token">String</span> {
+        <span class="type token">FrenchHebrewStyle</span>.<span class="property token">frenchHebrew</span>.<span class="call token">format</span>(value)
     }
 }
 
-<span class="keyword">extension</span> <span class="type">FormatStyle</span> <span class="keyword">where</span> <span class="type">Self</span> == <span class="type">FrenchHebrewStyle</span> {
-    <span class="keyword">static var</span> frenchHebrew: <span class="type">FrenchHebrewStyle</span> { .<span class="keyword">init</span>() }
+<span class="keyword token">extension</span> <span class="type token">FormatStyle</span> <span class="keyword token">where</span> <span class="type token">Self</span> == <span class="type token">FrenchHebrewStyle</span> {
+    <span class="keyword token">static var</span> frenchHebrew: <span class="type token">FrenchHebrewStyle</span> { .<span class="keyword token">init</span>() }
 }
 
-twosday.<span class="call">formatted</span>(.<span class="dotAccess">frenchHebrew</span>) <span class="comment">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>
+twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">frenchHebrew</span>) <span class="comment token">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>

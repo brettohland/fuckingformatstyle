@@ -5,24 +5,24 @@ sitemap_ignore: true
 
 The `Date.VerbatimFormatStyle` accepts a `Date.FormatString` as a parameter inside of it's initializer. Inside of which, you can include any of symbol tokens (with options) along with other regular characters.
 
-<pre class="splash"><code><span class="keyword">let</span> twosdayDateComponents = <span class="type">DateComponents</span>(
-    year: <span class="number">2022</span>,
-    month: <span class="number">2</span>,
-    day: <span class="number">22</span>,
-    hour: <span class="number">2</span>,
-    minute: <span class="number">22</span>,
-    second: <span class="number">22</span>,
-    nanosecond: <span class="number">22</span>
+<pre class="splash"><code><span class="keyword token">let</span> twosdayDateComponents = <span class="type token">DateComponents</span>(
+    year: <span class="number token">2022</span>,
+    month: <span class="number token">2</span>,
+    day: <span class="number token">22</span>,
+    hour: <span class="number token">2</span>,
+    minute: <span class="number token">22</span>,
+    second: <span class="number token">22</span>,
+    nanosecond: <span class="number token">22</span>
 )
-<span class="keyword">let</span> twosday = <span class="type">Calendar</span>(identifier: .<span class="dotAccess">gregorian</span>).<span class="call">date</span>(from: twosdayDateComponents)!
+<span class="keyword token">let</span> twosday = <span class="type token">Calendar</span>(identifier: .<span class="dotAccess token">gregorian</span>).<span class="call token">date</span>(from: twosdayDateComponents)!
 
-<span class="keyword">let</span> verbatim = <span class="type">Date</span>.<span class="type">VerbatimFormatStyle</span>(
-    format: <span class="string">"</span>\(hour: .<span class="call">twoDigits</span>(clock: .<span class="dotAccess">twentyFourHour</span>, hourCycle: .<span class="dotAccess">oneBased</span>))<span class="string">:</span>\(minute: .<span class="dotAccess">twoDigits</span>)<span class="string">"</span>,
-    timeZone: <span class="type">TimeZone</span>.<span class="property">current</span>,
-    calendar: .<span class="dotAccess">current</span>
+<span class="keyword token">let</span> verbatim = <span class="type token">Date</span>.<span class="type token">VerbatimFormatStyle</span>(
+    format: <span class="string token">"</span>\(hour: .<span class="call token">twoDigits</span>(clock: .<span class="dotAccess token">twentyFourHour</span>, hourCycle: .<span class="dotAccess token">oneBased</span>))<span class="string token">:</span>\(minute: .<span class="dotAccess token">twoDigits</span>)<span class="string token">"</span>,
+    timeZone: <span class="type token">TimeZone</span>.<span class="property token">current</span>,
+    calendar: .<span class="dotAccess token">current</span>
 )
 
-verbatim.<span class="call">format</span>(twosday) <span class="comment">// "02:22"</span></code></pre>
+verbatim.<span class="call token">format</span>(twosday) <span class="comment token">// "02:22"</span></code></pre>
 
 ### Symbol Tokens
 

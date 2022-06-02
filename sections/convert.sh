@@ -5,4 +5,4 @@ for f in ./*.md; do
   SplashMarkdown $f | tee converted/$f
   cp converted/$f ../content/_includes/$f
 done
-rm -rd converted
+rm -rf converted
