@@ -1,79 +1,77 @@
 ---
 main:
-  - name: FormatStyle The Missing Manual
-    ref: "/"
+  - name: The Quiz
+    ref: "/#how-do-i-even-know-where-to-start"
     external: true
-    icon: "gdoc_home"
+  - name: FAQ
+    ref: "/#faq"
+    external: true
+  - name: Minimum Requirements
+    ref: "/#minimum-requirements"
+    external: true
+  - name: The Basics
+    ref: "/#the-basics"
+    external: true
+  - name: Number Styles
+    ref: "/#number-style"
+    external: true
     sub:
-      - name: The Basics
-        ref: "/#the-basics"
+      - name: Number Style
+        ref: "/#number-style"
         external: true
-        sub:
-        - name: Sensible Defaults
-          ref: "/#sensible-defaults"
-          external: true
-        - name: Outputting AttributedStrings
-          ref: "/#dates"
-        - name: SwiftUI Support
-          ref: "/#dates"
-          external: true
-          external: true
-      - name: Dates
-        ref: "/#dates"
+      - name: Percent Style
+        ref: "/#percent-style"
         external: true
-        sub:
-          - name: DateStyle & TimeStyle
-            ref: "/#dates"
-            external: true
-          - name: Compositing Using dateTime
-            ref: "/#dates"
-            external: true
-            sub: 
-            - name: Customizing Units
-              ref: "/#dates"
-              external: true
-          - name: ISO8601
-            ref: "/#dates"
-            external: true
-          - name: Date Range (Components)
-            ref: "/#dates"
-            external: true
-            sub:
-              - name: Further Customization
-                ref: "/#dates"
-                external: true
-          - name: Date Range (Interval)
-            ref: "/#dates"
-            external: true
-          - name: Relative Distance
-            ref: "/#dates"
-            external: true
-          - name: Verbatim
-            ref: "/#dates"
-            external: true
-      - name: Lists
-        ref: "/#dates"
+      - name: Currency Style
+        ref: "/#currency-style"
         external: true
-      - name: Measurements
-        ref: "/#dates"
+  - name: Single Date Styles
+    ref: "/#date-and-time-single-date"
+    external: true
+    sub:
+      - name: Date and Time Style
+        ref: "/#date-and-time-single-date"
         external: true
-        sub:
-          - name: Cutomizing
-            ref: "/#dates"
-            external: true
-      - name: Numbers
-        ref: "/#dates"
+      - name: dateTime Style
+        ref: "#datetime-compositing-single-date"
         external: true
-        sub:
-          - name: Percentages
-            ref: "/#dates"
-            external: true
-          - name: Currency
-            ref: "/#dates"
-            external: true
-      - name: Names
-        ref: "/#dates"
+      - name: ISO 8601 Style
+        ref: "#iso-8601-date-style-single-date"
         external: true
-      - name: Byte Counts
-        ref: "/#dates"
+      - name: Relative Date Style
+        ref: "#relative-date-style-single-date"
         external: true
+      - name: Verbatim Style
+        ref: "#verbatim-date-style-single-date"
+        external: true
+  - name: Date Range Styles
+    ref: "#interval-date-style-date-range"
+    external: true
+    sub:
+      - name: Interval Style
+        ref: "#interval-date-style-date-range"
+        external: true
+      - name: Components Style
+        ref: "#datetime-compositing-single-date"
+        external: true
+  - name: Measurement Style
+    ref: "#measurement-style"
+    external: true
+  - name: List Style
+    ref: "#list-style"
+    external: true
+  - name: Person Name Style
+    ref: "#person-name-component-style"
+    external: true
+  - name: Byte Count Style
+    ref: "#byte-count-style"
+    external: true
+  - name: Custom FormatStyle
+    ref: "#custom-format-style"
+    external: true
+  - name: SwiftUI Integration
+    ref: "#swiftui-integration"
+    external: true
+  - name: AttributedString Output
+    ref: "#attributed-string-output"
+    external: true

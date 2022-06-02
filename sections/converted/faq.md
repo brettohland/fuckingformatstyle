@@ -1,5 +1,4 @@
 ---
-sitemap_ignore: true
 ---
 ## FAQ
 

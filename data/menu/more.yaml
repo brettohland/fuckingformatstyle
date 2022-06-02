@@ -1,10 +1,18 @@
 ---
 more:
-  - name: Releases
-    ref: "https://github.com/thegeeklab/ansible-later/releases"
+  - name: Xcode Playground
+    ref: "https://github.com/brettohland/FormatStylesDeepDive"
     external: true
     icon: "gdoc_download"
-  - name: "View Source"
-    ref: "https://github.com/thegeeklab/ansible-later"
+  - name: "Gist (code examples)"
+    ref: "https://gist.github.com/brettohland/ac2fbd1446bc7bb64da491587b010e3c"
     external: true
     icon: "gdoc_github"
+  - name: "Who built this?"
+    ref: "https://ampersandsoftworks.com"
+    external: true
+    icon: "gdoc_info_outline"
+  - name: "Found a bug?"
+    ref: "https://github.com/brettohland/fuckingformatstyles/issues/new"
+    external: true
+    icon: "gdoc_fire"
