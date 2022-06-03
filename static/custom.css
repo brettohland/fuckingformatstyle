@@ -49,6 +49,17 @@ hr {
   position: fixed;
 }
 
+@media screen and (max-width: 45rem) {
+  html body .gdoc-nav nav {
+    position: relative;
+  }
+}
+@media screen and (max-width: 39rem) {
+  html body .gdoc-nav nav {
+    position: relative;
+  } 
+}
+
 .splash code {
   overflow-x: scroll;
 }
