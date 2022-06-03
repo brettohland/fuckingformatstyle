@@ -16,3 +16,7 @@ more:
     ref: "https://github.com/brettohland/fuckingformatstyles/issues/new"
     external: true
     icon: "gdoc_fire"
+  - name: "Buy the dev a coffee"
+    ref: "https://ko-fi.com/ampersandsoftworks"
+    external: true
+    icon: "gdoc_check"
