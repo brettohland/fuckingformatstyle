@@ -64,9 +64,9 @@ Using `FormatStyles` work like you expect them, every piece of data can have the
 
 **Short answer:** Anything and Everything.
 
-**Longer answer:** [Numbers](/#), [Dates](/#), [Date rages](/#), [Percentages](/#), [Money](/#), [Measurements](/#), [Lists of things](/#), [Person names](/#), [Byte Counts](/#).
+**Longer answer:** [Numbers](/#number-style), [Dates](/#date-and-time-single-date), [Date rages](/#interval-date-style-date-range), [Percentages](/#percent-style), [Money](/#currency-style), [Measurements](/#measurement-style), [Lists of things](/#list-style), [Person names](/#person-name-component-style), [Byte Counts](/#byte-count-style).
 
-[You can even write your own formatters from the ground up and support your own custom data types](/#).
+[You can even write your own formatters from the ground up and support your own custom data types](/#custom-format-style).
 
 {{< /expand >}}
 
