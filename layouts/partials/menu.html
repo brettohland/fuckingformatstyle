@@ -38,6 +38,6 @@
       <h2>{{ i18n "nav_more" }}</h2>
       {{ partial "menu-bundle" (dict "current" . "source" .Site.Data.menu.more.more) }}
     {{ end }}
-    <p class="last-update">Last update: {{ .Lastmod.Format "Jan 2, 2006" }}</p>
+    <p class="last-update">Last update: <a href="https://github.com/brettohland/fuckingformatstyles/commits/main">{{ .Lastmod.Format "Jan 2, 2006" }}</a></p>
   </section>
 </nav>

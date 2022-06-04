@@ -116,8 +116,6 @@ enableRobotsTXT = true
   # geekdocFileTreeSortBy = "title"
   
   useCusses = false
-  
-  enableGitInfo = true
 
   # (Optional, default none) Adds a "Content licensed under <license>" line to the footer.
   # Could be used if you want to define a default license for your content.
