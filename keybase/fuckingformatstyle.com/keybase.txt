@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/bretto
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://fuckingformatstyle.com
+  * I am bretto (https://keybase.io/bretto) on keybase.
+  * I have a public key ASDKP5HLgHgaJ1Lti_2N6_BzuflDmmKezH8xQ-IBB8_v2Qo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101f4be3706b1608a3fa0536a914a1e3fd09b2d9f6a462d6ae0e43ef586b28a72d10a",
+      "host": "keybase.io",
+      "kid": "0120ca3f91cb80781a2752ed8bfd8debf073b9f9439a629ecc7f3143e20107cfefd90a",
+      "uid": "475ccb8dc327cd9c3d0c881b0813ae00",
+      "username": "bretto"
+    },
+    "merkle_root": {
+      "ctime": 1654456508,
+      "hash": "db0b7004d9456275482aea3cd7d0dcaa13d02027567bc9b1e753273d878f4ee911c18515e8443a2f7b14258ba3011fc8ce57c4e89aadf6c609993dd683ab3735",
+      "hash_meta": "34f6c9cba8b23bac3d6b84d93a91c7d472f1d9c3f0bf3962505c80058ef1e797",
+      "seqno": 22618232
+    },
+    "service": {
+      "entropy": "j4/k/9M530mXIcuN51QZ7W1b",
+      "hostname": "fuckingformatstyle.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.9.2"
+  },
+  "ctime": 1654456588,
+  "expire_in": 504576000,
+  "prev": "2715b251cde7dfb478be22a6704bc60936c02bdd7890fceb3d45759e457beeda",
+  "seqno": 48,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgyj+Ry4B4GidS7Yv9jevwc7n5Q5pinsx/MUPiAQfP79kKp3BheWxvYWTESpcCMMQgJxWyUc3n37R4viKmcEvGCTbAK914kPzrPUV1nkV77trEIOLw7vDXCOUsHWBADc626mjcx7O4KnBfsOo6W7Kf/8foAgHCo3NpZ8RApTbQNBah3zxt1UdyPfoSBDfZ9Fyz0IShKgHn58sSivOgDobGOH74tXkLmpgHddU4CSW06UyWNkJ9KuQpP/7kD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIGE9wYnpr5VBdSBxV9/FEVbBxQyllfQSItD96DaZj7ZMo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bretto
+
+==================================================================
