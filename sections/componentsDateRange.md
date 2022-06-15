@@ -29,6 +29,8 @@ testRange.formatted(.components(style: .narrow, fields: [.day]))                
 testRange.formatted(.components(style: .wide, fields: [.day]))                  // "11,323 days"
 testRange.formatted(.components(style: .spellOut, fields: [.day]))              // "eleven thousand three hundred twenty-three days"
 testRange.formatted(.components(style: .condensedAbbreviated, fields: [.day]))  // "11,323d"
+testRange.formatted(.components(style: .abbreviated, fields: [.year])
+    .calendar(Calendar(identifier: .coptic))) // "31 yrs"
 
 testRange.formatted(.components(style: .condensedAbbreviated, fields: [.day, .month, .year, .hour, .second, .week])) // "31y"
 

@@ -1,6 +1,21 @@
 ---
 sitemap_ignore: true
 ---
+
+The easiest and best way to access this style is through the `.percent` extension on `FormatStyle`. From there, you can use method chaining to customize the output.
+
+```
+0.1.formatted(.percent) // "10%"
+```
+
+You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>.Percent`, `FloatingPointFormatStyle<BinaryFloatingPoint>.Percent` or `Decimal.FormatStyle.Percent` and use method chaining to customize the output.
+  
+```
+FloatingPointFormatStyle<Double>.Percent().rounded(rule: .up, increment: 1).format(0.109) // "11%"
+IntegerFormatStyle<Int>.Percent().notation(.compactName).format(1_000) // "1K%"
+Decimal.FormatStyle.Percent().scale(12).format(0.1) // "1.2%"
+```
+
 ### Available Properties
 
 | Property                                                     | Description                                                   |
@@ -231,4 +246,21 @@ Outputs and `AttributedString` instead of a `String`.
 
 ```
 Float(10).formatted(.percent.scale(200.0).notation(.compactName).grouping(.automatic).attributed)
+```
+
+### Parsing Percentages From Strings
+
+{{< hint type=important >}}
+
+Only the `Decimal.FormatStyle.Percent` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+
+{{< /hint >}}
+
+```
+try? Decimal.FormatStyle.Percent(locale: Locale(identifier: "fr_FR")).parseStrategy.parse("15 %") // 0.15
+try? Decimal.FormatStyle.Percent(locale: Locale(identifier: "en_CA")).parseStrategy.parse("15 %") // 0.15
+
+try? Decimal("15%", strategy: Decimal.FormatStyle.Percent().parseStrategy) // 0.15
+try? Decimal("15%", format: Decimal.FormatStyle.Percent()) // 0.15
+
 ```

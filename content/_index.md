@@ -3,7 +3,8 @@ title: "Format Styles In Excruciating Detail"
 draft: false
 sitemap_ignore: false
 ---
-Format styles are the easiest way to convert Swift data types into localized strings to display to your users. Unfortunately Apple doesn't do a great job in telling you what they can do, and how to use them.
+
+Swift's `FormatStyle` and `ParseableFormatStyle` are the easiest way to convert Foundation data types to and from localized strings. Unfortunately Apple hasn't done a great job in documenting just what it can do, or how to use them.
 
 This site is going to help you do just that.
 
@@ -89,6 +90,20 @@ Because accuracy can't be guaranteed, never use floating point numbers (Float an
 
 ---
 
+## Date Style (Single Date)
+
+{{< hint type=tip title=TL;DR >}}
+
+A flexible way to composite the exact date string of your dreams.
+
+{{< /hint >}}
+
+Like lego blocks, this format style allows you to mix and match the date components you would like to use in your final string.
+
+{{< include file="/_includes/dateTime.md" type="page" >}}
+
+---
+
 ## Date and Time (Single Date)
 
 {{< hint type=tip title=TL;DR >}}
@@ -102,20 +117,6 @@ This is the default formatter used when calling `formatted` on any date object. 
 Each portion (the date and the time), can be customized in the following ways.
 
 {{< include file="/_includes/dateAndTime.md" type="page" >}}
-
----
-
-## `.dateTime()` Compositing (Single Date)
-
-{{< hint type=tip title=TL;DR >}}
-
-A flexible way to composite the exact date string of your dreams.
-
-{{< /hint >}}
-
-Like lego blocks, this format style allows you to mix and match the date components you would like to use in your final string.
-
-{{< include file="/_includes/dateTime.md" type="page" >}}
 
 ---
 

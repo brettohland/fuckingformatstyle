@@ -1,6 +1,20 @@
 ---
 sitemap_ignore: true
 ---
+The easiest and best way to access this style is through the `.currency(code:)` extension on `FormatStyle`. From there, you can use method chaining to customize the output.
+
+```
+10.formatted(.currency(code: "JPY")) // "10%"
+```
+
+You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>.Percent`, `FloatingPointFormatStyle<BinaryFloatingPoint>.Percent` or `Decimal.FormatStyle.Percent` and use method chaining to customize the output.
+  
+```
+FloatingPointFormatStyle<Double>.Currency(code: "JPY").rounded(rule: .up, increment: 1).format(10.9) // ¥11"
+IntegerFormatStyle<Int>.Currency(code: "GBP").presentation(.fullName).format(42) // "42.00 British pounds"
+Decimal.FormatStyle.Currency(code: "USD").scale(12).format(0.1) // "$1.20"
+```
+
 ### Available Properties
 
 | Property                                                      | Description                                                   |
@@ -230,4 +244,31 @@ Outputs and `AttributedString` instead of a `String`.
 
 ```
 Decimal(10).formatted(.currency(code: "GBP").scale(200.0).sign(strategy: .always()).presentation(.fullName).attributed)
+```
+
+### Parsing Currencies From Strings
+
+{{< hint type=important >}}
+
+Only the `Decimal.FormatStyle.Currency` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+
+{{< /hint >}}
+
+```
+try? Decimal.FormatStyle.Currency(code: "GBP")
+    .presentation(.fullName)
+    .parseStrategy.parse("10.00 British pounds") // 10
+
+try? Decimal.FormatStyle.Currency(code: "GBP", locale: Locale(identifier: "fr_FR"))
+    .presentation(.fullName)
+    .parseStrategy.parse("10,00 livres sterling") // 10
+
+try? Decimal.FormatStyle.Currency(code: "GBP")
+    .presentation(.fullName)
+    .locale(Locale(identifier: "fr_FR"))
+    .parseStrategy.parse("10,00 livres sterling") // 10
+
+try? Decimal("10.00 British pounds", strategy: Decimal.FormatStyle.Currency(code: "GBP").parseStrategy) // 10
+try? Decimal("10.00 British pounds", format: Decimal.FormatStyle.Currency(code: "GBP")) // 10
+
 ```

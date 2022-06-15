@@ -50,3 +50,31 @@ inFrance.format(guest)
 guest.formatted(inFrance)
 ```
 
+#### Parsing Names From Strings
+
+This is primarily useful when dealing with differences in name order for a given `Locale`. 
+
+```
+// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.
+try? PersonNameComponents.FormatStyle()
+    .parseStrategy.parse("Dr Elizabeth Jillian Smith Esq.")
+
+// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.
+try? PersonNameComponents.FormatStyle(style: .long)
+    .parseStrategy.parse("Dr Elizabeth Jillian Smith Esq.")
+
+// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.
+try? PersonNameComponents.FormatStyle(style: .long, locale: Locale(identifier: "zh_CN"))
+    .parseStrategy.parse("Dr Smith Elizabeth Jillian Esq.")
+
+// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.
+try? PersonNameComponents.FormatStyle(style: .long)
+    .locale(Locale(identifier: "zh_CN"))
+    .parseStrategy.parse("Dr Smith Elizabeth Jillian Esq.")
+
+// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.
+try? PersonNameComponents(
+    "Dr Elizabeth Jillian Smith Esq.",
+    strategy: PersonNameComponents.FormatStyle(style: .long).parseStrategy
+)
+```

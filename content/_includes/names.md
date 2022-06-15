@@ -44,4 +44,29 @@ guest.<span class="call token">formatted</span>(.<span class="call token">name</
 inFrance.<span class="call token">format</span>(guest)
 guest.<span class="call token">formatted</span>(inFrance)</code></pre>
 
+#### Parsing Names From Strings
 
+This is primarily useful when dealing with differences in name order for a given `Locale`. 
+
+<pre class="splash"><code><span class="comment token">// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.</span>
+<span class="keyword token">try</span>? <span class="type token">PersonNameComponents</span>.<span class="type token">FormatStyle</span>()
+    .<span class="dotAccess token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"Dr Elizabeth Jillian Smith Esq."</span>)
+
+<span class="comment token">// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.</span>
+<span class="keyword token">try</span>? <span class="type token">PersonNameComponents</span>.<span class="type token">FormatStyle</span>(style: .<span class="dotAccess token">long</span>)
+    .<span class="dotAccess token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"Dr Elizabeth Jillian Smith Esq."</span>)
+
+<span class="comment token">// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.</span>
+<span class="keyword token">try</span>? <span class="type token">PersonNameComponents</span>.<span class="type token">FormatStyle</span>(style: .<span class="dotAccess token">long</span>, locale: <span class="type token">Locale</span>(identifier: <span class="string token">"zh_CN"</span>))
+    .<span class="dotAccess token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"Dr Smith Elizabeth Jillian Esq."</span>)
+
+<span class="comment token">// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.</span>
+<span class="keyword token">try</span>? <span class="type token">PersonNameComponents</span>.<span class="type token">FormatStyle</span>(style: .<span class="dotAccess token">long</span>)
+    .<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"zh_CN"</span>))
+    .<span class="dotAccess token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"Dr Smith Elizabeth Jillian Esq."</span>)
+
+<span class="comment token">// namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.</span>
+<span class="keyword token">try</span>? <span class="type token">PersonNameComponents</span>(
+    <span class="string token">"Dr Elizabeth Jillian Smith Esq."</span>,
+    strategy: <span class="type token">PersonNameComponents</span>.<span class="type token">FormatStyle</span>(style: .<span class="dotAccess token">long</span>).<span class="property token">parseStrategy</span>
+)</code></pre>

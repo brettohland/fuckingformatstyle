@@ -1,6 +1,21 @@
 ---
 sitemap_ignore: true
 ---
+
+The easiest and best way to access this style is through the `.number` extension on `FormatStyle`. From there, you can use method chaining to customize the output.
+
+```
+Float(10).formatted(.number.scale(200.0).notation(.compactName).grouping(.automatic)) // "2K"
+```
+
+You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>`, `FloatingPointFormatStyle<BinaryFloatingPoint>` or `Decimal.FormatStyle` and use method chaining to customize the output.
+  
+```
+FloatingPointFormatStyle<Double>().rounded(rule: .up, increment: 1).format(10.9) // "11"
+IntegerFormatStyle<Int>().notation(.compactName).format(1_000) // "1K"
+Decimal.FormatStyle().scale(10).format(1) // "10"
+```
+
 ### Available Properties
 
 | Property                                                    | Description                                                   |
@@ -233,4 +248,21 @@ Outputs and `AttributedString` instead of a `String`.
 
 ```
 Float(10).formatted(.number.scale(200.0).notation(.compactName).grouping(.automatic).attributed)
+```
+
+### Parsing Decimals From Strings
+
+{{< hint type=important >}}
+
+Only the `Decimal.FormatStyle` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+
+{{< /hint >}}
+
+```
+try? Decimal.FormatStyle().notation(.scientific).parseStrategy.parse("1E5") // 100000
+try? Decimal.FormatStyle().scale(5).notation(.scientific).parseStrategy.parse("1E5") // 20000
+try? Decimal.FormatStyle().scale(-5).notation(.scientific).parseStrategy.parse("1E5") // -20000
+
+try? Decimal("1E5", strategy: Decimal.FormatStyle().notation(.scientific).parseStrategy) // 100000
+try? Decimal("1E5", format: Decimal.FormatStyle().notation(.scientific)) // 100000
 ```

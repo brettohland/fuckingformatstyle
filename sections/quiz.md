@@ -142,7 +142,7 @@ See <a href="/#verbatim-date-style-single-date">Verbatim Style</a>
 
 {{< expand "Just show the earliest and latest dates" "⇅" >}}
 
-The interval formatter just shows the earliest and latest dates in a range. There's limited customization options.
+The interval formatter just shows the earliest and latest dates in a range.
 
 See <a href="/#interval-date-style-date-range">Interval Style</a>
 
@@ -195,5 +195,43 @@ See <a href ="/#byte-count-style">Byte Count Style</a>
 You can easily bend the `FormatStyle` protocol to your will and arbitrarily convert any type into any type.
 
 See <a href ="/#custom-format-style">Custom FormatStyle (with locale and attributed string support)</a>
+
+{{< /expand >}}
+
+{{< expand "The reverse, I want to parse a String into something" "⇅" >}}
+
+Several of the included format styles also conform to `ParseableFormatStyle`, a protocol built to parse strings into their respective data types.
+
+[You can read about it in more detail here.](https://ampersandsoftworks.com/posts/from-strings-to-data-using-parseableformatstyle/)
+
+{{< expand "Parsing Dates" "⇅" >}}
+
+By setting up either a `Date.FormatStyle` or `Date.ISO8601FormatStyle` with your date structure, you can parse dates easily.
+
+[See Parsing Dates](/#parsing-dates-from-strings)
+
+[See Parsing ISO8601 Dates](/#parsing-iso8601-dates-from-strings)
+
+{{< /expand >}}
+
+{{< expand "Parsing Decimal Numbers" "⇅" >}}
+
+You can parse Decimals, Percentages, or Currency values into Decimals.
+
+[See Parsing Decimals](/#parsing-decimals-from-strings)
+
+[See Parsing Decimal Percentages](/#parsing-percentages-from-strings)
+
+[See Parsing Decimal Currencies](/#parsing-currencies-from-strings) 
+
+{{< /expand >}}
+
+{{< expand "Parsing Names" "⇅" >}}
+
+Generally useful for parsing names from string respecting a `Locale`, it's easy to parse names.
+
+[See Parsing Names](/#parsing-names-from-strings)
+
+{{< /expand >}}
 
 {{< /expand >}}

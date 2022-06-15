@@ -1,6 +1,17 @@
 ---
 sitemap_ignore: true
 ---
+
+The easiest and best way to access this style is through the `.percent` extension on `FormatStyle`. From there, you can use method chaining to customize the output.
+
+<pre class="splash"><code><span class="number token">0.1</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">percent</span>) <span class="comment token">// "10%"</span></code></pre>
+
+You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>.Percent`, `FloatingPointFormatStyle<BinaryFloatingPoint>.Percent` or `Decimal.FormatStyle.Percent` and use method chaining to customize the output.
+  
+<pre class="splash"><code><span class="type token">FloatingPointFormatStyle</span>&lt;<span class="type token">Double</span>&gt;.<span class="type token">Percent</span>().<span class="call token">rounded</span>(rule: .<span class="dotAccess token">up</span>, increment: <span class="number token">1</span>).<span class="call token">format</span>(<span class="number token">0.109</span>) <span class="comment token">// "11%"</span>
+<span class="type token">IntegerFormatStyle</span>&lt;<span class="type token">Int</span>&gt;.<span class="type token">Percent</span>().<span class="call token">notation</span>(.<span class="dotAccess token">compactName</span>).<span class="call token">format</span>(<span class="number token">1_000</span>) <span class="comment token">// "1K%"</span>
+<span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>().<span class="call token">scale</span>(<span class="number token">12</span>).<span class="call token">format</span>(<span class="number token">0.1</span>) <span class="comment token">// "1.2%"</span></code></pre>
+
 ### Available Properties
 
 | Property                                                     | Description                                                   |
@@ -211,3 +222,16 @@ Outputs and `AttributedString` instead of a `String`.
 
 <pre class="splash"><code><span class="type token">Float</span>(<span class="number token">10</span>).<span class="call token">formatted</span>(.<span class="dotAccess token">percent</span>.<span class="call token">scale</span>(<span class="number token">200.0</span>).<span class="call token">notation</span>(.<span class="dotAccess token">compactName</span>).<span class="call token">grouping</span>(.<span class="dotAccess token">automatic</span>).<span class="property token">attributed</span>)</code></pre>
 
+### Parsing Percentages From Strings
+
+{{< hint type=important >}}
+
+Only the `Decimal.FormatStyle.Percent` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+
+{{< /hint >}}
+
+<pre class="splash"><code><span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>(locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)).<span class="property token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"15 %"</span>) <span class="comment token">// 0.15</span>
+<span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>(locale: <span class="type token">Locale</span>(identifier: <span class="string token">"en_CA"</span>)).<span class="property token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"15 %"</span>) <span class="comment token">// 0.15</span>
+
+<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"15%"</span>, strategy: <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>().<span class="property token">parseStrategy</span>) <span class="comment token">// 0.15</span>
+<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"15%"</span>, format: <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>()) <span class="comment token">// 0.15</span></code></pre>
