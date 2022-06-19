@@ -1,5 +1,9 @@
 ---
 more:
+  - name: Changelog
+    ref: "/changelog"
+    external: true
+    icon: gdoc_timer
   - name: Xcode Playground
     ref: "https://github.com/brettohland/FormatStylesDeepDive"
     external: true

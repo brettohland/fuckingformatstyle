@@ -7,6 +7,10 @@
     --footer-link-color-visited: white;
 }
 
+body {
+  overflow-x: visible;
+}
+
 .last-update {
   font-size: 12px;
 }
@@ -46,7 +50,8 @@ hr {
 }
 
 .gdoc-nav nav {
-  position: fixed;
+  position: sticky;
+  top: 0;
 }
 
 @media screen and (max-width: 45rem) {
