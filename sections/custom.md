@@ -4,7 +4,7 @@ sitemap_ignore: true
 As a protocol, `FormatStyle` is quite simple to conform to:
 
 ```
-/// A type that can convert a given data type into a representation.
+/// A type that can convert a given data type into a representation
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public protocol FormatStyle : Decodable, Encodable, Hashable {
 
@@ -24,60 +24,24 @@ public protocol FormatStyle : Decodable, Encodable, Hashable {
 
 Essentially, this provides you with the ability to convert any data type into any other data type or representation.
 
-An example of a custom Format Style that features locale, attributed string output, as well as a `FormatStyle` extension.
+Here's an example of a custom type (an [ISBN](https://en.wikipedia.org/wiki/ISBN)) that supports `FormatStyle`, `ParseableFormatStyle`, and can output `AttributedString` values.
 
-```
-struct ToYen: FormatStyle {
-    typealias FormatInput = Int
-    typealias FormatOutput = String
+[Read the blog post for more details](https://ampersandsoftworks.com/posts/formatstyle-parseableformatstyle-and-your-custom-types/)
 
-    static let multiplier = 100
-    static let yenCurrencyCode = "jpy"
+[Download the Xcode Playground](https://github.com/brettohland/ISBN-FormatStyle/) or [See everything as a Gist](https://gist.github.com/brettohland/744fcbd2a8aa77907ec84a286e8da3b0)
 
-    let formatter: IntegerFormatStyle<Int>.Currency
+### Defining Our ISBN
 
-    var attributed: ToYen.AttributedStyle = AttributedStyle()
+{{< gist brettohland 744fcbd2a8aa77907ec84a286e8da3b0 "2.ISBN.swift" >}}
 
-    init(locale: Locale? = nil) {
-        formatter = IntegerFormatStyle<Int>.Currency(code: Self.yenCurrencyCode, locale: locale ?? Locale.current)
-    }
+#### Creating Our FormatStyle
 
-    func format(_ value: Int) -> String {
-        (value * Self.multiplier).formatted(formatter)
-    }
+{{< gist brettohland 744fcbd2a8aa77907ec84a286e8da3b0 "3.ISBN+FormatStyle.swift" >}}
 
-    // This is optional.
-    func locale(_ locale: Locale) -> ToYen {
-        .init(locale: locale)
-    }
-}
+#### Adding AttributedString Output
 
-// MARK: Add Attributed Style support
+{{< gist brettohland 744fcbd2a8aa77907ec84a286e8da3b0 "4.ISBN+AttributedStringFormatStyle.swift" >}}
 
-extension ToYen {
-    struct AttributedStyle: FormatStyle {
-        typealias FormatInput = Int
-        typealias FormatOutput = AttributedString
+#### Conforming to ParseableFormatStyle
 
-        func format(_ value: Int) -> AttributedString {
-            (value * ToYen.multiplier).formatted(ToYen().formatter.attributed)
-        }
-    }
-}
-
-// MARK: Extend `FormatStyle` to simplify access
-
-extension FormatStyle where Self == ToYen {
-    static var toYen: ToYen { .init() }
-}
-
-// MARK: - Usage Examples
-
-30.formatted(ToYen()) // "¥3,000"
-30.formatted(.toYen) // "¥3,000")
-
-30.formatted(.toYen.locale(Locale(identifier: "zh_CN"))) // "JP¥3,000"
-
-30.formatted(.toYen.attributed)
-```
-
+{{< gist brettohland 744fcbd2a8aa77907ec84a286e8da3b0 "5.ISBN+ParseableFormatStyle.swift" >}}

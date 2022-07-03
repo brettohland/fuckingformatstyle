@@ -54,6 +54,10 @@ hr {
   top: 0;
 }
 
+.gist .gist-data {
+  height: 400px;
+}
+
 @media screen and (max-width: 45rem) {
   html body .gdoc-nav nav {
     position: relative;
