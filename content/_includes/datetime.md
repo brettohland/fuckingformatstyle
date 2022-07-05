@@ -82,11 +82,25 @@ The order of the symbols in the final string are controlled by the date's `Local
 
 {{< /hint >}}
 
-### Customization
+## Customization
 
 Each symbol has customization options.
 
-#### Day
+- [Day](#day)
+- [Day of Year](#day-of-year)
+- [Era](#era)
+- [Hour](#hour)
+- [Minute](#minute)
+- [Month](#month)
+- [Quarter](#quarter)
+- [Second](#second)
+- [Fractional Second](#fractional-second)
+- [Time Zone](#time-zone)
+- [Week](#week)
+- [Weekday](#weekday)
+- [Year](#year)
+
+### Day
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">day</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "22"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">day</span>(.<span class="dotAccess token">ordinalOfDayInMonth</span>)) <span class="comment token">// "4"</span>
@@ -100,7 +114,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">day</span>(.<span class="call token">julianModified</span>())) <span class="comment token">// "2459633"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">day</span>(.<span class="call token">julianModified</span>(minimumLength: <span class="number token">8</span>))) <span class="comment token">// "02459633"</span></code></pre>
 
-#### Day of Year
+### Day of Year
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">dayOfYear</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "53"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">dayOfYear</span>(.<span class="dotAccess token">threeDigits</span>)) <span class="comment token">// "053"</span>
@@ -109,7 +123,7 @@ twosday.<span class="call token">formatted</span>(.<span class="dotAccess token"
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">dayOfYear</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "53"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">dayOfYear</span>(.<span class="dotAccess token">threeDigits</span>)) <span class="comment token">// "053"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">dayOfYear</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "53"</span></code></pre>
-#### Era
+### Era
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">era</span>(.<span class="dotAccess token">abbreviated</span>)) <span class="comment token">// "AD"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">era</span>(.<span class="dotAccess token">narrow</span>)) <span class="comment token">// "A"</span>
@@ -119,7 +133,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">era</span>(.<span class="dotAccess token">narrow</span>)) <span class="comment token">// "A"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">era</span>(.<span class="dotAccess token">wide</span>)) <span class="comment token">// "Anno Domini"</span></code></pre>
 
-#### Hour
+### Hour
 
 Each of the following methods accepts an `AMPMStyle`.
 
@@ -172,7 +186,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">hour</span>(.<span class="call token">twoDigits</span>(amPM: .<span class="dotAccess token">abbreviated</span>))) <span class="comment token">// "02 AM"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">hour</span>(.<span class="call token">twoDigits</span>(amPM: .<span class="dotAccess token">omitted</span>))) <span class="comment token">// "02"</span></code></pre>
 
-#### Minute
+### Minute
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">minute</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "22"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">minute</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "22"</span>
@@ -180,7 +194,7 @@ twosday.<span class="call token">formatted</span>(.<span class="dotAccess token"
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">minute</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "22"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">minute</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "22"</span></code></pre>
 
-#### Month
+### Month
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">month</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "2"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">month</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "02"</span>
@@ -194,7 +208,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">month</span>(.<span class="dotAccess token">abbreviated</span>)) <span class="comment token">// "Feb"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">month</span>(.<span class="dotAccess token">narrow</span>)) <span class="comment token">// "F"</span></code></pre>
 
-#### Quarter
+### Quarter
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">quarter</span>(.<span class="dotAccess token">narrow</span>)) <span class="comment token">// "1"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">quarter</span>(.<span class="dotAccess token">abbreviated</span>)) <span class="comment token">// "Q1"</span>
@@ -208,7 +222,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">quarter</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "01"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">quarter</span>(.<span class="dotAccess token">oneDigit</span>)) <span class="comment token">// "1"</span></code></pre>
 
-#### Second
+### Second
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">second</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "22"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">second</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "22"</span>
@@ -216,7 +230,7 @@ twosday.<span class="call token">formatted</span>(.<span class="dotAccess token"
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">second</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "22"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">second</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "22"</span></code></pre>
 
-#### Fractional Second
+### Fractional Second
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">secondFraction</span>(.<span class="call token">fractional</span>(<span class="number token">2</span>))) <span class="comment token">// "00"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">secondFraction</span>(.<span class="call token">milliseconds</span>(<span class="number token">1</span>))) <span class="comment token">// "8542000"</span>
@@ -224,7 +238,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">secondFraction</span>(.<span class="call token">fractional</span>(<span class="number token">2</span>))) <span class="comment token">// "00"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">secondFraction</span>(.<span class="call token">milliseconds</span>(<span class="number token">1</span>))) <span class="comment token">// "8542000"</span></code></pre>
 
-#### Time Zone
+### Time Zone
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">timeZone</span>(.<span class="dotAccess token">exemplarLocation</span>)) <span class="comment token">// "Edmonton"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">timeZone</span>(.<span class="dotAccess token">genericLocation</span>)) <span class="comment token">// "Edmonton Time"</span>
@@ -252,7 +266,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">localizedGMT</span>(.<span class="dotAccess token">short</span>))) <span class="comment token">// "GMT-7"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">localizedGMT</span>(.<span class="dotAccess token">long</span>))) <span class="comment token">// "GMT-07:00"</span></code></pre>
 
-#### Week
+### Week
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">week</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "9"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">week</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "09"</span>
@@ -262,7 +276,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">week</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "09"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">week</span>(.<span class="dotAccess token">weekOfMonth</span>)) <span class="comment token">// "9"</span></code></pre>
 
-#### Weekday
+### Weekday
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">weekday</span>(.<span class="dotAccess token">abbreviated</span>)) <span class="comment token">// "Tue"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">weekday</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "3"</span>
@@ -278,7 +292,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">weekday</span>(.<span class="dotAccess token">wide</span>)) <span class="comment token">// "Tuesday"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">weekday</span>(.<span class="dotAccess token">narrow</span>)) <span class="comment token">// "T"</span></code></pre>
 
-#### Year
+### Year
 
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">year</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "22"</span>
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">year</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "2022"</span>
@@ -296,7 +310,7 @@ twosday.<span class="call token">formatted</span>(<span class="type token">Date<
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">year</span>(.<span class="call token">relatedGregorian</span>())) <span class="comment token">// "2022"</span>
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="call token">year</span>(.<span class="call token">relatedGregorian</span>(minimumLength: <span class="number token">2</span>))) <span class="comment token">// "22"</span></code></pre>
 
-### Setting the Locale
+## Setting the Locale
 
 You can set the Locale by appending the `.locale()` method onto the last Symbol.
 
@@ -310,7 +324,7 @@ You can output an `AttributedString` by appending the `attributed` method onto t
 <pre class="splash"><code>twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="property token">attributed</span>)
 twosday.<span class="call token">formatted</span>(<span class="type token">Date</span>.<span class="type token">FormatStyle</span>().<span class="property token">attributed</span>)</code></pre> 
 
-### Parsing Dates From Strings
+## Parsing Dates From Strings
 
 `Date.FormatStyle` conforms to `ParseableFormatStyle` and can be set up to parse `Date` objects from a `String`.
 

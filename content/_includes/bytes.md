@@ -1,9 +1,18 @@
 ---
 sitemap_ignore: true
 ---
+
+{{< hint type=warning >}}
+
+**This style is broken in certain ways in Xcode 13**. Providing any unit above gigabyte will cause a crash with the message: "Fatal error: invalid Units value".
+
+Experiment for yourself to see if you can make this work for you, but you may want to fall back to the older `ByteCountFormatter` in this case.
+
+{{< /hint >}}
+
 ### Available Options
 
-The format style has four possible options:
+Both format styles have the following options available:
 
 | Option                    | Description                                           |
 | ------------------------- | ----------------------------------------------------- |
@@ -33,66 +42,105 @@ The format style has four possible options:
 | `.zb`         | As zetabytes (1,000,000,000,000,000,000,000 bytes)      |
 | `.ybOrHigher` | As yottabytes (1,000,000,000,000,000,000,000,000 bytes) |
 
-{{< hint type=warning >}}
+{{< hint type=important >}}
 
-Currently, using any value above `.gb` will cause a crash with the message: "Fatal error: invalid Units value". (Feedback FB10031442 has been submitted to Apple.)
-
-If you're looking to convert between two units, you can use the `Measurement` API and convert between `UnitInformationStorage` values.
+You can provide a `Set<ByteCountFormatStyle.Units>` for the `units` parameter instead of an individual unit. Doing so will cause the style to use the unit that will provide the smallest number of digits.
 
 {{< /hint >}}
 
-<pre class="splash"><code><span class="keyword token">let</span> terabyte: <span class="type token">Int64</span> = <span class="number token">1_000_000_000_000</span>
+<p>&nbsp;</p>
 
-<span class="keyword token">let</span> formatter = <span class="type token">ByteCountFormatter</span>()
-formatter.<span class="property token">countStyle</span> = .<span class="dotAccess token">binary</span>
-formatter.<span class="property token">allowedUnits</span>
-formatter.<span class="property token">includesActualByteCount</span>
-formatter.<span class="property token">countStyle</span> = .<span class="dotAccess token">file</span>
+<pre class="splash"><code><span class="type token">Swift</span>
 
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>))  <span class="comment token">// "931.32 GB"</span>
+<span class="comment token">// MARK: - Int64</span>
+
+<span class="keyword token">let</span> terabyte: <span class="type token">Int64</span> = <span class="number token">1_000_000_000_000</span>
+
+<span class="keyword token">var</span> integerByteCountStyle = <span class="type token">ByteCountFormatStyle</span>()
+integerByteCountStyle.<span class="property token">style</span> = .<span class="dotAccess token">file</span>
+integerByteCountStyle.<span class="property token">allowedUnits</span> = [.<span class="dotAccess token">gb</span>, .<span class="dotAccess token">tb</span>]
+integerByteCountStyle.<span class="property token">includesActualByteCount</span> = <span class="keyword token">true</span>
+
+integerByteCountStyle.<span class="call token">format</span>(terabyte) <span class="comment token">// "1 TB (1,000,000,000,000 bytes)"</span>
+terabyte.<span class="call token">formatted</span>(integerByteCountStyle) <span class="comment token">// "1 TB (1,000,000,000,000 bytes)"</span>
+
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>)) <span class="comment token">// "931.32 GB"</span>
 terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">decimal</span>)) <span class="comment token">// "1 TB"</span>
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>))    <span class="comment token">// "1 TB"</span>
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>))  <span class="comment token">// "931.32 GB"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>)) <span class="comment token">// "1 TB"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>)) <span class="comment token">// "931.32 GB"</span>
 
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>, allowedUnits: .<span class="dotAccess token">bytes</span>)) <span class="comment token">// "1,000,000,000,000 bytes"</span>
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>, allowedUnits: .<span class="dotAccess token">bytes</span>)) <span class="comment token">// "1,000,000,000,000 bytes"</span>
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>, allowedUnits: .<span class="dotAccess token">kb</span>))    <span class="comment token">// "1,000,000,000 kB"</span>
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>, allowedUnits: .<span class="dotAccess token">mb</span>))    <span class="comment token">// "1,000,000 MB"
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">bytes</span>)) <span class="comment token">// "1,000,000,000,000 bytes"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">bytes</span>)) <span class="comment token">// "1,000,000,000,000 bytes"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">kb</span>)) <span class="comment token">// "976,562,500 kB"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">mb</span>)) <span class="comment token">// "953,674.3 MB"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">gb</span>)) <span class="comment token">// "931.32 GB"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">tb</span>)) <span class="comment token">// "0.91 TB"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">pb</span>)) <span class="comment token">// "0 PB"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">zb</span>)) <span class="comment token">// "0 PB"</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">ybOrHigher</span>)) <span class="comment token">// 0 PB</span>
 
-// .gb, .tb, .pb, .eb, .zb, and .ybOrHigher cause a FatalError (Feedback FB10031442)
-// terabyte.formatted(.byteCount(style: .file, allowedUnits: .gb))</span>
+<span class="type token">Int64</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: [.<span class="dotAccess token">kb</span>, .<span class="dotAccess token">mb</span>])) <span class="comment token">// "1 kB"</span>
+<span class="type token">Int64</span>(<span class="number token">1_000_000</span>).<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: [.<span class="dotAccess token">kb</span>, .<span class="dotAccess token">mb</span>])) <span class="comment token">// "1 MB"</span>
 
-<span class="type token">Int64</span>(<span class="number token">0</span>).<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">mb</span>, spellsOutZero: <span class="keyword token">true</span>))   <span class="comment token">// "Zero bytes"</span>
-<span class="type token">Int64</span>(<span class="number token">0</span>).<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">mb</span>, spellsOutZero: <span class="keyword token">false</span>))  <span class="comment token">// "0 MB"</span>
+<span class="type token">Int64</span>.<span class="property token">zero</span>.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, spellsOutZero: <span class="keyword token">true</span>)) <span class="comment token">// "Zero kB"</span>
+<span class="type token">Int64</span>.<span class="property token">zero</span>.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, spellsOutZero: <span class="keyword token">false</span>)) <span class="comment token">// "0 bytes"</span>
 
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">mb</span>, includesActualByteCount: <span class="keyword token">true</span>))  <span class="comment token">// "1,000,000 MB (1,000,000,000,000 bytes)"</span>
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">mb</span>, includesActualByteCount: <span class="keyword token">false</span>)) <span class="comment token">// "1,000,000 MB"</span>
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">all</span>, spellsOutZero: <span class="keyword token">true</span>, includesActualByteCount: <span class="keyword token">true</span>)) <span class="comment token">// "1 TB (1,000,000,000,000 bytes)"</span></code></pre>
+<span class="type token">Int64</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, includesActualByteCount: <span class="keyword token">true</span>)) <span class="comment token">// "1 kB (1,000 bytes)"
+
+// MARK: - Measurement</span>
+
+<span class="keyword token">let</span> terabyteMeasurement = <span class="type token">Measurement</span>(value: <span class="number token">1</span>, unit: <span class="type token">UnitInformationStorage</span>.<span class="property token">terabytes</span>)
+
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>)) <span class="comment token">// "931.32 GB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">decimal</span>)) <span class="comment token">// "1 TB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>)) <span class="comment token">// "1 TB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>)) <span class="comment token">// "931.32 GB"</span>
+
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">bytes</span>)) <span class="comment token">// "1,000,000,000,000 bytes"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">bytes</span>)) <span class="comment token">// "1,000,000,000,000 bytes"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">kb</span>)) <span class="comment token">// "976,562,500 kB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">mb</span>)) <span class="comment token">// "953,674.3 MB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">gb</span>)) <span class="comment token">// "931.32 GB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">tb</span>)) <span class="comment token">// "0.91 TB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">pb</span>)) <span class="comment token">// "0 PB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">zb</span>)) <span class="comment token">// "0 PB"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: .<span class="dotAccess token">ybOrHigher</span>)) <span class="comment token">// 0 PB</span>
+
+<span class="keyword token">let</span> kilobyteMeasurement = <span class="type token">Measurement</span>(value: <span class="number token">1</span>, unit: <span class="type token">UnitInformationStorage</span>.<span class="property token">kilobytes</span>)
+<span class="keyword token">let</span> megabyteMeasurement = <span class="type token">Measurement</span>(value: <span class="number token">1</span>, unit: <span class="type token">UnitInformationStorage</span>.<span class="property token">megabytes</span>)
+
+kilobyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: [.<span class="dotAccess token">kb</span>, .<span class="dotAccess token">mb</span>])) <span class="comment token">// "1 kB"</span>
+megabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, allowedUnits: [.<span class="dotAccess token">kb</span>, .<span class="dotAccess token">mb</span>])) <span class="comment token">// "1 MB"</span>
+
+<span class="keyword token">let</span> zeroMeasurement = <span class="type token">Measurement</span>(value: <span class="number token">0</span>, unit: <span class="type token">UnitInformationStorage</span>.<span class="property token">bytes</span>)
+
+zeroMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, spellsOutZero: <span class="keyword token">true</span>)) <span class="comment token">// "Zero kB"</span>
+zeroMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, spellsOutZero: <span class="keyword token">false</span>)) <span class="comment token">// "0 bytes"</span>
+
+megabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>, includesActualByteCount: <span class="keyword token">true</span>)) <span class="comment token">// "1 MB (1,000,000 bytes)"</span></code></pre>
 
 ### Customizing the locale
 
 You can set the locale by appending the `locale()` method onto the end of the format style.
 
-<pre class="splash"><code><span class="keyword token">let</span> franceLocale = <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)
+<pre class="splash"><code><span class="type token">Swift</span>
+<span class="keyword token">let</span> franceLocale = <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)
 
 terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "931,32 Go"</span>
 terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">decimal</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "1To"</span>
 terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "1To"</span>
 terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "931,32 Go"</span>
 
-<span class="keyword token">let</span> inFrench = <span class="type token">ByteCountFormatStyle</span>(
-    style: .<span class="dotAccess token">memory</span>,
-    allowedUnits: .<span class="dotAccess token">all</span>,
-    spellsOutZero: <span class="keyword token">false</span>,
-    includesActualByteCount: <span class="keyword token">true</span>,
-    locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)
-)
-
-inFrench.<span class="call token">format</span>(terabyte) <span class="comment token">// "931,32 Go (1 000 000 000 000 octets)"</span>
-terabyte.<span class="call token">formatted</span>(inFrench) <span class="comment token">// "931,32 Go (1 000 000 000 000 octets)"</span></code></pre>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "931,32 Go"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">decimal</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "1To"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">file</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "1To"</span>
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">memory</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "931,32 Go"</span></code></pre>
 
 <h3>Attributed String Output</h3>
 
 You can output attributed strings by appending the `attributed` method onto the end of the format style.
 
-<pre class="splash"><code>terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="property token">attributed</span>)</code></pre>
+<pre class="splash"><code><span class="type token">Swift</span>
+terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="property token">attributed</span>)
+
+terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="property token">attributed</span>)</code></pre>

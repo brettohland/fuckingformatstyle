@@ -1,9 +1,15 @@
 ---
 sitemap_ignore: true
 ---
+
+## Version Differences
+
+1. {{< xcode13-badge >}} You use this style by initializing a new instance of `Date.VerbatimFormatStyle` which can be used directly, or passed into a `.formatted` method.
+2. {{< xcode14-badge >}} Similar to other date format styles, you can now use the `.formatted(.verbatim(…))` type method.
+
 ### Format Strings
 
-The `Date.VerbatimFormatStyle` accepts a `Date.FormatString` as a parameter inside of it's initializer. Inside of which, you can include any of symbol tokens (with options) along with other regular characters.
+The power of the verbatim format style lies in the `Date.FormatString` that is passed in. This struct conforms to the [ExpressibleByStringInterpolation protocol](https://developer.apple.com/documentation/swift/expressiblebystringinterpolation) which allows us mix and match structured values ([known as tokens](#symbol-tokens)) and strings as much as we want.
 
 <pre class="splash"><code><span class="keyword token">let</span> twosdayDateComponents = <span class="type token">DateComponents</span>(
     year: <span class="number token">2022</span>,
@@ -17,23 +23,47 @@ The `Date.VerbatimFormatStyle` accepts a `Date.FormatString` as a parameter insi
 <span class="keyword token">let</span> twosday = <span class="type token">Calendar</span>(identifier: .<span class="dotAccess token">gregorian</span>).<span class="call token">date</span>(from: twosdayDateComponents)!
 
 <span class="keyword token">let</span> verbatim = <span class="type token">Date</span>.<span class="type token">VerbatimFormatStyle</span>(
-    format: <span class="string token">"</span>\(hour: .<span class="call token">twoDigits</span>(clock: .<span class="dotAccess token">twentyFourHour</span>, hourCycle: .<span class="dotAccess token">oneBased</span>))<span class="string token">:</span>\(minute: .<span class="dotAccess token">twoDigits</span>)<span class="string token">"</span>,
+    format: <span class="string token">"Today is</span> \(hour: .<span class="call token">twoDigits</span>(clock: .<span class="dotAccess token">twentyFourHour</span>, hourCycle: .<span class="dotAccess token">oneBased</span>))<span class="string token">:</span>\(minute: .<span class="dotAccess token">twoDigits</span>) <span class="string token">otherwise known as \"Twosday\"",</span>
     timeZone: <span class="type token">TimeZone</span>.<span class="property token">current</span>,
     calendar: .<span class="dotAccess token">current</span>
 )
 
-verbatim.<span class="call token">format</span>(twosday) <span class="comment token">// "02:22"</span></code></pre>
+verbatim.<span class="call token">format</span>(twosday) <span class="comment token">// "Today is 02:22 otherwise known as "Twosday""</span>
+
+twosday.<span class="call token">formatted</span>(
+    .<span class="call token">verbatim</span>(
+        <span class="string token">"Today is</span> \(hour: .<span class="call token">twoDigits</span>(clock: .<span class="dotAccess token">twentyFourHour</span>, hourCycle: .<span class="dotAccess token">oneBased</span>))<span class="string token">:</span>\(minute: .<span class="dotAccess token">twoDigits</span>) <span class="string token">otherwise known as \"Twosday\"",</span>
+        locale: <span class="type token">Locale</span>(identifier: <span class="string token">"zh_CN"</span>),
+        timeZone: .<span class="dotAccess token">current</span>,
+        calendar: .<span class="dotAccess token">current</span>
+    )
+) <span class="comment token">// "Today is 02:22 otherwise known as "Twosday""</span></code></pre>
 
 ### Symbol Tokens
 
-Similar to the `.dateTime` you have a wide variety of symbols and customization options.
+Every conceivable piece of information inside of a `Date` is available for use.
 
-{{< hint type=note >}}
+- [Era](#era)
+- [Year](#year)
+- [YearForWeekOfYear](#yearforweekofyear)
+- [CyclicYear](#cyclicyear)
+- [Quarter](#quarter)
+- [Month](#month)
+- [Week](#week)
+- [Day](#day)
+- [DayOfYear](#dayofyear)
+- [Weekday](#weekday)
+- [DayPeriod](#dayperiod)
+- [Minute](#minute)
+- [Second](#second)
+- [SecondFraction](#secondfraction)
+- [TimeZone](#timezone)
+- [StandaloneQuarter](#standalonequarter)
+- [StandaloneMonth](#standalonemonth)
+- [StandaloneWeekday](#standaloneweekday)
+- [VerbatimHour](#verbatimhour)
 
-Oddly enough, each of these options are thoroughly documented by Apple (this is where the following content comes from) in their header files. Unfortunately, none of this documentation has been added to the official docs online and within Xcode.
-
-{{< /hint >}}
-
+---
 
 #### Era
 
@@ -42,6 +72,8 @@ Oddly enough, each of these options are thoroughly documented by Apple (this is 
 | `.abbreviated` | Abbreviated Era name. For example, "AD", "Reiwa", "令和".   |
 | `.wide`        | Wide era name. For example, "Anno Domini", "Reiwa", "令和". |
 | `.narrow`      | Narrow era name. For example, For example, "A", "R", "R".   |
+
+---
 
 #### Year
 
@@ -53,6 +85,8 @@ Oddly enough, each of these options are thoroughly documented by Apple (this is 
 | `.relatedGregorian(minimumLength:)` | Related Gregorian year. For non-Gregorian calendars, this corresponds to the extended Gregorian year in which the calendar’s year begins. Related Gregorian years are often displayed, for example, when formatting dates in the Japanese calendar — e.g. "2012(平成24)年1月15日" — or in the Chinese calendar — e.g. "2012壬辰年腊月初四".                                     |
 | `.extended(minimumLength:)`         | Extended year. This is a single number designating the year of this calendar system, encompassing all supra-year fields. For example, for the Julian calendar system, year numbers are positive, with an era of BCE or CE. An extended year value for the Julian calendar system assigns positive values to CE years and negative values to BCE years, with 1 BCE being year 0. |
 
+---
+
 #### YearForWeekOfYear
 
 | Option                   | Description                                                                                                                          |
@@ -60,6 +94,8 @@ Oddly enough, each of these options are thoroughly documented by Apple (this is 
 | `.defaultDigits`         | Minimum number of digits that shows the full year in "Week of Year"-based calendars. For example, `2`, `20`, `201`, `2017`, `20173`. |
 | `.twoDigits`             | Two low-order digits.  Padded or truncated if necessary. For example, `02`, `20`, `01`, `17`, `73`.                                  |
 | `.padded(_ length: Int)` | Three or more digits. Padded if necessary. For example, `002`, `020`, `201`, `2017`, `20173`.                                        |
+
+---
 
 #### CyclicYear
 
@@ -72,6 +108,8 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 | `.narrow`      | Narrow cyclic year name. For example, "甲子".      |
     
 
+---
+
 #### Quarter
 
 | Option         | Description                                                 |
@@ -83,6 +121,8 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 | `.narrow`      | Narrow quarter. For example `2`.                            |
 
 
+---
+
 #### Month
 
 | Option           | Description                                                                                                                                 |     |
@@ -92,6 +132,8 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 | `.abbreviated`   | Abbreviated month name. For example, "Sep".                                                                                                 |     |
 | `.wide`          | Wide month name. For example, "September".                                                                                                  | ``  |
 | `.narrow`        | Narrow month name. For example, "S".                                                                                                        |     |
+
+---
     
 #### Week
 
@@ -103,6 +145,8 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 | `.twoDigits`     | Two-digit numeric week of year, zero padded as necessary. For example, `08`, `27`. |
 | `.weekOfMonth`   | One-digit numeric week of month, starting from 1. For example, `1`.                |
 
+---
+
 #### Day
 
 | Option                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -112,6 +156,8 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 | `.ordinalOfDayInMonth`           | Ordinal of day in month. For example, the 2nd Wed in July would yield `2`.                                                                                                                                                                                                                                                                                                                                                                   |
 | `.ulianModified(minimumLength:)` | The field length specifies the minimum number of digits, with zero-padding as necessary. <br> This is different from the conventional Julian day number in two regards. First, it demarcates days at local zone midnight, rather than noon GMT. Second, it is a local number; that is, it depends on the local time zone. It can be thought of as a single number that encompasses all the date-related fields. <br> For example, `2451334`. |
 
+
+---
     
 #### DayOfYear
 
@@ -121,6 +167,8 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 | `.twoDigits`     | Two-digit day of year, with zero-padding as necessary. For example, `07`, `33`, `345`.           |
 | `.threeDigits`   | Three-digit day of year, with zero-padding as necessary. For example, `007`, `033`, `345`.       |
     
+
+---
 
 #### Weekday
 
@@ -132,6 +180,8 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 | `.short`       | Short day of week name. For example, "Tu".                                              |
 | `.oneDigit`    | Local day of week number/name. The value depends on the local starting day of the week. |
 | `.twoDigits`   | Local day of week number/name, format style; two digits, zero-padded if necessary.      |
+
+---
     
 #### DayPeriod
 
@@ -149,6 +199,8 @@ Each of the options can be passed a `width` case.
 | `.with12s(_ width:)`  | Day period including designations for noon and midnight. For example, <br>Abbreviated: `mid`<br>Wide: `midnight`<br>Narrow: `md`.<br>                                                 |
 | `.conversational`     | Conversational day period. For example,<br>Abbreviated: `at night`, `nachm.`, `ip.`<br>Wide: `at night`, `nachmittags`, `iltapäivällä`.<br>Narrow: `at night`, `nachm.`, `iltap`.<br> |
 
+---
+
 #### Minute
 
 | Option           | Description                                                                                |
@@ -156,6 +208,8 @@ Each of the options can be passed a `width` case.
 | `.defaultDigits` | Minimum digits to show the numeric minute. Truncated, not rounded. For example, `8`, `59`. |
 | `.twoDigits`     | Two-digit numeric, zero padded if needed. For example, `08`, `59`.                         |
     
+
+---
 
 #### Second
 
@@ -165,12 +219,16 @@ Each of the options can be passed a `width` case.
 | `.twoDigits`     | Two digits numeric, zero padded if needed, not rounded. For example, `08`, `12`.           |
     
 
+---
+
 #### SecondFraction
 
 | Option                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `.fractional(_ val:)`   | Fractional second (numeric).<br>Truncates, like other numeric time fields, but in this case to the number of digits specified by the associated `Int`.<br>For example, specifying `4` for seconds value `12.34567` yields `12.3456`.                                                                                                                                                                                                                                                                                                                                     |
 | `.milliseconds(_ val:)` | Milliseconds in day (numeric).<br>The associated `Int` specifies the minimum number of digits, with zero-padding as necessary. The maximum number of digits is 9.<br> This field behaves exactly like a composite of all time-related fields, not including the zone fields. As such, it also reflects discontinuities of those fields on DST transition days. On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump backward. This reflects the fact that is must be combined with the offset field to obtain a unique local time value. |
+
+---
 
 #### TimeZone
 
@@ -188,6 +246,8 @@ Each talkes a `Width` case.
 | `.exemplarLocation`       | The exemplar city (location) for the time zone. The localized exemplar city name for the special zone or unknown is used as the fallback if it is unavailable. <br>For example, "Los Angeles".                           |
 | `.genericLocation`        | The generic location format. Falls back to `longLocalizedGMT` if unavailable. Recommends for presenting possible time zone choices for user selection. <br>For example, "Los Angeles Time".                              |
 
+---
+
 #### StandaloneQuarter
 
 | Option         | Description                                                                            |
@@ -199,6 +259,8 @@ Each talkes a `Width` case.
 | `.narrow`      | Standalone narrow quarter. For example "2".                                            |
     
 
+---
+
 #### StandaloneMonth
 
 | Option           | Description                                                                                                        |
@@ -208,6 +270,8 @@ Each talkes a `Width` case.
 | `.abbreviated`   | Stand-alone abbreviated month.For example, "Sep".                                                                  |
 | `.wide`          | Stand-alone wide month. For example, "September".                                                                  |
 | `.narrow`        | Stand-alone narrow month. For example, "S".                                                                        |
+
+---
     
 #### StandaloneWeekday
 
@@ -218,6 +282,8 @@ Each talkes a `Width` case.
 | `.wide`        | Standalone wide local day of week number/name.For example, "Tuesday". |
 | `.narrow`      | Standalone narrow local day of week number/name. For example, "T".    |
 | `.short`       | Standalone short local day of week number/name. For example, "Tu".    |
+
+---
     
 #### VerbatimHour
 

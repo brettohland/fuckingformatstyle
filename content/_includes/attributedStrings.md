@@ -1,8 +1,6 @@
 ---
 sitemap_ignore: true
 ---
-## Attributed String Output
-
 {{< hint type=tip title=TL;DR >}}
 
 Some of the built-in styles will output `AttributedString` values instead.

@@ -1,8 +1,6 @@
 ---
 sitemap_ignore: true
 ---
-## SwiftUI Integration
-
 {{< hint type=tip title=TL;DR >}}
 
 Never write `Text("\()")` again. Just pass in the right `FormatStyle`
