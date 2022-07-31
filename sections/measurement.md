@@ -1,6 +1,7 @@
 ---
 sitemap_ignore: true
 ---
+
 [If you're curious, here's Apple's list of supported units.](https://developer.apple.com/documentation/foundation/dimension)
 
 Regardless of which unit you're using, the format style has three possible widths:
@@ -31,18 +32,6 @@ gForce.formatted(.measurement(width: .narrow).locale(franceLocale))      // "1G"
 gForce.formatted(.measurement(width: .abbreviated).locale(franceLocale)) // "1 force g")
 ```
 
-### Setting the locale
-
-You can set the locale by appending the `locale()` method onto the end of the format style.
-
-```
-let franceLocale = Locale(identifier: "fr_FR")
-
-gForce.formatted(.measurement(width: .wide).locale(franceLocale))        // "1 fois l’accélération de pesanteur terrestre"
-gForce.formatted(.measurement(width: .narrow).locale(franceLocale))      // "1G"
-gForce.formatted(.measurement(width: .abbreviated).locale(franceLocale)) // "1 force g"
-```
-
 ### Initializing a Measurement Style
 
 Due to the associated types required by the Measurement API, initializing a measurement style requires you to set the associated type.
@@ -65,3 +54,10 @@ You can output Attributed Strings by appending the `attributed` method onto the 
 ```
 gForce.formatted(.measurement(width: .wide).attributed)
 ```
+
+{{< hint type=note >}}
+In Xcode 14, there is the `Measurement<UnitInformationStorage>.FormatStyle.ByteCount` format style available to you that lets you easily format byte counts
+
+<a href="/byte-count-style">See the byte count format style section for all of the details</a>
+
+{{< /hint >}}

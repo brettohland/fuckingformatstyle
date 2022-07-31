@@ -12,66 +12,79 @@ main:
   - name: The Basics
     ref: "/#the-basics"
     external: true
-  - name: Number Styles
-    ref: "/#number-style"
-    external: true
+  - name: Numeric Styles
+    ref: "/numeric-styles"
+    external: false
     sub:
       - name: Number Style
-        ref: "/#number-style"
+        ref: "/number-styles/#number-style"
         external: true
       - name: Percent Style
-        ref: "/#percent-style"
+        ref: "/number-styles/#percent-style"
         external: true
       - name: Currency Style
-        ref: "/#currency-style"
+        ref: "/number-styles/#currency-style"
         external: true
   - name: Single Date Styles
-    ref: "/#date-and-time-single-date"
-    external: true
+    ref: "/date-styles/"
+    external: false
     sub:
-      - name: Date and Time Style
-        ref: "/#date-and-time-single-date"
+      - name: Compositing
+        ref: "/date-styles/#compositing"
         external: true
-      - name: dateTime Style
-        ref: "#datetime-compositing-single-date"
+      - name: Date and Time Style
+        ref: "/date-styles//#date-and-time-single-date"
         external: true
       - name: ISO 8601 Style
-        ref: "#iso-8601-date-style-single-date"
+        ref: "/date-styles/#iso-8601-date-style-single-date"
         external: true
       - name: Relative Date Style
-        ref: "#relative-date-style-single-date"
+        ref: "/date-styles/#relative-date-style-single-date"
         external: true
       - name: Verbatim Style
-        ref: "#verbatim-date-style-single-date"
+        ref: "/date-styles/#verbatim-date-style-single-date"
         external: true
   - name: Date Range Styles
-    ref: "#interval-date-style-date-range"
-    external: true
+    ref: "/date-range-styles/"
+    external: false
     sub:
       - name: Interval Style
-        ref: "#interval-date-style-date-range"
+        ref: "/date-range-styles/#interval-date-style-date-range"
         external: true
       - name: Components Style
-        ref: "#components-date-style-date-range"
+        ref: "/date-range-styles/#components-date-style-date-range"
+        external: true
+  - name: Duration Styles
+    ref: "/duration-styles/"
+    external: false
+    sub:
+      - name: Time Style
+        ref: "/duration-styles/#time-style"
+        external: true
+      - name: Units Style
+        ref: "/duration-styles/#units-style"
         external: true
   - name: Measurement Style
-    ref: "#measurement-style"
-    external: true
+    ref: "/measurement-style/"
+    external: false
   - name: List Style
-    ref: "#list-style"
-    external: true
+    ref: "/list-style/"
+    external: false
   - name: Person Name Style
-    ref: "#person-name-component-style"
-    external: true
+    ref: "/person-name-style/"
+    external: false
   - name: Byte Count Style
-    ref: "#byte-count-style"
-    external: true
+    ref: "/byte-count-style/"
+    external: false
+  - name: URL Style
+    ref: "/url-style/"
+    external: false
   - name: Custom FormatStyle
-    ref: "#custom-format-style"
-    external: true
+    ref: "/custom-styles"
+    external: false
   - name: SwiftUI Integration
-    ref: "#swiftui-integration"
-    external: true
+    ref: "/swiftui/"
+    external: false
   - name: AttributedString Output
-    ref: "#attributed-string-output"
-    external: true
+    ref: "/attributed-string-output/"
+    external: false

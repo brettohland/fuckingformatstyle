@@ -86,11 +86,25 @@ The order of the symbols in the final string are controlled by the date's `Local
 
 {{< /hint >}}
 
-### Customization
+## Customization
 
 Each symbol has customization options.
 
-#### Day
+- [Day](#day)
+- [Day of Year](#day-of-year)
+- [Era](#era)
+- [Hour](#hour)
+- [Minute](#minute)
+- [Month](#month)
+- [Quarter](#quarter)
+- [Second](#second)
+- [Fractional Second](#fractional-second)
+- [Time Zone](#time-zone)
+- [Week](#week)
+- [Weekday](#weekday)
+- [Year](#year)
+
+### Day
 
 ```
 twosday.formatted(.dateTime.day(.twoDigits)) // "22"
@@ -106,7 +120,7 @@ twosday.formatted(Date.FormatStyle().day(.julianModified())) // "2459633"
 twosday.formatted(Date.FormatStyle().day(.julianModified(minimumLength: 8))) // "02459633"
 ```
 
-#### Day of Year
+### Day of Year
 
 ```
 twosday.formatted(.dateTime.dayOfYear(.defaultDigits)) // "53"
@@ -117,7 +131,7 @@ twosday.formatted(Date.FormatStyle().dayOfYear(.defaultDigits)) // "53"
 twosday.formatted(Date.FormatStyle().dayOfYear(.threeDigits)) // "053"
 twosday.formatted(Date.FormatStyle().dayOfYear(.twoDigits)) // "53"
 ```
-#### Era
+### Era
 
 ```
 twosday.formatted(.dateTime.era(.abbreviated)) // "AD"
@@ -129,7 +143,7 @@ twosday.formatted(Date.FormatStyle().era(.narrow)) // "A"
 twosday.formatted(Date.FormatStyle().era(.wide)) // "Anno Domini"
 ```
 
-#### Hour
+### Hour
 
 Each of the following methods accepts an `AMPMStyle`.
 
@@ -184,7 +198,7 @@ twosday.formatted(Date.FormatStyle().hour(.twoDigits(amPM: .abbreviated))) // "0
 twosday.formatted(Date.FormatStyle().hour(.twoDigits(amPM: .omitted))) // "02"
 ```
 
-#### Minute
+### Minute
 
 ```
 twosday.formatted(.dateTime.minute(.twoDigits)) // "22"
@@ -194,7 +208,7 @@ twosday.formatted(Date.FormatStyle().minute(.twoDigits)) // "22"
 twosday.formatted(Date.FormatStyle().minute(.defaultDigits)) // "22"
 ```
 
-#### Month
+### Month
 
 ```
 twosday.formatted(.dateTime.month(.defaultDigits)) // "2"
@@ -210,7 +224,7 @@ twosday.formatted(Date.FormatStyle().month(.abbreviated)) // "Feb"
 twosday.formatted(Date.FormatStyle().month(.narrow)) // "F"
 ```
 
-#### Quarter
+### Quarter
 
 ```
 twosday.formatted(.dateTime.quarter(.narrow)) // "1"
@@ -226,7 +240,7 @@ twosday.formatted(Date.FormatStyle().quarter(.twoDigits)) // "01"
 twosday.formatted(Date.FormatStyle().quarter(.oneDigit)) // "1"
 ```
 
-#### Second
+### Second
 
 ```
 twosday.formatted(.dateTime.second(.twoDigits)) // "22"
@@ -236,7 +250,7 @@ twosday.formatted(Date.FormatStyle().second(.twoDigits)) // "22"
 twosday.formatted(Date.FormatStyle().second(.defaultDigits)) // "22"
 ```
 
-#### Fractional Second
+### Fractional Second
 
 ```
 twosday.formatted(Date.FormatStyle().secondFraction(.fractional(2))) // "00"
@@ -246,7 +260,7 @@ twosday.formatted(.dateTime.secondFraction(.fractional(2))) // "00"
 twosday.formatted(.dateTime.secondFraction(.milliseconds(1))) // "8542000"
 ```
 
-#### Time Zone
+### Time Zone
 
 ```
 twosday.formatted(.dateTime.timeZone(.exemplarLocation)) // "Edmonton"
@@ -276,7 +290,7 @@ twosday.formatted(Date.FormatStyle().timeZone(.localizedGMT(.short))) // "GMT-7"
 twosday.formatted(Date.FormatStyle().timeZone(.localizedGMT(.long))) // "GMT-07:00"
 ```
 
-#### Week
+### Week
 
 ```
 twosday.formatted(.dateTime.week(.defaultDigits)) // "9"
@@ -288,7 +302,7 @@ twosday.formatted(Date.FormatStyle().week(.twoDigits)) // "09"
 twosday.formatted(Date.FormatStyle().week(.weekOfMonth)) // "9"
 ```
 
-#### Weekday
+### Weekday
 
 ```
 twosday.formatted(.dateTime.weekday(.abbreviated)) // "Tue"
@@ -306,7 +320,7 @@ twosday.formatted(Date.FormatStyle().weekday(.wide)) // "Tuesday"
 twosday.formatted(Date.FormatStyle().weekday(.narrow)) // "T"
 ```
 
-#### Year
+### Year
 
 ```
 twosday.formatted(.dateTime.year(.twoDigits)) // "22"
@@ -326,7 +340,7 @@ twosday.formatted(Date.FormatStyle().year(.relatedGregorian())) // "2022"
 twosday.formatted(Date.FormatStyle().year(.relatedGregorian(minimumLength: 2))) // "22"
 ```
 
-### Setting the Locale
+## Setting the Locale
 
 You can set the Locale by appending the `.locale()` method onto the last Symbol.
 
@@ -344,7 +358,7 @@ twosday.formatted(.dateTime.attributed)
 twosday.formatted(Date.FormatStyle().attributed)
 ``` 
 
-### Parsing Dates From Strings
+## Parsing Dates From Strings
 
 `Date.FormatStyle` conforms to `ParseableFormatStyle` and can be set up to parse `Date` objects from a `String`.
 

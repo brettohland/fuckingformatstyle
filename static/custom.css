@@ -5,6 +5,9 @@
     --footer-background: #FF1A87;
     --footer-link-color: white;
     --footer-link-color-visited: white;
+    --yellow: #F9FF1A;
+    --green: #1AFF92;
+    --blue: #201AFF;
 }
 
 body {
@@ -56,6 +59,55 @@ hr {
 
 .gist .gist-data {
   height: 400px;
+}
+
+.version-badge {
+  margin: 0 5px;
+  padding: 2px 8px;
+  font-size: 15px;
+  border-radius: 0.5em;
+  color: white;
+}
+
+a.version-badge:visited {
+  color: #ced3d8;
+}
+
+.version-badge.xcode13 {
+  background: var(--blue);
+  color: #ced3d8;
+}
+
+.version-badge.xcode14 {
+  background: var(--green);
+  color: #343a40;
+}
+
+.hovertext {
+  position: relative;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 8px;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+  font-size: 0.8em;
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media screen and (max-width: 45rem) {

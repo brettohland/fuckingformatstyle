@@ -1,6 +1,7 @@
 ---
 sitemap_ignore: true
 ---
+
 [If you're curious, here's Apple's list of supported units.](https://developer.apple.com/documentation/foundation/dimension)
 
 Regardless of which unit you're using, the format style has three possible widths:
@@ -27,16 +28,6 @@ gForce.<span class="call token">formatted</span>(.<span class="call token">measu
 gForce.<span class="call token">formatted</span>(.<span class="call token">measurement</span>(width: .<span class="dotAccess token">narrow</span>).<span class="call token">locale</span>(franceLocale))      <span class="comment token">// "1G"</span>
 gForce.<span class="call token">formatted</span>(.<span class="call token">measurement</span>(width: .<span class="dotAccess token">abbreviated</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "1 force g")</span></code></pre>
 
-### Setting the locale
-
-You can set the locale by appending the `locale()` method onto the end of the format style.
-
-<pre class="splash"><code><span class="keyword token">let</span> franceLocale = <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)
-
-gForce.<span class="call token">formatted</span>(.<span class="call token">measurement</span>(width: .<span class="dotAccess token">wide</span>).<span class="call token">locale</span>(franceLocale))        <span class="comment token">// "1 fois l’accélération de pesanteur terrestre"</span>
-gForce.<span class="call token">formatted</span>(.<span class="call token">measurement</span>(width: .<span class="dotAccess token">narrow</span>).<span class="call token">locale</span>(franceLocale))      <span class="comment token">// "1G"</span>
-gForce.<span class="call token">formatted</span>(.<span class="call token">measurement</span>(width: .<span class="dotAccess token">abbreviated</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "1 force g"</span></code></pre>
-
 ### Initializing a Measurement Style
 
 Due to the associated types required by the Measurement API, initializing a measurement style requires you to set the associated type.
@@ -55,3 +46,10 @@ gForce.<span class="call token">formatted</span>(inFrench)  <span class="comment
 You can output Attributed Strings by appending the `attributed` method onto the end of the format style.
 
 <pre class="splash"><code>gForce.<span class="call token">formatted</span>(.<span class="call token">measurement</span>(width: .<span class="dotAccess token">wide</span>).<span class="property token">attributed</span>)</code></pre>
+
+{{< hint type=note >}}
+In Xcode 14, there is the `Measurement<UnitInformationStorage>.FormatStyle.ByteCount` format style available to you that lets you easily format byte counts
+
+<a href="/byte-count-style">See the byte count format style section for all of the details</a>
+
+{{< /hint >}}
