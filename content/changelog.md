@@ -2,9 +2,40 @@
 draft: false
 ---
 
-## [v1.2](https://github.com/brettohland/fuckingformatstyles/tree/v1.2) (2022-06-15)
+## [v1.3](https://github.com/brettohland/fuckingformatstyle/tree/v1.3) (2022-07-31)
 
-[Full Changelog](https://github.com/brettohland/fuckingformatstyles/compare/v1.1...v1.2)
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.2...v1.3)
+
+ - Adds Xcode 14 information (#4)
+ - Adds URL style
+   - Adds Duration style
+   - Updates Byte count styles with new information
+   - Updates Verbatim Date format style with new information
+   - Updates measurement style to reference byte count format style
+ - Splits site into individual pages to solve site crashing on mobie (#5)
+ - Updates minimum requirements to reference Xcode 13 and 14 support
+    - Adds version badges
+- Fix link from non-cussing site to cussing-site by @shusta-patreon in https://github.com/brettohland/fuckingformatstyle/pull/7
+
+**Implemented enhancements:**
+
+- Add changelog [\#5](https://github.com/brettohland/fuckingformatstyle/issues/5)
+
+**Closed issues:**
+
+- Site crashes on Mobile Safari when using menu [\#9](https://github.com/brettohland/fuckingformatstyle/issues/9)
+- Add more details to new iOS 16 styles [\#4](https://github.com/brettohland/fuckingformatstyle/issues/4)
+- Expand `.compactName` examples for numbers [\#3](https://github.com/brettohland/fuckingformatstyle/issues/3)
+
+**Merged pull requests:**
+
+- The Xcode 14 Update [\#10](https://github.com/brettohland/fuckingformatstyle/pull/10) ([brettohland](https://github.com/brettohland))
+- Update Custom Example [\#8](https://github.com/brettohland/fuckingformatstyle/pull/8) ([brettohland](https://github.com/brettohland))
+- Fix link from non-cussing site to cussing-site [\#7](https://github.com/brettohland/fuckingformatstyle/pull/7) ([shusta-patreon](https://github.com/shusta-patreon))
+
+## [v1.2](https://github.com/brettohland/fuckingformatstyle/tree/v1.2) (2022-06-15)
+
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.1...v1.2)
 
 - Updating DateTime to include Date.FormatStyle information & Parsing info
 - Adds information on how to parse strings into data types
@@ -14,32 +45,17 @@ draft: false
 
 **Implemented enhancements:**
 
-- Add changelog [\#5](https://github.com/brettohland/fuckingformatstyles/issues/5)
+- Add changelog [\#5](https://github.com/brettohland/fuckingformatstyle/issues/5)
+
+## [v1.1](https://github.com/brettohland/fuckingformatstyle/tree/v1.1) (2022-06-05)
+
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.0...v1.1)
 
 **Closed issues:**
 
-- Expand `.compactName` examples for numbers [\#3](https://github.com/brettohland/fuckingformatstyles/issues/3)
+- 1Blocker hides all comments [\#1](https://github.com/brettohland/fuckingformatstyle/issues/1)
 
-## [v1.1](https://github.com/brettohland/fuckingformatstyles/tree/v1.1) (2022-06-05)
+## [v1.0](https://github.com/brettohland/fuckingformatstyle/tree/v1.0) (2022-06-02)
 
-[Full Changelog](https://github.com/brettohland/fuckingformatstyles/compare/v1.0...v1.1)
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/342c5d608b1993b42b5028e5329fb0fd2592dc51...v1.0)
 
-- Fixed issues with the deploy script
-- Fixed issues where the base URL wasn't correctly set (and all the links were broken)
-- Added the token class to all `<code>` blocks. Because the 1Blocker Safari extension was hiding them.
-- Fixed a couple of broken links in the sidebar and main app (thanks [@jgale](http://github.com/jgale))
-- Made the sidebar scrolling for mobile users
-- Added Ko-fi widget
-- Fixed the links in the FAQ section
-- Added a "last mod" info on the site (this is temporary)
-- Added keybase.io proofs
-
-**Closed issues:**
-
-- 1Blocker hides all comments [\#1](https://github.com/brettohland/fuckingformatstyles/issues/1)
-
-## [v1.0](https://github.com/brettohland/fuckingformatstyles/tree/v1.0) (2022-06-02)
-
-[Full Changelog](https://github.com/brettohland/fuckingformatstyles/compare/342c5d608b1993b42b5028e5329fb0fd2592dc51...v1.0)
-
-- First release.
