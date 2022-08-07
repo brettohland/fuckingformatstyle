@@ -17,13 +17,13 @@ main:
     external: false
     sub:
       - name: Number Style
-        ref: "/number-styles/#number-style"
+        ref: "/numeric-styles/#number-style"
         external: true
       - name: Percent Style
-        ref: "/number-styles/#percent-style"
+        ref: "/numeric-styles/#percent-style"
         external: true
       - name: Currency Style
-        ref: "/number-styles/#currency-style"
+        ref: "/numeric-styles/#currency-style"
         external: true
   - name: Single Date Styles
     ref: "/date-styles/"
