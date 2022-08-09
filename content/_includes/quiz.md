@@ -19,20 +19,20 @@ All built-in number types are supported by these format styles (`Float`, `Double
 
 {{< xcode13-badge >}}
 
-See <a href="/number-styles/">Number Style</a>
+See <a href="/numeric-styles/">Number Style</a>
 
 | Property                                                    | Description                                                   |
 | ----------------------------------------------------------- | ------------------------------------------------------------- |
-| [Rounding](/number-styles/#numbers-rounding)                               | Customize the rounding behaviour                              |
-| [Sign](/number-styles/#numbers-sign)                                       | Do you want to show or hide the + or - sign?                  |
-| [Decimal Separator](/number-styles/#numbers-decimal-separator)             | Do you want to show or hide the decimal separator             |
-| [Grouping](/number-styles/#numbers-grouping)                               | How do you want the thousands numbers to be grouped           |
-| [Precision](/number-styles/#numbers-prescision)                            | How many fractional or significant digits do you want to show |
-| [Notation](/number-styles/#numbers-notation)                               | Enable scientific or compact notation                         |
-| [Scale](/number-styles/#numbers-scale)                                     | Scale the number up or down before display                    |
-| [Locale](/number-styles/#numbers-locale)                                   | Set the `Locale` for one output                               |
-| [Compositing](/number-styles/#numbers-compositing)                         | Mix and match any and all of the above                        |
-| [AttributedString output](/number-styles/#numbers-attributed-string-output) | Output an `AttributedString`                                 |
+| [Rounding](/numeric-styles/#numbers-rounding)                               | Customize the rounding behaviour                              |
+| [Sign](/numeric-styles/#numbers-sign)                                       | Do you want to show or hide the + or - sign?                  |
+| [Decimal Separator](/numeric-styles/#numbers-decimal-separator)             | Do you want to show or hide the decimal separator             |
+| [Grouping](/numeric-styles/#numbers-grouping)                               | How do you want the thousands numbers to be grouped           |
+| [Precision](/numeric-styles/#numbers-prescision)                            | How many fractional or significant digits do you want to show |
+| [Notation](/numeric-styles/#numbers-notation)                               | Enable scientific or compact notation                         |
+| [Scale](/numeric-styles/#numbers-scale)                                     | Scale the number up or down before display                    |
+| [Locale](/numeric-styles/#numbers-locale)                                   | Set the `Locale` for one output                               |
+| [Compositing](/numeric-styles/#numbers-compositing)                         | Mix and match any and all of the above                        |
+| [AttributedString output](/numeric-styles/#numbers-attributed-string-output) | Output an `AttributedString`                                 |
 
 {{< /expand >}}
 
@@ -40,7 +40,7 @@ See <a href="/number-styles/">Number Style</a>
 
 {{< xcode13-badge >}}
 
-See <a href="/number-styles/#percent-style">Percent Style</a>
+See <a href="/numeric-styles/#percent-style">Percent Style</a>
 
 {{< xcode13-badge >}}
 
@@ -50,16 +50,16 @@ When formatting a floating point number (Double/Float/Decimal), `1.0` is "100%",
 
 | Property                                                     | Description                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------- |
-| [Rounding](/number-styles/#percent-rounding)                                | Customize the rounding behaviour                              |
-| [Sign](/number-styles/#percent-sign)                                        | Do you want to show or hide the + or - sign?                  |
-| [Decimal Separator](/number-styles/#percent-decimal-separator)              | Do you want to show or hide the decimal separator             |
-| [Grouping](/number-styles/#percent-grouping)                                | How do you want the thousands numbers to be grouped           |
-| [Precision](/number-styles/#percent-prescision)                             | How many fractional or significant digits do you want to show |
-| [Notation](/number-styles/#percent-notation)                                | Enable scientific or compact notation                         |
-| [Scale](/number-styles/#percent-scale)                                      | Scale the number up or down before display                    |
-| [Locale](/number-styles/#percent-locale)                                    | Set the `Locale` for one output                               |
-| [Compositing](/number-styles/#percent-compositing)                          | Mix and match any and all of the above                        |
-| [AttributedString output](/number-styles/#percent-attributed-string-output) | Output an `AttributedString`                                  |
+| [Rounding](/numeric-styles/#percent-rounding)                                | Customize the rounding behaviour                              |
+| [Sign](/numeric-styles/#percent-sign)                                        | Do you want to show or hide the + or - sign?                  |
+| [Decimal Separator](/numeric-styles/#percent-decimal-separator)              | Do you want to show or hide the decimal separator             |
+| [Grouping](/numeric-styles/#percent-grouping)                                | How do you want the thousands numbers to be grouped           |
+| [Precision](/numeric-styles/#percent-prescision)                             | How many fractional or significant digits do you want to show |
+| [Notation](/numeric-styles/#percent-notation)                                | Enable scientific or compact notation                         |
+| [Scale](/numeric-styles/#percent-scale)                                      | Scale the number up or down before display                    |
+| [Locale](/numeric-styles/#percent-locale)                                    | Set the `Locale` for one output                               |
+| [Compositing](/numeric-styles/#percent-compositing)                          | Mix and match any and all of the above                        |
+| [AttributedString output](/numeric-styles/#percent-attributed-string-output) | Output an `AttributedString`                                  |
 
 {{< hint type=important >}}
 The various percent formatters handle integers and floating point values differently.
@@ -75,7 +75,7 @@ The various percent formatters handle integers and floating point values differe
 
 {{< xcode13-badge >}}
 
-See <a href="/number-styles/#currency-style">Currency Style</a>
+See <a href="/numeric-styles/#currency-style">Currency Style</a>
 
 {{< xcode13-badge >}}
 
@@ -89,16 +89,16 @@ Floating point types shouldn't be used to store or do calculations on numbers th
 
 | Property                                                      | Description                                                   |
 | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| [Rounding](/number-styles/#currency-rounding)                                | Customize the rounding behaviour                              |
-| [Sign](/number-styles/#currency-sign)                                        | Do you want to show or hide the + or - sign?                  |
-| [Decimal Separator](/number-styles/#currency-decimal-separator)              | Do you want to show or hide the decimal separator             |
-| [Grouping](/number-styles/#currency-grouping)                                | How do you want the thousands numbers to be grouped           |
-| [Precision](/number-styles/#currency-prescision)                             | How many fractional or significant digits do you want to show |
-| [Presentation](/number-styles/#currency-presentation)                        | Controls the style of the displayed currency                  |
-| [Scale](/number-styles/#currency-scale)                                      | Scale the number up or down before display                    |
-| [Locale](/number-styles/#currency-locale)                                    | Set the `Locale` for one output                               |
-| [Compositing](/number-styles/#currency-compositing)                          | Mix and match any and all of the above                        |
-| [AttributedString output](/number-styles/#currency-attributed-string-output) | Output an `AttributedString`                                  |
+| [Rounding](/numeric-styles/#currency-rounding)                                | Customize the rounding behaviour                              |
+| [Sign](/numeric-styles/#currency-sign)                                        | Do you want to show or hide the + or - sign?                  |
+| [Decimal Separator](/numeric-styles/#currency-decimal-separator)              | Do you want to show or hide the decimal separator             |
+| [Grouping](/numeric-styles/#currency-grouping)                                | How do you want the thousands numbers to be grouped           |
+| [Precision](/numeric-styles/#currency-prescision)                             | How many fractional or significant digits do you want to show |
+| [Presentation](/numeric-styles/#currency-presentation)                        | Controls the style of the displayed currency                  |
+| [Scale](/numeric-styles/#currency-scale)                                      | Scale the number up or down before display                    |
+| [Locale](/numeric-styles/#currency-locale)                                    | Set the `Locale` for one output                               |
+| [Compositing](/numeric-styles/#currency-compositing)                          | Mix and match any and all of the above                        |
+| [AttributedString output](/numeric-styles/#currency-attributed-string-output) | Output an `AttributedString`                                  |
 
 {{< /expand >}}
 
@@ -301,11 +301,11 @@ By setting up either a `Date.FormatStyle` or `Date.ISO8601FormatStyle` with your
 
 You can parse Decimals, Percentages, or Currency values into Decimals.
 
-[See Parsing Decimals](/number-styles/#parsing-decimals-from-strings)
+[See Parsing Decimals](/numeric-styles/#parsing-decimals-from-strings)
 
-[See Parsing Decimal Percentages](/number-styles/#parsing-percentages-from-strings)
+[See Parsing Decimal Percentages](/numeric-styles/#parsing-percentages-from-strings)
 
-[See Parsing Decimal Currencies](/number-styles/#parsing-currencies-from-strings) 
+[See Parsing Decimal Currencies](/numeric-styles/#parsing-currencies-from-strings) 
 
 {{< /expand >}}
 
