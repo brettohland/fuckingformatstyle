@@ -3,7 +3,7 @@ languageCode = 'en-us'
 title = 'Fucking Format Style!'
 theme = "hugo-geekdoc"
 author = "brett ohland/Ampersand Softworks"
-description = "The missing manual Apple forgot to write"
+description = "The missing FormatStyle manual that Apple forgot to write."
 
 # Required to get well formatted code blocks
 pygmentsUseClasses = true
