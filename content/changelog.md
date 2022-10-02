@@ -2,6 +2,20 @@
 draft: false
 ---
 
+## [v1.4](https://github.com/brettohland/fuckingformatstyle/tree/v1.4) (2022-10-02)
+
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.3...v1.4)
+
+**Closed issues:**
+
+- Broken links if user select criteria from the main page [\#12](https://github.com/brettohland/fuckingformatstyle/issues/12)
+
+**Merged pull requests:**
+
+- Measurement update [\#14](https://github.com/brettohland/fuckingformatstyle/pull/14) ([brettohland](https://github.com/brettohland))
+- Fixing Issue \#12 [\#13](https://github.com/brettohland/fuckingformatstyle/pull/13) ([brettohland](https://github.com/brettohland))
+- Fix 404 links to numeric style sub-pages [\#11](https://github.com/brettohland/fuckingformatstyle/pull/11) ([basememara](https://github.com/basememara))
+
 ## [v1.3](https://github.com/brettohland/fuckingformatstyle/tree/v1.3) (2022-07-31)
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.2...v1.3)
