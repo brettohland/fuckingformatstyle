@@ -62,7 +62,7 @@ Due to this format style using your device's current Locale, the examples can ou
 
 **All examples for this section are using the English (US) locale (`en-US`) unless the `.locale()` is specified.**
 
-You can read more about this at the [Ampersand Softworks Blog](#)
+You can read more about this at the [Ampersand Softworks Blog](https://ampersandsoftworks.com/posts/measurements-and-their-formatting/)
 
 {{< /hint >}}
 
