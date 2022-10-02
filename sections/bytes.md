@@ -4,7 +4,7 @@ sitemap_ignore: true
 
 {{< hint type=warning >}}
 
-**This style is broken in certain ways in Xcode 13**. Providing any unit above gigabyte will cause a crash with the message: "Fatal error: invalid Units value".
+**This style is broken in certain ways in Xcode 13** (but fixed in Xcode 14). Providing any unit above gigabyte will cause a crash with the message: "Fatal error: invalid Units value".
 
 Experiment for yourself to see if you can make this work for you, but you may want to fall back to the older `ByteCountFormatter` in this case.
 

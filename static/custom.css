@@ -83,6 +83,10 @@ a.version-badge:visited {
   color: #343a40;
 }
 
+.version-badge.xcode14:visited {
+  color: #343a40;
+}
+
 .hovertext {
   position: relative;
 }
