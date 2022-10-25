@@ -7,6 +7,21 @@ sitemap_ignore: true
 1. {{< xcode13-badge >}} You use this style by initializing a new instance of `Date.VerbatimFormatStyle` which can be used directly, or passed into a `.formatted` method.
 2. {{< xcode14-badge >}} Similar to other date format styles, you can now use the `.formatted(.verbatim(…))` type method.
 
+You can easily backport the Xcode 14 type method to your project that supports the Xcode 13 platforms by including the following extension in your project:
+
+```
+public extension FormatStyle where Self == Date.VerbatimFormatStyle {
+    static func verbatim(
+        _ format: Date.FormatString,
+        locale: Locale? = nil,
+        timeZone: TimeZone,
+        calendar: Calendar
+    ) -> Date.VerbatimFormatStyle {
+        return Date.VerbatimFormatStyle(format: format, locale: locale, timeZone: timeZone, calendar: calendar)
+    }
+}
+```
+
 ### Format Strings
 
 The power of the verbatim format style lies in the `Date.FormatString` that is passed in. This struct conforms to the [ExpressibleByStringInterpolation protocol](https://developer.apple.com/documentation/swift/expressiblebystringinterpolation) which allows us mix and match structured values ([known as tokens](#symbol-tokens)) and strings as much as we want.
@@ -16,59 +31,66 @@ let twosdayDateComponents = DateComponents(
     year: 2022,
     month: 2,
     day: 22,
-    hour: 2,
+    hour: 22,
     minute: 22,
-    second: 22,
-    nanosecond: 22
+    second: 22
 )
+
 let twosday = Calendar(identifier: .gregorian).date(from: twosdayDateComponents)!
 
 let verbatim = Date.VerbatimFormatStyle(
-    format: "Today is \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits) otherwise known as \"Twosday\"",
+    format: "It's Twosday! \(year: .defaultDigits)-\(month: .abbreviated)(\(month: .defaultDigits))-\(day: .defaultDigits) at \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .defaultDigits):\(second: .defaultDigits)",
+    locale: Locale(identifier: "en_US"),
     timeZone: TimeZone.current,
     calendar: .current
 )
 
-verbatim.format(twosday) // "Today is 02:22 otherwise known as "Twosday""
+verbatim.format(twosday) // "It's Twosday! 2022-Feb(2)-22 at 22:22:22"
 
 twosday.formatted(
     .verbatim(
-        "Today is \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits) otherwise known as \"Twosday\"",
-        locale: Locale(identifier: "zh_CN"),
-        timeZone: .current,
+        "It's Twosday! \(year: .defaultDigits)-\(month: .abbreviated)(\(month: .defaultDigits))-\(day: .defaultDigits) at \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .defaultDigits):\(second: .defaultDigits)",
+        locale: Locale(identifier: "fr_FR"),
+        timeZone: TimeZone.current,
         calendar: .current
     )
-) // "Today is 02:22 otherwise known as "Twosday""
+) // "It's Twosday! 2022-févr.(2)-22 at 22:22:22"
 
 ```
+
+{{< hint type=warning >}}
+
+If you omit the `Locale` when constructing or calling this style, certain tokens will use their un-localized standard values. For example `M02` instead of `February` for `\(month: .abbreviated)`.
+
+{{< /hint >}}
 
 ### Symbol Tokens
 
 Every conceivable piece of information inside of a `Date` is available for use.
 
-- [Era](#era)
-- [Year](#year)
-- [YearForWeekOfYear](#yearforweekofyear)
-- [CyclicYear](#cyclicyear)
-- [Quarter](#quarter)
-- [Month](#month)
-- [Week](#week)
-- [Day](#day)
-- [DayOfYear](#dayofyear)
-- [Weekday](#weekday)
-- [DayPeriod](#dayperiod)
-- [Minute](#minute)
-- [Second](#second)
-- [SecondFraction](#secondfraction)
-- [TimeZone](#timezone)
-- [StandaloneQuarter](#standalonequarter)
-- [StandaloneMonth](#standalonemonth)
-- [StandaloneWeekday](#standaloneweekday)
-- [VerbatimHour](#verbatimhour)
+- [Era](#era-token)
+- [Year](#year-token)
+- [YearForWeekOfYear](#yearforweekofyear-token)
+- [CyclicYear](#cyclicyear-token)
+- [Quarter](#quarter-token)
+- [Month](#month-token)
+- [Week](#week-token)
+- [Day](#day-token)
+- [DayOfYear](#dayofyear-token)
+- [Weekday](#weekday-token)
+- [DayPeriod](#dayperiod-token)
+- [Minute](#minute-token)
+- [Second](#second-token)
+- [SecondFraction](#secondfraction-token)
+- [TimeZone](#timezone-token)
+- [StandaloneQuarter](#standalonequarter-token)
+- [StandaloneMonth](#standalonemonth-token)
+- [StandaloneWeekday](#standaloneweekday-token)
+- [VerbatimHour](#verbatimhour-token)
 
 ---
 
-#### Era
+<h4 id="era-token">Era</h4>
 
 | Option         | Description                                                 |
 | -------------- | ----------------------------------------------------------- |
@@ -78,7 +100,7 @@ Every conceivable piece of information inside of a `Date` is available for use.
 
 ---
 
-#### Year
+<h4 id="year-token">Year</h4>
 
 | Option                              | Description                                                                                                                                                                                                                                                                                                                                                                     |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -90,7 +112,7 @@ Every conceivable piece of information inside of a `Date` is available for use.
 
 ---
 
-#### YearForWeekOfYear
+<h4 id="yearforweekofyear-token">YearForWeekOfYear</h4>
 
 | Option                   | Description                                                                                                                          |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -100,7 +122,7 @@ Every conceivable piece of information inside of a `Date` is available for use.
 
 ---
 
-#### CyclicYear
+<h4 id="cyclicyear-token">CyclicYear</h4>
 
 Calendars such as the Chinese lunar calendar (and related calendars) and the Hindu calendars use 60-year cycles of year names. If the calendar does not provide cyclic year name data, or if the year value to be formatted is out of the range of years for which cyclic name data is provided, then numeric formatting is used (behaves like `Year`).
 
@@ -113,7 +135,7 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 
 ---
 
-#### Quarter
+<h4 id="quarter-token">Quarter</h4>
 
 | Option         | Description                                                 |
 | -------------- | ----------------------------------------------------------- |
@@ -126,7 +148,7 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 
 ---
 
-#### Month
+<h4 id="month-token">Month</h4>
 
 | Option           | Description                                                                                                                                 |     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --- |
@@ -138,7 +160,7 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 
 ---
     
-#### Week
+<h4 id="week-token">Week</h4>
 
 Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 
@@ -150,7 +172,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 
 ---
 
-#### Day
+<h4 id="day-token">Day</h4>
 
 | Option                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -162,7 +184,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 
 ---
     
-#### DayOfYear
+<h4 id="dayofyear-token">DayOfYear</h4>
 
 | Option           | Description                                                                                      |
 | ---------------- | ------------------------------------------------------------------------------------------------ |
@@ -173,7 +195,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 
 ---
 
-#### Weekday
+<h4 id="weekday-token">Weekday</h4>
 
 | Option         | Description                                                                             |
 | -------------- | --------------------------------------------------------------------------------------- |
@@ -186,7 +208,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 
 ---
     
-#### DayPeriod
+<h4 id="dayperiod-token">DayPeriod</h4>
 
 The time period (for example, "a.m." or "p.m."). May be upper or lower case depending on the locale and other options.
 
@@ -204,7 +226,7 @@ Each of the options can be passed a `width` case.
 
 ---
 
-#### Minute
+<h4 id="minute-token">Minute</h4>
 
 | Option           | Description                                                                                |
 | ---------------- | ------------------------------------------------------------------------------------------ |
@@ -214,7 +236,7 @@ Each of the options can be passed a `width` case.
 
 ---
 
-#### Second
+<h4 id="second-token">Second</h4>
 
 | Option           | Description                                                                                |
 | ---------------- | ------------------------------------------------------------------------------------------ |
@@ -224,7 +246,7 @@ Each of the options can be passed a `width` case.
 
 ---
 
-#### SecondFraction
+<h4 id="secondfraction-token">SecondFraction</h4>
 
 | Option                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -233,7 +255,7 @@ Each of the options can be passed a `width` case.
 
 ---
 
-#### TimeZone
+<h4 id="timezone-token">TimeZone</h4>
 
 Each talkes a `Width` case.
 
@@ -251,7 +273,7 @@ Each talkes a `Width` case.
 
 ---
 
-#### StandaloneQuarter
+<h4 id="standalonequarter-token">StandaloneQuarter</h4>
 
 | Option         | Description                                                                            |
 | -------------- | -------------------------------------------------------------------------------------- |
@@ -264,7 +286,7 @@ Each talkes a `Width` case.
 
 ---
 
-#### StandaloneMonth
+<h4 id="standalonemonth-token">StandaloneMonth</h4>
 
 | Option           | Description                                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -276,7 +298,7 @@ Each talkes a `Width` case.
 
 ---
     
-#### StandaloneWeekday
+<h4 id="standaloneweekday-token">StandaloneWeekday</h4>
 
 | Option         | Description                                                           |
 | -------------- | --------------------------------------------------------------------- |
@@ -288,7 +310,7 @@ Each talkes a `Width` case.
 
 ---
     
-#### VerbatimHour
+<h4 id="verbatimhour-token">VerbatimHour</h4>
 
 Hour symbols that does not take users' preferences into account, and is displayed as-is.
 

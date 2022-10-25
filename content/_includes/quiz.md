@@ -150,11 +150,11 @@ See <a href="/date-styles/#relative-date-style-single-date">Relative Style</a>
 
 {{< /expand >}}
 
-{{< expand "An date in a very specific format" "⇅" >}}
+{{< expand "A date in a very specific format" "⇅" >}}
 
 {{< xcode13-badge >}} {{< xcode14-badge >}}
 
-If you need to output a very rigid date string that follows an exact format, you can use the verbatim format style to do that. Updated in Xcode 14.
+The Verbatim Format Style is how you create a date string with any and all extra characters you might want mixed in. This is a replacement for the `dateFormat` strings on `(NS)DateFormatter` eg. "yyyy-MMM-dd".
 
 See <a href="/date-styles/#verbatim-date-style-single-date">Verbatim Style</a>
 
