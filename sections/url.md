@@ -18,7 +18,7 @@ Brushing up on the [URLComponents documentation](https://developer.apple.com/doc
 
 {{< /hint >}}
 
-``` Swift
+```
 let appleURL = URL(string: "https://apple.com")!
 appleURL.formatted() // "https://apple.com"
 appleURL.formatted(.url) // "https://apple.com"
@@ -156,7 +156,7 @@ By default, only the scheme and the host are set as required.
 
 {{< /hint >}}
 
-``` Swift
+```
 try URL.FormatStyle.Strategy(port: .defaultValue(80)).parse("http://www.apple.com") // http://www.apple.com:80
 try URL.FormatStyle.Strategy(port: .optional).parse("http://www.apple.com") // http://www.apple.com
 try URL.FormatStyle.Strategy(port: .required).parse("http://www.apple.com") // throws an error

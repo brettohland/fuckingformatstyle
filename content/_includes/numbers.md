@@ -224,17 +224,25 @@ Outputs and `AttributedString` instead of a `String`.
 
 <pre class="splash"><code><span class="type token">Float</span>(<span class="number token">10</span>).<span class="call token">formatted</span>(.<span class="dotAccess token">number</span>.<span class="call token">scale</span>(<span class="number token">200.0</span>).<span class="call token">notation</span>(.<span class="dotAccess token">compactName</span>).<span class="call token">grouping</span>(.<span class="dotAccess token">automatic</span>).<span class="property token">attributed</span>)</code></pre>
 
-### Parsing Decimals From Strings
+### Parsing Numbers From Strings
 
-{{< hint type=important >}}
+Each of Swift's build-in numeric types supports the parsing of numeric string into their respective types.
 
-Only the `Decimal.FormatStyle` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+<pre class="splash"><code><span class="comment token">// MARK: Parsing Integers</span>
+<span class="keyword token">try</span>? <span class="type token">Int</span>(<span class="string token">"120"</span>, format: .<span class="dotAccess token">number</span>) <span class="comment token">// 120</span>
+<span class="keyword token">try</span>? <span class="type token">Int</span>(<span class="string token">"0.25"</span>, format: .<span class="dotAccess token">number</span>) <span class="comment token">// 0</span>
+<span class="keyword token">try</span>? <span class="type token">Int</span>(<span class="string token">"1E5"</span>, format: .<span class="dotAccess token">number</span>.<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>)) <span class="comment token">// 100000
 
-{{< /hint >}}
+// MARK: Parsing Floating Point Numbers</span>
+<span class="keyword token">try</span>? <span class="type token">Double</span>(<span class="string token">"0.0025"</span>, format: .<span class="dotAccess token">number</span>) <span class="comment token">// 0.0025</span>
+<span class="keyword token">try</span>? <span class="type token">Double</span>(<span class="string token">"95%"</span>, format: .<span class="dotAccess token">number</span>) <span class="comment token">// 95</span>
+<span class="keyword token">try</span>? <span class="type token">Double</span>(<span class="string token">"1E5"</span>, format: .<span class="dotAccess token">number</span>.<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>)) <span class="comment token">// 100000</span>
 
-<pre class="splash"><code><span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>().<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>).<span class="property token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"1E5"</span>) <span class="comment token">// 100000</span>
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>().<span class="call token">scale</span>(<span class="number token">5</span>).<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>).<span class="property token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"1E5"</span>) <span class="comment token">// 20000</span>
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>().<span class="call token">scale</span>(-<span class="number token">5</span>).<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>).<span class="property token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"1E5"</span>) <span class="comment token">// -20000</span>
+<span class="keyword token">try</span>? <span class="type token">Float</span>(<span class="string token">"0.0025"</span>, format: .<span class="dotAccess token">number</span>) <span class="comment token">// 0.0025</span>
+<span class="keyword token">try</span>? <span class="type token">Float</span>(<span class="string token">"95%"</span>, format: .<span class="dotAccess token">number</span>) <span class="comment token">// 95</span>
+<span class="keyword token">try</span>? <span class="type token">Float</span>(<span class="string token">"1E5"</span>, format: .<span class="dotAccess token">number</span>.<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>)) <span class="comment token">// 100000
 
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"1E5"</span>, strategy: <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>().<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>).<span class="property token">parseStrategy</span>) <span class="comment token">// 100000</span>
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"1E5"</span>, format: <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>().<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>)) <span class="comment token">// 100000</span></code></pre>
+// MARK: - Parsing Decimals</span>
+<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"0.0025"</span>, format: .<span class="dotAccess token">number</span>) <span class="comment token">// 0.0025</span>
+<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"95%"</span>, format: .<span class="dotAccess token">number</span>) <span class="comment token">// 95</span>
+<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"1E5"</span>, format: .<span class="dotAccess token">number</span>.<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>)) <span class="comment token">// 100000</span></code></pre>

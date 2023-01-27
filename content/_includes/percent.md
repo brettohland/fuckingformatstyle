@@ -226,12 +226,12 @@ Outputs and `AttributedString` instead of a `String`.
 
 {{< hint type=important >}}
 
-Only the `Decimal.FormatStyle.Percent` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+Percentages parsed as Integers will be a value from 0 - 100, while percentages parsed as floating point or decimal values will be 0.0 - 1.0.
 
 {{< /hint >}}
 
-<pre class="splash"><code><span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>(locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)).<span class="property token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"15 %"</span>) <span class="comment token">// 0.15</span>
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>(locale: <span class="type token">Locale</span>(identifier: <span class="string token">"en_CA"</span>)).<span class="property token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"15 %"</span>) <span class="comment token">// 0.15</span>
+Percentage strings can be parsed into any of Swift's built-in numeric types. 
 
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"15%"</span>, strategy: <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>().<span class="property token">parseStrategy</span>) <span class="comment token">// 0.15</span>
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"15%"</span>, format: <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Percent</span>()) <span class="comment token">// 0.15</span></code></pre>
+<pre class="splash"><code><span class="keyword token">try</span>? <span class="type token">Int</span>(<span class="string token">"98%"</span>, format: .<span class="dotAccess token">percent</span>) <span class="comment token">// 98</span>
+<span class="keyword token">try</span>? <span class="type token">Float</span>(<span class="string token">"95%"</span>, format: .<span class="dotAccess token">percent</span>) <span class="comment token">// 0.95</span>
+<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"95%"</span>, format: .<span class="dotAccess token">percent</span>) <span class="comment token">// 0.95</span></code></pre>

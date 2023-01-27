@@ -62,11 +62,9 @@ Using `FormatStyles` work like you expect them, every piece of data can have the
 
 {{< expand "What can I even format?">}}
 
-**Short answer:** Anything and Everything.
+Check the sidebar/menu, you can format (and parse!) any of these types out of the box.
 
-**Longer answer:** [Numbers](/#number-style), [Dates](/#date-and-time-single-date), [Date rages](/#interval-date-style-date-range), [Percentages](/#percent-style), [Money](/#currency-style), [Measurements](/#measurement-style), [Lists of things](/#list-style), [Person names](/#person-name-component-style), [Byte Counts](/#byte-count-style).
-
-[You can even write your own formatters from the ground up and support your own custom data types](/#custom-format-style).
+[You can even write your own formatters from the ground up and support your own custom data types](/custom-styles/).
 
 {{< /expand >}}
 

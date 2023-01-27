@@ -224,22 +224,9 @@ Outputs and `AttributedString` instead of a `String`.
 
 {{< hint type=important >}}
 
-Only the `Decimal.FormatStyle.Currency` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+Due to rounding issues, you should never use floating point types (`Double`, `Float`) to store currency values. Use `Decimal` instead.
 
 {{< /hint >}}
 
-<pre class="splash"><code><span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Currency</span>(code: <span class="string token">"GBP"</span>)
-    .<span class="call token">presentation</span>(.<span class="dotAccess token">fullName</span>)
-    .<span class="dotAccess token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"10.00 British pounds"</span>) <span class="comment token">// 10</span>
-
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Currency</span>(code: <span class="string token">"GBP"</span>, locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))
-    .<span class="call token">presentation</span>(.<span class="dotAccess token">fullName</span>)
-    .<span class="dotAccess token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"10,00 livres sterling"</span>) <span class="comment token">// 10</span>
-
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Currency</span>(code: <span class="string token">"GBP"</span>)
-    .<span class="call token">presentation</span>(.<span class="dotAccess token">fullName</span>)
-    .<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))
-    .<span class="dotAccess token">parseStrategy</span>.<span class="call token">parse</span>(<span class="string token">"10,00 livres sterling"</span>) <span class="comment token">// 10</span>
-
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"10.00 British pounds"</span>, strategy: <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Currency</span>(code: <span class="string token">"GBP"</span>).<span class="property token">parseStrategy</span>) <span class="comment token">// 10</span>
-<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"10.00 British pounds"</span>, format: <span class="type token">Decimal</span>.<span class="type token">FormatStyle</span>.<span class="type token">Currency</span>(code: <span class="string token">"GBP"</span>)) <span class="comment token">// 10</span></code></pre>
+<pre class="splash"><code><span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"$100.25"</span>, format: .<span class="call token">currency</span>(code: <span class="string token">"USD"</span>)) <span class="comment token">// 100.25</span>
+<span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"100.25 British Points"</span>, format: .<span class="call token">currency</span>(code: <span class="string token">"GBP"</span>)) <span class="comment token">// 100.25</span></code></pre>

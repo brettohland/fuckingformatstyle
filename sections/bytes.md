@@ -50,7 +50,7 @@ You can provide a `Set<ByteCountFormatStyle.Units>` for the `units` parameter in
 
 <p>&nbsp;</p>
 
-``` Swift
+```
 
 // MARK: - Int64
 
@@ -125,7 +125,7 @@ megabyteMeasurement.formatted(.byteCount(style: .file, includesActualByteCount: 
 
 You can set the locale by appending the `locale()` method onto the end of the format style.
 
-``` Swift
+```
 let franceLocale = Locale(identifier: "fr_FR")
 
 terabyte.formatted(.byteCount(style: .binary).locale(franceLocale)) // "931,32 Go"
@@ -143,7 +143,7 @@ terabyteMeasurement.formatted(.byteCount(style: .memory).locale(franceLocale)) /
 
 You can output attributed strings by appending the `attributed` method onto the end of the format style.
 
-``` Swift
+```
 terabyte.formatted(.byteCount(style: .binary).attributed)
 
 terabyteMeasurement.formatted(.byteCount(style: .binary).attributed)

@@ -18,8 +18,7 @@ Brushing up on the [URLComponents documentation](https://developer.apple.com/doc
 
 {{< /hint >}}
 
-<pre class="splash"><code><span class="type token">Swift</span>
-<span class="keyword token">let</span> appleURL = <span class="type token">URL</span>(string: <span class="string token">"https://apple.com"</span>)!
+<pre class="splash"><code><span class="keyword token">let</span> appleURL = <span class="type token">URL</span>(string: <span class="string token">"https://apple.com"</span>)!
 appleURL.<span class="call token">formatted</span>() <span class="comment token">// "https://apple.com"</span>
 appleURL.<span class="call token">formatted</span>(.<span class="dotAccess token">url</span>) <span class="comment token">// "https://apple.com"</span>
 appleURL.<span class="call token">formatted</span>(.<span class="dotAccess token">url</span>.<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))) <span class="comment token">// "https://apple.com"</span>
@@ -155,8 +154,7 @@ By default, only the scheme and the host are set as required.
 
 {{< /hint >}}
 
-<pre class="splash"><code><span class="type token">Swift</span>
-<span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>(port: .<span class="call token">defaultValue</span>(<span class="number token">80</span>)).<span class="call token">parse</span>(<span class="string token">"http://www.apple.com"</span>) <span class="comment token">// http://www.apple.com:80</span>
+<pre class="splash"><code><span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>(port: .<span class="call token">defaultValue</span>(<span class="number token">80</span>)).<span class="call token">parse</span>(<span class="string token">"http://www.apple.com"</span>) <span class="comment token">// http://www.apple.com:80</span>
 <span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>(port: .<span class="dotAccess token">optional</span>).<span class="call token">parse</span>(<span class="string token">"http://www.apple.com"</span>) <span class="comment token">// http://www.apple.com</span>
 <span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>(port: .<span class="dotAccess token">required</span>).<span class="call token">parse</span>(<span class="string token">"http://www.apple.com"</span>) <span class="comment token">// throws an error
 

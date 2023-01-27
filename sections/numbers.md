@@ -250,19 +250,27 @@ Outputs and `AttributedString` instead of a `String`.
 Float(10).formatted(.number.scale(200.0).notation(.compactName).grouping(.automatic).attributed)
 ```
 
-### Parsing Decimals From Strings
+### Parsing Numbers From Strings
 
-{{< hint type=important >}}
-
-Only the `Decimal.FormatStyle` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
-
-{{< /hint >}}
+Each of Swift's build-in numeric types supports the parsing of numeric string into their respective types.
 
 ```
-try? Decimal.FormatStyle().notation(.scientific).parseStrategy.parse("1E5") // 100000
-try? Decimal.FormatStyle().scale(5).notation(.scientific).parseStrategy.parse("1E5") // 20000
-try? Decimal.FormatStyle().scale(-5).notation(.scientific).parseStrategy.parse("1E5") // -20000
+// MARK: Parsing Integers
+try? Int("120", format: .number) // 120
+try? Int("0.25", format: .number) // 0
+try? Int("1E5", format: .number.notation(.scientific)) // 100000
 
-try? Decimal("1E5", strategy: Decimal.FormatStyle().notation(.scientific).parseStrategy) // 100000
-try? Decimal("1E5", format: Decimal.FormatStyle().notation(.scientific)) // 100000
+// MARK: Parsing Floating Point Numbers
+try? Double("0.0025", format: .number) // 0.0025
+try? Double("95%", format: .number) // 95
+try? Double("1E5", format: .number.notation(.scientific)) // 100000
+
+try? Float("0.0025", format: .number) // 0.0025
+try? Float("95%", format: .number) // 95
+try? Float("1E5", format: .number.notation(.scientific)) // 100000
+
+// MARK: - Parsing Decimals
+try? Decimal("0.0025", format: .number) // 0.0025
+try? Decimal("95%", format: .number) // 95
+try? Decimal("1E5", format: .number.notation(.scientific)) // 100000
 ```

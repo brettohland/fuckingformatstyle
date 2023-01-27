@@ -250,25 +250,11 @@ Decimal(10).formatted(.currency(code: "GBP").scale(200.0).sign(strategy: .always
 
 {{< hint type=important >}}
 
-Only the `Decimal.FormatStyle.Currency` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+Due to rounding issues, you should never use floating point types (`Double`, `Float`) to store currency values. Use `Decimal` instead.
 
 {{< /hint >}}
 
 ```
-try? Decimal.FormatStyle.Currency(code: "GBP")
-    .presentation(.fullName)
-    .parseStrategy.parse("10.00 British pounds") // 10
-
-try? Decimal.FormatStyle.Currency(code: "GBP", locale: Locale(identifier: "fr_FR"))
-    .presentation(.fullName)
-    .parseStrategy.parse("10,00 livres sterling") // 10
-
-try? Decimal.FormatStyle.Currency(code: "GBP")
-    .presentation(.fullName)
-    .locale(Locale(identifier: "fr_FR"))
-    .parseStrategy.parse("10,00 livres sterling") // 10
-
-try? Decimal("10.00 British pounds", strategy: Decimal.FormatStyle.Currency(code: "GBP").parseStrategy) // 10
-try? Decimal("10.00 British pounds", format: Decimal.FormatStyle.Currency(code: "GBP")) // 10
-
+try? Decimal("$100.25", format: .currency(code: "USD")) // 100.25
+try? Decimal("100.25 British Points", format: .currency(code: "GBP")) // 100.25
 ```

@@ -295,17 +295,17 @@ By setting up either a `Date.FormatStyle` or `Date.ISO8601FormatStyle` with your
 
 {{< /expand >}}
 
-{{< expand "Parsing Decimal Numbers" "⇅" >}}
+{{< expand "Parsing Numbers" "⇅" >}}
 
 {{< xcode13-badge >}}
 
-You can parse Decimals, Percentages, or Currency values into Decimals.
+All of Swift's build-in numeric types can be parsed from strings. You can also handle parsing percentages and currencies.
 
-[See Parsing Decimals](/numeric-styles/#parsing-decimals-from-strings)
+[See Parsing Numbers](/numeric-styles/#parsing-numbers-from-strings)
 
-[See Parsing Decimal Percentages](/numeric-styles/#parsing-percentages-from-strings)
+[See Parsing Percentages](/numeric-styles/#parsing-percentages-from-strings)
 
-[See Parsing Decimal Currencies](/numeric-styles/#parsing-currencies-from-strings) 
+[See Parsing Currencies](/numeric-styles/#parsing-currencies-from-strings) 
 
 {{< /expand >}}
 

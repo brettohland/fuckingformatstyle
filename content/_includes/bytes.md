@@ -50,9 +50,7 @@ You can provide a `Set<ByteCountFormatStyle.Units>` for the `units` parameter in
 
 <p>&nbsp;</p>
 
-<pre class="splash"><code><span class="type token">Swift</span>
-
-<span class="comment token">// MARK: - Int64</span>
+<pre class="splash"><code><span class="comment token">// MARK: - Int64</span>
 
 <span class="keyword token">let</span> terabyte: <span class="type token">Int64</span> = <span class="number token">1_000_000_000_000</span>
 
@@ -123,8 +121,7 @@ megabyteMeasurement.<span class="call token">formatted</span>(.<span class="call
 
 You can set the locale by appending the `locale()` method onto the end of the format style.
 
-<pre class="splash"><code><span class="type token">Swift</span>
-<span class="keyword token">let</span> franceLocale = <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)
+<pre class="splash"><code><span class="keyword token">let</span> franceLocale = <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)
 
 terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "931,32 Go"</span>
 terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">decimal</span>).<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "1To"</span>
@@ -140,7 +137,6 @@ terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call
 
 You can output attributed strings by appending the `attributed` method onto the end of the format style.
 
-<pre class="splash"><code><span class="type token">Swift</span>
-terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="property token">attributed</span>)
+<pre class="splash"><code>terabyte.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="property token">attributed</span>)
 
 terabyteMeasurement.<span class="call token">formatted</span>(.<span class="call token">byteCount</span>(style: .<span class="dotAccess token">binary</span>).<span class="property token">attributed</span>)</code></pre>

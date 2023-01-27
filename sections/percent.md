@@ -252,15 +252,14 @@ Float(10).formatted(.percent.scale(200.0).notation(.compactName).grouping(.autom
 
 {{< hint type=important >}}
 
-Only the `Decimal.FormatStyle.Percent` conforms to `ParseableFormatStyle`, and thus is the only built-in type that can be parsed from strings.
+Percentages parsed as Integers will be a value from 0 - 100, while percentages parsed as floating point or decimal values will be 0.0 - 1.0.
 
 {{< /hint >}}
 
+Percentage strings can be parsed into any of Swift's built-in numeric types. 
+
 ```
-try? Decimal.FormatStyle.Percent(locale: Locale(identifier: "fr_FR")).parseStrategy.parse("15 %") // 0.15
-try? Decimal.FormatStyle.Percent(locale: Locale(identifier: "en_CA")).parseStrategy.parse("15 %") // 0.15
-
-try? Decimal("15%", strategy: Decimal.FormatStyle.Percent().parseStrategy) // 0.15
-try? Decimal("15%", format: Decimal.FormatStyle.Percent()) // 0.15
-
+try? Int("98%", format: .percent) // 98
+try? Float("95%", format: .percent) // 0.95
+try? Decimal("95%", format: .percent) // 0.95
 ```

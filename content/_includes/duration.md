@@ -10,8 +10,7 @@ Time format style allows you to output your `Duration` as a combination of hours
 
 You can either initialize a new instance of `Duration.TimeFormatStyle`, or use the `.time(pattern:)` extension on FormatStyle.
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>() <span class="comment token">// "0:16:40"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>() <span class="comment token">// "0:16:40"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">hourMinute</span>)) <span class="comment token">// "0:17"</span>
 <span class="type token">Duration</span>.<span class="type token">TimeFormatStyle</span>(pattern: .<span class="dotAccess token">hourMinute</span>).<span class="call token">format</span>(<span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>)) <span class="comment token">// "0:17"</span></code></pre>
 
@@ -33,8 +32,7 @@ The properties are the "defaults" for each type of pattern and will choose the c
 | `.hourMinuteSecond` | Displays the hour, minute, and second values for the Duration |
 | `.minuteSecond`     | Displays the minute and second values for the Duration        |
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">hourMinute</span>)) <span class="comment token">// "0:17"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">hourMinute</span>)) <span class="comment token">// "0:17"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">hourMinuteSecond</span>)) <span class="comment token">// "0:16:40"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">minuteSecond</span>)) <span class="comment token">// "16:40"</span></code></pre>
 
@@ -53,8 +51,7 @@ The following are the parameter options for `hourMinute`:
 | `padHourToLength` | Pads the output to include that number of digits.                                                                                 |
 | `roundSeconds`    | The rounding rule to use on the seconds value ([See Rounding for all options](#numbers-rounding)). Defaults to `.toNearestOrEven` |
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="call token">hourMinute</span>(padHourToLength: <span class="number token">3</span>, roundSeconds: .<span class="dotAccess token">awayFromZero</span>))) <span class="comment token">// "000:17"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="call token">hourMinute</span>(padHourToLength: <span class="number token">3</span>, roundSeconds: .<span class="dotAccess token">awayFromZero</span>))) <span class="comment token">// "000:17"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="call token">hourMinute</span>(padHourToLength: <span class="number token">1</span>, roundSeconds: .<span class="dotAccess token">down</span>))) <span class="comment token">// "000:16"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="call token">hourMinute</span>(padHourToLength: <span class="number token">1</span>, roundSeconds: .<span class="dotAccess token">toNearestOrAwayFromZero</span>))) <span class="comment token">// "0:17"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="call token">hourMinute</span>(padHourToLength: <span class="number token">1</span>, roundSeconds: .<span class="dotAccess token">toNearestOrEven</span>))) <span class="comment token">// "0:17"</span>
@@ -68,8 +65,7 @@ The following are the parameter options for both `hourMinuteSecond` and 'minuteS
 | `fractionalSecondsLength` | The number of digits to include when displaying fractional seconds.                                                               |
 | `roundFractionalSeconds`  | The rounding rule to use on the seconds value ([See Rounding for all options](#numbers-rounding)). Defaults to `.toNearestOrEven` |
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(
     .<span class="call token">time</span>(
         pattern: .<span class="call token">hourMinuteSecond</span>(
             padHourToLength: <span class="number token">3</span>,
@@ -93,8 +89,7 @@ Duration</span>.<span class="call token">seconds</span>(<span class="number toke
 
 You can set the `Locale` of the style by adding the `.locale()` method to your `.time(pattern:)` method, or including the locale parameter in the `Duration.TimeFormatStyle` initializer.
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">hourMinute</span>).<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))) <span class="comment token">// "0:17"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">hourMinute</span>).<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))) <span class="comment token">// "0:17"</span>
 
 <span class="keyword token">let</span> frenchTimeFormatStyle = <span class="type token">Duration</span>.<span class="type token">TimeFormatStyle</span>(pattern: .<span class="dotAccess token">minuteSecond</span>, locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))
 
@@ -104,8 +99,7 @@ frenchTimeFormatStyle.<span class="call token">format</span>(<span class="type t
 
 You can output `AttributedString` values by adding the `.attributed` method.
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">hourMinuteSecond</span>).<span class="property token">attributed</span>)</code></pre>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="dotAccess token">hourMinuteSecond</span>).<span class="property token">attributed</span>)</code></pre>
 
 <h2 id="units-style">Unit Style {{< xcode14-badge >}}</h2>
 
@@ -113,8 +107,7 @@ The units style allows you to declare and customize the specific units to displa
 
 You can either initialize a new instance of `Duration.UnitsFormatStyle`, or use the `.units()` extension on FormatStyle.
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>()) <span class="comment token">// "1 min, 40 sec"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>()) <span class="comment token">// "1 min, 40 sec"</span>
 <span class="type token">Duration</span>.<span class="type token">UnitsFormatStyle</span>(allowedUnits: [.<span class="dotAccess token">hours</span>, .<span class="dotAccess token">minutes</span>, .<span class="dotAccess token">seconds</span>], width: .<span class="dotAccess token">abbreviated</span>).<span class="call token">format</span>(.<span class="call token">seconds</span>(<span class="number token">100</span>)) <span class="comment token">// "1 min, 40 sec"</span></code></pre>
 
 In both cases, there are two variants the initializer or style method. 
@@ -156,8 +149,7 @@ The following units are available (from smallest to largest):
 - `.days`
 - `.weeks`
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">milliseconds</span>(<span class="number token">500</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(allowed: [.<span class="dotAccess token">nanoseconds</span>])) <span class="comment token">// "500,000,000 ns"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">milliseconds</span>(<span class="number token">500</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(allowed: [.<span class="dotAccess token">nanoseconds</span>])) <span class="comment token">// "500,000,000 ns"</span>
 <span class="type token">Duration</span>.<span class="call token">milliseconds</span>(<span class="number token">500</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(allowed: [.<span class="dotAccess token">microseconds</span>])) <span class="comment token">// "500,000 μs"</span>
 <span class="type token">Duration</span>.<span class="call token">milliseconds</span>(<span class="number token">500</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(allowed: [.<span class="dotAccess token">milliseconds</span>])) <span class="comment token">// "500 ms"</span>
 <span class="type token">Duration</span>.<span class="call token">milliseconds</span>(<span class="number token">500</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(allowed: [.<span class="dotAccess token">seconds</span>])) <span class="comment token">// "0 sec"</span>
@@ -210,8 +202,7 @@ This parameter controls how verbose/wordy and condensed the string output is.
 | `.narrow`               | Shows the shortest possible unit name                                         |
 
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(width: .<span class="dotAccess token">abbreviated</span>)) <span class="comment token">// "1 min, 40 sec"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(width: .<span class="dotAccess token">abbreviated</span>)) <span class="comment token">// "1 min, 40 sec"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(width: .<span class="dotAccess token">condensedAbbreviated</span>)) <span class="comment token">// "1 min,40 sec"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(width: .<span class="dotAccess token">narrow</span>)) <span class="comment token">// "1m 40s"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(width: .<span class="dotAccess token">wide</span>)) <span class="comment token">// "1 minute, 40 seconds"</span></code></pre>
@@ -222,8 +213,7 @@ Duration</span>.<span class="call token">seconds</span>(<span class="number toke
 
 Controls the number of units to display in the final string. This works in tandem with the `.units` property.
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">10000</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(maximumUnitCount: <span class="number token">1</span>)) <span class="comment token">// "3 hr"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">10000</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(maximumUnitCount: <span class="number token">1</span>)) <span class="comment token">// "3 hr"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">10000</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(maximumUnitCount: <span class="number token">2</span>)) <span class="comment token">// "2 hr, 47 min"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">10000</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(maximumUnitCount: <span class="number token">3</span>)) <span class="comment token">// "2 hr, 46 min, 40 sec"</span></code></pre>
 
@@ -233,8 +223,7 @@ Duration</span>.<span class="call token">seconds</span>(<span class="number toke
 
 Controls how units with a value of zero are shown or not, and if set to `.show`, how many zeros to use in their display.
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(zeroValueUnits: .<span class="dotAccess token">hide</span>)) <span class="comment token">// "1 min, 40 sec"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(zeroValueUnits: .<span class="dotAccess token">hide</span>)) <span class="comment token">// "1 min, 40 sec"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(zeroValueUnits: .<span class="call token">show</span>(length: <span class="number token">1</span>))) <span class="comment token">// "0 hr, 1 min, 40 sec"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">100</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(zeroValueUnits: .<span class="call token">show</span>(length: <span class="number token">3</span>))) <span class="comment token">// "000 hr, 001 min, 040 sec"</span></code></pre>
 
@@ -244,8 +233,7 @@ Duration</span>.<span class="call token">seconds</span>(<span class="number toke
 
 Controls how many digits of each unit to display. `valueLength` accepts a fixed integer, while `valueLengthLimits` accepts a range.
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(valueLength: <span class="number token">1</span>)) <span class="comment token">// "16 min, 40 sec"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(valueLength: <span class="number token">1</span>)) <span class="comment token">// "16 min, 40 sec"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(valueLength: <span class="number token">3</span>)) <span class="comment token">// "016 min, 040 sec"</span>
 
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">10_000</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(valueLengthLimits: <span class="number token">1</span>...)) <span class="comment token">// This is a bug (Feedback FB10607619)</span>
@@ -262,8 +250,7 @@ As of Xcode 14.0 beta 3 (14A5270f), there's a bug when you use a `ValueRange` of
 
 Controls how fractional values are handled for display.
 
-<pre class="splash"><code><span class="type token">Swift
-Duration</span>.<span class="call token">seconds</span>(<span class="number token">10</span>.<span class="number token">0_023</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(fractionalPart: .<span class="dotAccess token">hide</span>)) <span class="comment token">// "10 sec"</span>
+<pre class="splash"><code><span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">10</span>.<span class="number token">0_023</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(fractionalPart: .<span class="dotAccess token">hide</span>)) <span class="comment token">// "10 sec"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">10</span>.<span class="number token">0_023</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(fractionalPart: .<span class="call token">hide</span>(rounded: .<span class="dotAccess token">up</span>))) <span class="comment token">// "11 sec"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">10</span>.<span class="number token">0_023</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(fractionalPart: .<span class="call token">hide</span>(rounded: .<span class="dotAccess token">towardZero</span>))) <span class="comment token">// "10 sec"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">10</span>.<span class="number token">0_023</span>).<span class="call token">formatted</span>(.<span class="call token">units</span>(fractionalPart: .<span class="call token">hide</span>(rounded: .<span class="dotAccess token">toNearestOrEven</span>))) <span class="comment token">// "10 sec"</span>

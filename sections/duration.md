@@ -10,7 +10,7 @@ Time format style allows you to output your `Duration` as a combination of hours
 
 You can either initialize a new instance of `Duration.TimeFormatStyle`, or use the `.time(pattern:)` extension on FormatStyle.
 
-``` Swift
+```
 Duration.seconds(1_000).formatted() // "0:16:40"
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute)) // "0:17"
 Duration.TimeFormatStyle(pattern: .hourMinute).format(Duration.seconds(1_000)) // "0:17"
@@ -35,7 +35,7 @@ The properties are the "defaults" for each type of pattern and will choose the c
 | `.hourMinuteSecond` | Displays the hour, minute, and second values for the Duration |
 | `.minuteSecond`     | Displays the minute and second values for the Duration        |
 
-``` Swift
+```
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute)) // "0:17"
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinuteSecond)) // "0:16:40"
 Duration.seconds(1_000).formatted(.time(pattern: .minuteSecond)) // "16:40"
@@ -56,7 +56,7 @@ The following are the parameter options for `hourMinute`:
 | `padHourToLength` | Pads the output to include that number of digits.                                                                                 |
 | `roundSeconds`    | The rounding rule to use on the seconds value ([See Rounding for all options](#numbers-rounding)). Defaults to `.toNearestOrEven` |
 
-``` Swift
+```
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 3, roundSeconds: .awayFromZero))) // "000:17"
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1, roundSeconds: .down))) // "000:16"
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1, roundSeconds: .toNearestOrAwayFromZero))) // "0:17"
@@ -72,7 +72,7 @@ The following are the parameter options for both `hourMinuteSecond` and 'minuteS
 | `fractionalSecondsLength` | The number of digits to include when displaying fractional seconds.                                                               |
 | `roundFractionalSeconds`  | The rounding rule to use on the seconds value ([See Rounding for all options](#numbers-rounding)). Defaults to `.toNearestOrEven` |
 
-``` Swift
+```
 Duration.seconds(1_000).formatted(
     .time(
         pattern: .hourMinuteSecond(
@@ -98,7 +98,7 @@ Duration.seconds(1_000).formatted(
 
 You can set the `Locale` of the style by adding the `.locale()` method to your `.time(pattern:)` method, or including the locale parameter in the `Duration.TimeFormatStyle` initializer.
 
-``` Swift
+```
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute).locale(Locale(identifier: "fr_FR"))) // "0:17"
 
 let frenchTimeFormatStyle = Duration.TimeFormatStyle(pattern: .minuteSecond, locale: Locale(identifier: "fr_FR"))
@@ -110,7 +110,7 @@ frenchTimeFormatStyle.format(Duration.seconds(1_000)) // "16:40"
 
 You can output `AttributedString` values by adding the `.attributed` method.
 
-``` Swift
+```
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinuteSecond).attributed)
 ```
 
@@ -120,7 +120,7 @@ The units style allows you to declare and customize the specific units to displa
 
 You can either initialize a new instance of `Duration.UnitsFormatStyle`, or use the `.units()` extension on FormatStyle.
 
-``` Swift
+```
 Duration.seconds(100).formatted(.units()) // "1 min, 40 sec"
 Duration.UnitsFormatStyle(allowedUnits: [.hours, .minutes, .seconds], width: .abbreviated).format(.seconds(100)) // "1 min, 40 sec"
 ```
@@ -164,7 +164,7 @@ The following units are available (from smallest to largest):
 - `.days`
 - `.weeks`
 
-``` Swift
+```
 Duration.milliseconds(500).formatted(.units(allowed: [.nanoseconds])) // "500,000,000 ns"
 Duration.milliseconds(500).formatted(.units(allowed: [.microseconds])) // "500,000 μs"
 Duration.milliseconds(500).formatted(.units(allowed: [.milliseconds])) // "500 ms"
@@ -219,7 +219,7 @@ This parameter controls how verbose/wordy and condensed the string output is.
 | `.narrow`               | Shows the shortest possible unit name                                         |
 
 
-``` Swift
+```
 Duration.seconds(100).formatted(.units(width: .abbreviated)) // "1 min, 40 sec"
 Duration.seconds(100).formatted(.units(width: .condensedAbbreviated)) // "1 min,40 sec"
 Duration.seconds(100).formatted(.units(width: .narrow)) // "1m 40s"
@@ -232,7 +232,7 @@ Duration.seconds(100).formatted(.units(width: .wide)) // "1 minute, 40 seconds"
 
 Controls the number of units to display in the final string. This works in tandem with the `.units` property.
 
-``` Swift
+```
 Duration.seconds(10000).formatted(.units(maximumUnitCount: 1)) // "3 hr"
 Duration.seconds(10000).formatted(.units(maximumUnitCount: 2)) // "2 hr, 47 min"
 Duration.seconds(10000).formatted(.units(maximumUnitCount: 3)) // "2 hr, 46 min, 40 sec"
@@ -244,7 +244,7 @@ Duration.seconds(10000).formatted(.units(maximumUnitCount: 3)) // "2 hr, 46 min,
 
 Controls how units with a value of zero are shown or not, and if set to `.show`, how many zeros to use in their display.
 
-``` Swift
+```
 Duration.seconds(100).formatted(.units(zeroValueUnits: .hide)) // "1 min, 40 sec"
 Duration.seconds(100).formatted(.units(zeroValueUnits: .show(length: 1))) // "0 hr, 1 min, 40 sec"
 Duration.seconds(100).formatted(.units(zeroValueUnits: .show(length: 3))) // "000 hr, 001 min, 040 sec"
@@ -256,7 +256,7 @@ Duration.seconds(100).formatted(.units(zeroValueUnits: .show(length: 3))) // "00
 
 Controls how many digits of each unit to display. `valueLength` accepts a fixed integer, while `valueLengthLimits` accepts a range.
 
-``` Swift
+```
 Duration.seconds(1_000).formatted(.units(valueLength: 1)) // "16 min, 40 sec"
 Duration.seconds(1_000).formatted(.units(valueLength: 3)) // "016 min, 040 sec"
 
@@ -275,7 +275,7 @@ As of Xcode 14.0 beta 3 (14A5270f), there's a bug when you use a `ValueRange` of
 
 Controls how fractional values are handled for display.
 
-``` Swift
+```
 Duration.seconds(10.0_023).formatted(.units(fractionalPart: .hide)) // "10 sec"
 Duration.seconds(10.0_023).formatted(.units(fractionalPart: .hide(rounded: .up))) // "11 sec"
 Duration.seconds(10.0_023).formatted(.units(fractionalPart: .hide(rounded: .towardZero))) // "10 sec"
