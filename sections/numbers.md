@@ -134,10 +134,10 @@ Float(10).formatted(.number.decimalSeparator(strategy: .always))    // "10."
 
 Controls if the thousands units are grouped or not.
 
-| Grouping  | Descriotion                   |
-| --------- | ----------------------------- |
-| `.never`  | Never group thousands digits  |
-| `.always` | Always group thousands digits | 
+| Grouping     | Descriotion                                        |
+| ------------ | -------------------------------------------------- |
+| `.never`     | Never group thousands digits                       |
+| `.automatic` | Group the digits automatically based on the locale | 
 
 ```
 Float(1000).formatted(.number.grouping(.automatic)) // "1,000"
