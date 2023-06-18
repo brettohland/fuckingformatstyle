@@ -2,6 +2,20 @@
 draft: false
 ---
 
+## [v1.5](https://github.com/brettohland/fuckingformatstyle/tree/v1.5) (2023-06-18)
+
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.4...v1.5)
+
+**Closed issues:**
+
+- Grouping inconsistencies [\#17](https://github.com/brettohland/fuckingformatstyle/issues/17)
+- Suggestion for additional example in formatting for money by locale [\#15](https://github.com/brettohland/fuckingformatstyle/issues/15)
+
+**Merged pull requests:**
+
+- Fixing numeric grouping info [\#19](https://github.com/brettohland/fuckingformatstyle/pull/19) ([brettohland](https://github.com/brettohland))
+- - Adding new currency locale example [\#18](https://github.com/brettohland/fuckingformatstyle/pull/18) ([brettohland](https://github.com/brettohland))
+
 ## [v1.4](https://github.com/brettohland/fuckingformatstyle/tree/v1.4) (2022-10-02)
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.3...v1.4)

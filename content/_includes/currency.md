@@ -206,7 +206,8 @@ Controls the scale of the number.
 
 Controls the locale of the output.
 
-<pre class="splash"><code><span class="type token">Decimal</span>(<span class="number token">10</span>).<span class="call token">formatted</span>(.<span class="call token">currency</span>(code: <span class="string token">"GBP"</span>).<span class="call token">presentation</span>(.<span class="dotAccess token">fullName</span>).<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))) <span class="comment token">// "10,00 livres sterling"</span></code></pre>
+<pre class="splash"><code><span class="type token">Decimal</span>(<span class="number token">10</span>).<span class="call token">formatted</span>(.<span class="call token">currency</span>(code: <span class="string token">"GBP"</span>).<span class="call token">presentation</span>(.<span class="dotAccess token">fullName</span>).<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))) <span class="comment token">// "10,00 livres sterling"</span>
+<span class="type token">Decimal</span>(<span class="number token">10000000</span>).<span class="call token">formatted</span>(.<span class="call token">currency</span>(code: <span class="string token">"GBP"</span>).<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"hi_IN"</span>))) <span class="comment token">// "£1,00,00,000.00</span></code></pre>
 
 <h3 id="currency-compositing">Compositing</h3>
 
