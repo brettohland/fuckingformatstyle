@@ -122,10 +122,10 @@ Controls the visibility of the decimal separator.
 
 Controls if the thousands units are grouped or not.
 
-| Grouping  | Descriotion                   |
-| --------- | ----------------------------- |
-| `.never`  | Never group thousands digits  |
-| `.always` | Always group thousands digits | 
+| Grouping     | Descriotion                                        |
+| ------------ | -------------------------------------------------- |
+| `.never`     | Never group thousands digits                       |
+| `.automatic` | Group the digits automatically based on the locale | 
 
 <pre class="splash"><code><span class="type token">Float</span>(<span class="number token">1000</span>).<span class="call token">formatted</span>(.<span class="dotAccess token">number</span>.<span class="call token">grouping</span>(.<span class="dotAccess token">automatic</span>)) <span class="comment token">// "1,000"</span>
 <span class="type token">Float</span>(<span class="number token">1000</span>).<span class="call token">formatted</span>(.<span class="dotAccess token">number</span>.<span class="call token">grouping</span>(.<span class="dotAccess token">never</span>))     <span class="comment token">// "1000"</span></code></pre>
