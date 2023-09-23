@@ -210,6 +210,24 @@ Controls the locale of the output.
 <span class="type token">Float</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="dotAccess token">percent</span>.<span class="call token">notation</span>(.<span class="dotAccess token">compactName</span>).<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))) <span class="comment token">// "100 k %"</span>
 <span class="type token">Float</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="dotAccess token">percent</span>.<span class="call token">notation</span>(.<span class="dotAccess token">scientific</span>).<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)))  <span class="comment token">// "1E5 %"</span></code></pre>
 
+### Localizing Number Systems
+
+In cases where a given `Locale` has multiple number systems available, numeric format styles will default to using the number system which matches the your system's `Locale.current` value. You're able to explicitly set the number system for the Format Style to use by initializing a new `Locale` with the number system set using the BCP-47 or ICU Identifiers:
+
+#### [BCP-47](https://www.rfc-editor.org/info/bcp47)
+
+<pre class="splash"><code><span class="keyword token">let</span> englishArabicBCP47 = <span class="string token">"en-u-nu-arab"</span>
+<span class="keyword token">let</span> enArabBCP47 = <span class="type token">Locale</span>(identifier: englishArabicBCP47)
+<span class="number token">123456</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">number</span>.<span class="call token">locale</span>(enArabBCP47)) <span class="comment token">// "١٢٣٬٤٥٦"</span>
+<span class="type token">Date</span>.<span class="property token">now</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">year</span>().<span class="call token">month</span>().<span class="call token">day</span>().<span class="call token">locale</span>(enArabBCP47)) <span class="comment token">// "Sep ٢٣, ٢٠٢٣"</span></code></pre>
+
+#### ICU
+
+<pre class="splash"><code><span class="keyword token">let</span> englishArabicICU = <span class="string token">"en@numbers=arab"</span>
+<span class="keyword token">let</span> enArabICU = <span class="type token">Locale</span>(identifier: <span class="string token">"en@numbers=arab"</span>)
+<span class="number token">12345</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">number</span>.<span class="call token">locale</span>(enArabICU)) <span class="comment token">// "١٢٬٣٤٥"</span>
+<span class="type token">Date</span>.<span class="property token">now</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">year</span>().<span class="call token">month</span>().<span class="call token">day</span>().<span class="call token">locale</span>(enArabICU)) <span class="comment token">// "Sep ٢٣, ٢٠٢٣"</span></code></pre>
+
 <h3 id="percent-compositing">Compositing</h3>
 
 Any of the above styles can be combined to fully customize the output.

@@ -82,3 +82,17 @@ You can also extend the `FormatStyle` protocol as a way of simplifying access to
 }
 
 twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">frenchHebrew</span>) <span class="comment token">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>
+
+### Localizing Number Systems
+
+In cases where a given `Locale` has multiple number systems available, numeric format styles will default to using the number system which matches the your system's `Locale.current` value. You're able to explicitly set the number system for the Format Style to use by initializing a new `Locale` with the number system set using the BCP-47 or ICU Identifiers:
+
+#### ICU
+
+<pre class="splash"><code><span class="comment token">// Without</span>
+<span class="keyword token">let</span> defaultHebrew = <span class="type token">Locale</span>(identifier: <span class="string token">"he"</span>)
+<span class="type token">Date</span>.<span class="property token">now</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">year</span>().<span class="call token">month</span>().<span class="call token">day</span>().<span class="call token">locale</span>(defaultHebrew)) <span class="comment token">// "23 בספט׳ 2023"
+
+// With</span>
+<span class="keyword token">let</span> hebrew = <span class="type token">Locale</span>(identifier: <span class="string token">"he@numbers=hebr;calendar=hebrew"</span>)
+<span class="type token">Date</span>.<span class="property token">now</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">year</span>().<span class="call token">month</span>().<span class="call token">day</span>().<span class="call token">locale</span>(hebrew)) <span class="comment token">// "כ״ג בספט׳ ב׳כ״ג"</span></code></pre>
