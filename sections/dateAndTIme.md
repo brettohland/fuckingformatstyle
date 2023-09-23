@@ -88,3 +88,19 @@ extension FormatStyle where Self == FrenchHebrewStyle {
 
 twosday.formatted(.frenchHebrew) // "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"
 ```
+
+### Localizing Number Systems
+
+In cases where a given `Locale` has multiple number systems available, numeric format styles will default to using the number system which matches the your system's `Locale.current` value. You're able to explicitly set the number system for the Format Style to use by initializing a new `Locale` with the number system set using the BCP-47 or ICU Identifiers:
+
+#### ICU
+
+```
+// Without
+let defaultHebrew = Locale(identifier: "he")
+Date.now.formatted(.dateTime.year().month().day().locale(defaultHebrew)) // "23 בספט׳ 2023"
+
+// With
+let hebrew = Locale(identifier: "he@numbers=hebr;calendar=hebrew")
+Date.now.formatted(.dateTime.year().month().day().locale(hebrew)) // "כ״ג בספט׳ ב׳כ״ג"
+```

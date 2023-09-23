@@ -232,6 +232,28 @@ Float(1_000).formatted(.percent.notation(.compactName).locale(Locale(identifier:
 Float(1_000).formatted(.percent.notation(.scientific).locale(Locale(identifier: "fr_FR")))  // "1E5 %"
 ```
 
+### Localizing Number Systems
+
+In cases where a given `Locale` has multiple number systems available, numeric format styles will default to using the number system which matches the your system's `Locale.current` value. You're able to explicitly set the number system for the Format Style to use by initializing a new `Locale` with the number system set using the BCP-47 or ICU Identifiers:
+
+#### [BCP-47](https://www.rfc-editor.org/info/bcp47)
+
+```
+let englishArabicBCP47 = "en-u-nu-arab"
+let enArabBCP47 = Locale(identifier: englishArabicBCP47)
+123456.formatted(.number.locale(enArabBCP47)) // "١٢٣٬٤٥٦"
+Date.now.formatted(.dateTime.year().month().day().locale(enArabBCP47)) // "Sep ٢٣, ٢٠٢٣"
+```
+
+#### ICU
+
+```
+let englishArabicICU = "en@numbers=arab"
+let enArabICU = Locale(identifier: "en@numbers=arab")
+12345.formatted(.number.locale(enArabICU)) // "١٢٬٣٤٥"
+Date.now.formatted(.dateTime.year().month().day().locale(enArabICU)) // "Sep ٢٣, ٢٠٢٣"
+```
+
 <h3 id="percent-compositing">Compositing</h3>
 
 Any of the above styles can be combined to fully customize the output.

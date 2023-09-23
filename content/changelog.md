@@ -2,6 +2,17 @@
 draft: false
 ---
 
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.6...HEAD)
+
+**Closed issues:**
+
+- Update Date.ISO8601FormatStyle syntax [\#16](https://github.com/brettohland/fuckingformatstyle/issues/16)
+
+## [v1.6](https://github.com/brettohland/fuckingformatstyle/tree/v1.6) (2023-09-23)
+
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.5...v1.6)
+
+
 ## [v1.5](https://github.com/brettohland/fuckingformatstyle/tree/v1.5) (2023-06-18)
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.4...v1.5)
