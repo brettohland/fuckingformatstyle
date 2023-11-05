@@ -171,7 +171,7 @@ Decimal(10.1).formatted(.percent.precision(.significantDigits(1 ... 3)))    // "
 Decimal(10.01).formatted(.percent.precision(.significantDigits(1 ... 3)))   // "1,000%"
 
 Decimal(0.0001).formatted(.percent.precision(.fractionLength(1))) // 0.0%
-Decimal(0.0001).formatted(.percent.precision(.fractionLength(2))) // 0.001%
+Decimal(0.0001).formatted(.percent.precision(.fractionLength(2))) // 0.01%
 Decimal(0.0001).formatted(.percent.precision(.fractionLength(3))) // 0.010%
 
 Decimal(0.0001).formatted(.percent.precision(.fractionLength(0...1)))    // 0%
