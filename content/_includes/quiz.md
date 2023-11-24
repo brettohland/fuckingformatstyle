@@ -124,7 +124,7 @@ Apple added a date extension onto `Date` that lets you output the date and/or ti
 
 The `dateTime()` format style lets you compose a date string by choosing which date components you'd like to include. Each component can be further customized passing in some options.
 
-See <a href="/date-styles/#datetime-compositing-single-date">composting using .dateTime</a>
+See <a href="/date-styles/#datetime-compositing-single-date">compositing using .dateTime</a>
 
 {{< /expand >}}
 
