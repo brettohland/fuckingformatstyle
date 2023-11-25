@@ -2,7 +2,22 @@
 draft: false
 ---
 
-[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.6...HEAD)
+## [Unreleased](https://github.com/brettohland/fuckingformatstyle/tree/HEAD)
+
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.7...HEAD)
+
+**Merged pull requests:**
+
+- Removing Keybase proofs [\#24](https://github.com/brettohland/fuckingformatstyle/pull/24) ([brettohland](https://github.com/brettohland))
+- Updating some documentation [\#23](https://github.com/brettohland/fuckingformatstyle/pull/23) ([brettohland](https://github.com/brettohland))
+- Fix typo [\#22](https://github.com/brettohland/fuckingformatstyle/pull/22) ([ole](https://github.com/ole))
+- Fix output of percent with fraction length of 2 [\#21](https://github.com/brettohland/fuckingformatstyle/pull/21) ([jdberry](https://github.com/jdberry))
+- Fixing numeric grouping info [\#19](https://github.com/brettohland/fuckingformatstyle/pull/19) ([brettohland](https://github.com/brettohland))
+- - Adding new currency locale example [\#18](https://github.com/brettohland/fuckingformatstyle/pull/18) ([brettohland](https://github.com/brettohland))
+
+## [v1.7](https://github.com/brettohland/fuckingformatstyle/tree/v1.7) (2023-11-25)
+
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.6...v1.7)
 
 **Closed issues:**
 
@@ -12,7 +27,6 @@ draft: false
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.5...v1.6)
 
-
 ## [v1.5](https://github.com/brettohland/fuckingformatstyle/tree/v1.5) (2023-06-18)
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.4...v1.5)
@@ -21,11 +35,6 @@ draft: false
 
 - Grouping inconsistencies [\#17](https://github.com/brettohland/fuckingformatstyle/issues/17)
 - Suggestion for additional example in formatting for money by locale [\#15](https://github.com/brettohland/fuckingformatstyle/issues/15)
-
-**Merged pull requests:**
-
-- Fixing numeric grouping info [\#19](https://github.com/brettohland/fuckingformatstyle/pull/19) ([brettohland](https://github.com/brettohland))
-- - Adding new currency locale example [\#18](https://github.com/brettohland/fuckingformatstyle/pull/18) ([brettohland](https://github.com/brettohland))
 
 ## [v1.4](https://github.com/brettohland/fuckingformatstyle/tree/v1.4) (2022-10-02)
 
@@ -45,16 +54,11 @@ draft: false
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.2...v1.3)
 
- - Adds Xcode 14 information (#4)
- - Adds URL style
-   - Adds Duration style
-   - Updates Byte count styles with new information
-   - Updates Verbatim Date format style with new information
-   - Updates measurement style to reference byte count format style
- - Splits site into individual pages to solve site crashing on mobie (#5)
- - Updates minimum requirements to reference Xcode 13 and 14 support
-    - Adds version badges
-- Fix link from non-cussing site to cussing-site by @shusta-patreon in https://github.com/brettohland/fuckingformatstyle/pull/7
+    - Updating DateTime to include Date.FormatStyle information & Parsing info
+    - Adds information on how to parse strings into data types
+    - IntervalFormatStyle has many more customization options
+    - Adding method chaining examples to the number styles
+    - Updating components format style to include calendar option
 
 **Implemented enhancements:**
 
@@ -76,11 +80,11 @@ draft: false
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.1...v1.2)
 
-- Updating DateTime to include Date.FormatStyle information & Parsing info
-- Adds information on how to parse strings into data types
-- IntervalFormatStyle has many more customization options
-- Adding method chaining examples to the number styles
-- Updating components format style to include calendar option
+    - Updating DateTime to include Date.FormatStyle information & Parsing info
+    - Adds information on how to parse strings into data types
+    - IntervalFormatStyle has many more customization options
+    - Adding method chaining examples to the number styles
+    - Updating components format style to include calendar option
 
 **Implemented enhancements:**
 
@@ -97,4 +101,3 @@ draft: false
 ## [v1.0](https://github.com/brettohland/fuckingformatstyle/tree/v1.0) (2022-06-02)
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/342c5d608b1993b42b5028e5329fb0fd2592dc51...v1.0)
-

@@ -13,7 +13,7 @@ You have two options;
 
 # A Bit Of Documentation
 
-This site is built using [Hugo](https://gohugo.io) and the [Just The Docs](https://just-the-docs.github.io/just-the-docs/) template.
+This site is built using [Hugo](https://gohugo.io) and the [Hugo Geekdocs](https://github.com/thegeeklab/hugo-geekdoc) template.
 
 Out of the box, Hugo's support for Swift code highlighting is poor. To work around this, the site manually converts all Swift code blocks into HTML using [SplashMarkdown](https://github.com/xyproto/splash) during deployment.
 
