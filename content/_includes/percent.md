@@ -253,3 +253,4 @@ Percentage strings can be parsed into any of Swift's built-in numeric types.
 <pre class="splash"><code><span class="keyword token">try</span>? <span class="type token">Int</span>(<span class="string token">"98%"</span>, format: .<span class="dotAccess token">percent</span>) <span class="comment token">// 98</span>
 <span class="keyword token">try</span>? <span class="type token">Float</span>(<span class="string token">"95%"</span>, format: .<span class="dotAccess token">percent</span>) <span class="comment token">// 0.95</span>
 <span class="keyword token">try</span>? <span class="type token">Decimal</span>(<span class="string token">"95%"</span>, format: .<span class="dotAccess token">percent</span>) <span class="comment token">// 0.95</span></code></pre>
+
