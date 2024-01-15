@@ -4,7 +4,7 @@ sitemap_ignore: true
 The easiest and best way to access this style is through the `.currency(code:)` extension on `FormatStyle`. From there, you can use method chaining to customize the output.
 
 ```
-10.formatted(.currency(code: "JPY")) // "10%"
+10.formatted(.currency(code: "JPY")) // "¥10"
 ```
 
 You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>.Percent`, `FloatingPointFormatStyle<BinaryFloatingPoint>.Percent` or `Decimal.FormatStyle.Percent` and use method chaining to customize the output.
