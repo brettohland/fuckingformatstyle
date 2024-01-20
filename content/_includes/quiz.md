@@ -232,7 +232,7 @@ See <a href ="/byte-count-style/">Byte Count Style</a>
 
 Easily format the `Duration` type.
 
-See <a href ="/duration-style/">Duration Style</a>
+See <a href ="/duration-styles/">Duration Style</a>
 
 {{< expand "Time Style" "⇅" >}}
 
@@ -240,7 +240,7 @@ See <a href ="/duration-style/">Duration Style</a>
 
 Shows the `Duration` represented in a combination of hours, minutes, and seconds.
 
-See <a href ="/duration-style/#time-style">Duration Style</a>
+See <a href ="/duration-styles/#time-style">Duration Style</a>
 
 {{< /expand >}}
 
@@ -250,7 +250,7 @@ See <a href ="/duration-style/#time-style">Duration Style</a>
 
 Shows the `Duration` using a specific set of units.
 
-See <a href ="/duration-style/#units-style">Duration Style</a>
+See <a href ="/duration-styles/#units-style">Duration Style</a>
 
 {{< /expand >}}
 
