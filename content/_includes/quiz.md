@@ -84,7 +84,7 @@ Currency requires you to set the ISO 4217 code for the target currency to output
 <a href="https://en.wikipedia.org/wiki/ISO_4217">See all ISO 4217 codes</a>
 
 {{< hint type=caution >}}
-Floating point types shouldn't be used to store or do calculations on numbers that required a lot of accuracy. This includes currency values.
+Floating point types shouldn't be used to store or do calculations on numbers that require a lot of accuracy. This includes currency values.
 {{< /hint >}}
 
 | Property                                                      | Description                                                   |
@@ -112,7 +112,7 @@ Floating point types shouldn't be used to store or do calculations on numbers th
 
 {{< xcode13-badge >}}
 
-Apple added a date extension onto `Date` that lets you output the date and/or time in certain formats.
+Apple added a date extension to `Date` that lets you output the date and/or time in certain formats.
 
 <a href="/date-styles/#date-and-time-single-date">See Date and Time Style</a>
 
@@ -174,7 +174,7 @@ See <a href="/date-range-styles/#interval-date-style-date-range">Interval Style<
 
 {{< /expand >}}
 
-{{< expand "How long as passed between the earliest and latest dates" "⇅" >}}
+{{< expand "How long has passed between the earliest and latest dates" "⇅" >}}
 
 {{< xcode13-badge >}}
 
@@ -299,7 +299,7 @@ By setting up either a `Date.FormatStyle` or `Date.ISO8601FormatStyle` with your
 
 {{< xcode13-badge >}}
 
-All of Swift's build-in numeric types can be parsed from strings. You can also handle parsing percentages and currencies.
+All of Swift's built-in numeric types can be parsed from strings. You can also handle parsing percentages and currencies.
 
 [See Parsing Numbers](/numeric-styles/#parsing-numbers-from-strings)
 
