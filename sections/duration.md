@@ -66,11 +66,11 @@ Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1,
 ```
 The following are the parameter options for both `hourMinuteSecond` and 'minuteSecond`:
 
-| Parameter                 | Description                                                                                                                       |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `padHourToLength`         | Pads the output to include that number of digits.                                                                                 |
-| `fractionalSecondsLength` | The number of digits to include when displaying fractional seconds.                                                               |
-| `roundFractionalSeconds`  | The rounding rule to use on the seconds value ([See Rounding for all options](#numbers-rounding)). Defaults to `.toNearestOrEven` |
+| Parameter                               | Description                                                                                                                       |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `padHourToLength` / `padMinuteToLength` | Pads the largest unit to include that number of digits.                                                                           |
+| `fractionalSecondsLength`               | The number of digits to include when displaying fractional seconds.                                                               |
+| `roundFractionalSeconds`                | The rounding rule to use on the seconds value ([See Rounding for all options](#numbers-rounding)). Defaults to `.toNearestOrEven` |
 
 ```
 Duration.seconds(1_000).formatted(
