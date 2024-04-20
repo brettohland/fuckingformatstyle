@@ -64,11 +64,11 @@ Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1,
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1, roundSeconds: .towardZero))) // "0:16"
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1, roundSeconds: .up))) // "0:17"
 ```
-The following are the parameter options for both `hourMinuteSecond` and 'minuteSecond`:
+The following are the parameter options are for 'minuteSecond`:
 
 | Parameter                 | Description                                                                                                                       |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `padHourToLength`         | Pads the output to include that number of digits.                                                                                 |
+| `padMinuteToLength`       | Pads the output to include that number of digits.                                                                                 |
 | `fractionalSecondsLength` | The number of digits to include when displaying fractional seconds.                                                               |
 | `roundFractionalSeconds`  | The rounding rule to use on the seconds value ([See Rounding for all options](#numbers-rounding)). Defaults to `.toNearestOrEven` |
 
