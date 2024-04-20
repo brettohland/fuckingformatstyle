@@ -57,11 +57,11 @@ The following are the parameter options for `hourMinute`:
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="call token">hourMinute</span>(padHourToLength: <span class="number token">1</span>, roundSeconds: .<span class="dotAccess token">toNearestOrEven</span>))) <span class="comment token">// "0:17"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="call token">hourMinute</span>(padHourToLength: <span class="number token">1</span>, roundSeconds: .<span class="dotAccess token">towardZero</span>))) <span class="comment token">// "0:16"</span>
 <span class="type token">Duration</span>.<span class="call token">seconds</span>(<span class="number token">1_000</span>).<span class="call token">formatted</span>(.<span class="call token">time</span>(pattern: .<span class="call token">hourMinute</span>(padHourToLength: <span class="number token">1</span>, roundSeconds: .<span class="dotAccess token">up</span>))) <span class="comment token">// "0:17"</span></code></pre>
-The following are the parameter options for both `hourMinuteSecond` and 'minuteSecond`:
+The following are the parameter options are for 'minuteSecond`:
 
 | Parameter                 | Description                                                                                                                       |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `padHourToLength`         | Pads the output to include that number of digits.                                                                                 |
+| `padMinuteToLength`       | Pads the output to include that number of digits.                                                                                 |
 | `fractionalSecondsLength` | The number of digits to include when displaying fractional seconds.                                                               |
 | `roundFractionalSeconds`  | The rounding rule to use on the seconds value ([See Rounding for all options](#numbers-rounding)). Defaults to `.toNearestOrEven` |
 
