@@ -249,6 +249,10 @@ Decimal(10).formatted(.currency(code: "GBP").scale(200.0).sign(strategy: .always
 
 ### Parsing Currencies From Strings
 
+Unfortunately parsing currency strings into their numerical equivalent isn't as straightforward as you'd expect due to the fact that your string may or may not have an associated currency symbol included in the string.
+
+As a rule, it's best to include the correct `Locale` with the format style in order to guarantee the parsing works as expected.
+
 {{< hint type=important >}}
 
 Due to rounding issues, you should never use floating point types (`Double`, `Float`) to store currency values. Use `Decimal` instead.
@@ -256,6 +260,13 @@ Due to rounding issues, you should never use floating point types (`Double`, `Fl
 {{< /hint >}}
 
 ```
-try? Decimal("$100.25", format: .currency(code: "USD")) // 100.25
-try? Decimal("100.25 British Points", format: .currency(code: "GBP")) // 100.25
-```
+// Inclusing the locale with the style
+try Decimal("$3.14", format: .currency(code: "USD").locale(enUS)) // 3.14
+
+// Defining the style first, then reusing it
+let enUS = Locale(identifier: "en_US")
+let currencyStyle = Decimal.FormatStyle.Currency(code: "USD", locale: enUS)
+try Decimal("$3.14", format: currencyStyle) // 3.14
+``` 
+
+[See more information](https://github.com/brettohland/fuckingformatstyle/issues/26)
