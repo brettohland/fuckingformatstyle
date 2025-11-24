@@ -14,7 +14,7 @@ let guest = PersonNameComponents(
 guest.formatted() // "Elizabeth Smith"
 ```
 
-### Available Opyions
+### Available Options
 
 You can set the following style options:
 
