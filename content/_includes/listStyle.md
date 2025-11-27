@@ -52,8 +52,7 @@ In the case of more complex, or custom values in the array, you can pass in anot
 For example, you can use any of the date format styles when dealing with an array of Dates.
 
 ``` swift
-let yearOnlyFormat = Date.FormatStyle.dateTime.year()
-
+let importantDates = [Date.timeIntervalSinceReferenceDate, Date.timeIntervalBetween1970AndReferenceDate]
 importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and)) // "2000 and 1969"
 importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or))  // "2000 or 1969"
 
@@ -68,3 +67,9 @@ importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or, width: .s
 let yearStyle = ListFormatStyle<Date.FormatStyle, Array<Date>>.init(memberStyle: .dateTime.year())
 importantDates.formatted(yearStyle)
 ```
+
+{{< hint type=tip >}}
+
+The `memberStyle:` parameter accepts any `FormatStyle` value. This means that you can fully customize how each item within the list is formatted for display by using the options outlined througout the rest of this site.
+
+{{</hint>}}
