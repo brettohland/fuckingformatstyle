@@ -2,18 +2,18 @@
 draft: false
 ---
 
-## [Unreleased](https://github.com/brettohland/fuckingformatstyle/tree/HEAD)
+## [v1.7](https://github.com/brettohland/fuckingformatstyle/tree/v1.7) (2025-11-27)
 
-[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.7...HEAD)
+[Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.7...1.8)
 
 **Merged pull requests:**
 
-- Removing Keybase proofs [\#24](https://github.com/brettohland/fuckingformatstyle/pull/24) ([brettohland](https://github.com/brettohland))
-- Updating some documentation [\#23](https://github.com/brettohland/fuckingformatstyle/pull/23) ([brettohland](https://github.com/brettohland))
-- Fix typo [\#22](https://github.com/brettohland/fuckingformatstyle/pull/22) ([ole](https://github.com/ole))
-- Fix output of percent with fraction length of 2 [\#21](https://github.com/brettohland/fuckingformatstyle/pull/21) ([jdberry](https://github.com/jdberry))
-- Fixing numeric grouping info [\#19](https://github.com/brettohland/fuckingformatstyle/pull/19) ([brettohland](https://github.com/brettohland))
-- - Adding new currency locale example [\#18](https://github.com/brettohland/fuckingformatstyle/pull/18) ([brettohland](https://github.com/brettohland))
+* Removing Keybase proofs by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/24
+* Fixes duration style issues in Quiz by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/29
+* Update quiz.md by @gmw in https://github.com/brettohland/fuckingformatstyle/pull/30
+* Moving fixes to their final location by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/32
+* Tweaks issues found in PR #33 by @benlaverriere by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/34
+* Multifix by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/38
 
 ## [v1.7](https://github.com/brettohland/fuckingformatstyle/tree/v1.7) (2023-11-25)
 
