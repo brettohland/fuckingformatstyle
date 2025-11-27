@@ -2,120 +2,125 @@
 sitemap_ignore: true
 ---
 
-| Symbol            | Description                             |
-| ----------------- | --------------------------------------- |
-| `.day()`          | The numerical day relative to the month |
-| `.hour()`         | The hour                                |
-| `.minute()`       | The minute                              |
-| `.month()`        | The month of the year                   |
-| `.second()`       | The second                              |
-| `.timeZone`       | The time zone                           |
-| `.weekday()`      | The named day of the week               |
-| `.year()`         | The year                                |
+| Symbol       | Description                             |
+|--------------|-----------------------------------------|
+| `.day()`     | The numerical day relative to the month |
+| `.hour()`    | The hour                                |
+| `.minute()`  | The minute                              |
+| `.month()`   | The month of the year                   |
+| `.second()`  | The second                              |
+| `.timeZone`  | The time zone                           |
+| `.weekday()` | The named day of the week               |
+| `.year()`    | The year                                |
 
-<pre class="splash"><code><span class="keyword token">let</span> range = <span class="type token">Date</span>(timeIntervalSince1970: <span class="number token">0</span>)..&lt;<span class="type token">Date</span>(timeIntervalSinceReferenceDate: <span class="number token">2837</span>)
+``` swift
+let range = Date(timeIntervalSince1970: 0)..<Date(timeIntervalSinceReferenceDate: 2837)
 
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>) <span class="comment token">// "12/31/69, 5:00 PM – 12/31/00, 5:47 PM"</span>
+range.formatted(.interval) // "12/31/69, 5:00 PM – 12/31/00, 5:47 PM"
 
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">day</span>()) <span class="comment token">// "12/31/1969 – 12/31/2000"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">hour</span>()) <span class="comment token">// "12/31/1969, 5 PM – 12/31/2000, 5 PM"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">hour</span>(.<span class="call token">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess token">abbreviated</span>))) <span class="comment token">// "12/31/1969, 5 PM – 12/31/2000, 5 PM"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">hour</span>(.<span class="call token">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess token">narrow</span>))) <span class="comment token">// "12/31/1969, 5 p – 12/31/2000, 5 p"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">hour</span>(.<span class="call token">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess token">omitted</span>))) <span class="comment token">// "12/31/1969, 5 PM – 12/31/2000, 5 PM"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">hour</span>(.<span class="call token">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess token">wide</span>))) <span class="comment token">// "12/31/1969, 5 PM – 12/31/2000, 5 PM"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">minute</span>()) <span class="comment token">// "12/31/1969, 0 – 12/31/2000, 47"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">month</span>(.<span class="dotAccess token">defaultDigits</span>)) <span class="comment token">// "12/1969 – 12/2000"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">month</span>(.<span class="dotAccess token">twoDigits</span>)) <span class="comment token">// "12/1969 – 12/2000"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">month</span>(.<span class="dotAccess token">wide</span>)) <span class="comment token">// "December 1969 – December 2000"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">month</span>(.<span class="dotAccess token">narrow</span>)) <span class="comment token">// "D 1969 – D 2000"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">month</span>(.<span class="dotAccess token">abbreviated</span>)) <span class="comment token">// "Dec 1969 – Dec 2000"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">second</span>()) <span class="comment token">// "12/31/1969, 0 – 12/31/2000, 17"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>()) <span class="comment token">// "12/31/1969, MST – 12/31/2000, MT"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="dotAccess token">exemplarLocation</span>)) <span class="comment token">// "12/31/1969, Edmonton – 12/31/2000, Edmonton"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="dotAccess token">genericLocation</span>)) <span class="comment token">// "12/31/1969, Edmonton Time – 12/31/2000, Edmonton Time"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">genericName</span>(.<span class="dotAccess token">long</span>))) <span class="comment token">// "12/31/1969, Mountain Standard Time – 12/31/2000, Mountain Time"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">genericName</span>(.<span class="dotAccess token">short</span>))) <span class="comment token">// "12/31/1969, MST – 12/31/2000, MT"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">identifier</span>(.<span class="dotAccess token">short</span>))) <span class="comment token">// "12/31/1969, caedm – 12/31/2000, caedm"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">identifier</span>(.<span class="dotAccess token">long</span>))) <span class="comment token">// "12/31/1969, America/Edmonton – 12/31/2000, America/Edmonton"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">iso8601</span>(.<span class="dotAccess token">short</span>))) <span class="comment token">// "12/31/1969, -0700 – 12/31/2000, -0700"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">iso8601</span>(.<span class="dotAccess token">long</span>))) <span class="comment token">// "12/31/1969, -07:00 – 12/31/2000, -07:00"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">localizedGMT</span>(.<span class="dotAccess token">short</span>))) <span class="comment token">// "GMT-7"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">localizedGMT</span>(.<span class="dotAccess token">long</span>))) <span class="comment token">// "12/31/1969, GMT-07:00 – 12/31/2000, GMT-07:00"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">specificName</span>(.<span class="dotAccess token">long</span>))) <span class="comment token">// "12/31/1969, Mountain Standard Time – 12/31/2000, Mountain Standard Time"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">timeZone</span>(.<span class="call token">specificName</span>(.<span class="dotAccess token">short</span>))) <span class="comment token">// "12/31/1969, MST – 12/31/2000, MST"</span>
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">year</span>()) <span class="comment token">//"1969 – 2000"</span>
+range.formatted(.interval.day()) // "12/31/1969 – 12/31/2000"
+range.formatted(.interval.hour()) // "12/31/1969, 5 PM – 12/31/2000, 5 PM"
+range.formatted(.interval.hour(.conversationalDefaultDigits(amPM: .abbreviated))) // "12/31/1969, 5 PM – 12/31/2000, 5 PM"
+range.formatted(.interval.hour(.conversationalDefaultDigits(amPM: .narrow))) // "12/31/1969, 5 p – 12/31/2000, 5 p"
+range.formatted(.interval.hour(.conversationalDefaultDigits(amPM: .omitted))) // "12/31/1969, 5 PM – 12/31/2000, 5 PM"
+range.formatted(.interval.hour(.conversationalDefaultDigits(amPM: .wide))) // "12/31/1969, 5 PM – 12/31/2000, 5 PM"
+range.formatted(.interval.minute()) // "12/31/1969, 0 – 12/31/2000, 47"
+range.formatted(.interval.month(.defaultDigits)) // "12/1969 – 12/2000"
+range.formatted(.interval.month(.twoDigits)) // "12/1969 – 12/2000"
+range.formatted(.interval.month(.wide)) // "December 1969 – December 2000"
+range.formatted(.interval.month(.narrow)) // "D 1969 – D 2000"
+range.formatted(.interval.month(.abbreviated)) // "Dec 1969 – Dec 2000"
+range.formatted(.interval.second()) // "12/31/1969, 0 – 12/31/2000, 17"
+range.formatted(.interval.timeZone()) // "12/31/1969, MST – 12/31/2000, MT"
+range.formatted(.interval.timeZone(.exemplarLocation)) // "12/31/1969, Edmonton – 12/31/2000, Edmonton"
+range.formatted(.interval.timeZone(.genericLocation)) // "12/31/1969, Edmonton Time – 12/31/2000, Edmonton Time"
+range.formatted(.interval.timeZone(.genericName(.long))) // "12/31/1969, Mountain Standard Time – 12/31/2000, Mountain Time"
+range.formatted(.interval.timeZone(.genericName(.short))) // "12/31/1969, MST – 12/31/2000, MT"
+range.formatted(.interval.timeZone(.identifier(.short))) // "12/31/1969, caedm – 12/31/2000, caedm"
+range.formatted(.interval.timeZone(.identifier(.long))) // "12/31/1969, America/Edmonton – 12/31/2000, America/Edmonton"
+range.formatted(.interval.timeZone(.iso8601(.short))) // "12/31/1969, -0700 – 12/31/2000, -0700"
+range.formatted(.interval.timeZone(.iso8601(.long))) // "12/31/1969, -07:00 – 12/31/2000, -07:00"
+range.formatted(.interval.timeZone(.localizedGMT(.short))) // "GMT-7"
+range.formatted(.interval.timeZone(.localizedGMT(.long))) // "12/31/1969, GMT-07:00 – 12/31/2000, GMT-07:00"
+range.formatted(.interval.timeZone(.specificName(.long))) // "12/31/1969, Mountain Standard Time – 12/31/2000, Mountain Standard Time"
+range.formatted(.interval.timeZone(.specificName(.short))) // "12/31/1969, MST – 12/31/2000, MST"
+range.formatted(.interval.year()) //"1969 – 2000"
 
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">day</span>().<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969 – 12/31/2000"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">hour</span>().<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, 5 PM – 12/31/2000, 5 PM"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">hour</span>(.<span class="call token">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess token">abbreviated</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, 5 PM – 12/31/2000, 5 PM"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">hour</span>(.<span class="call token">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess token">narrow</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, 5 p – 12/31/2000, 5 p"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">hour</span>(.<span class="call token">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess token">omitted</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, 5 PM – 12/31/2000, 5 PM"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">hour</span>(.<span class="call token">conversationalDefaultDigits</span>(amPM: .<span class="dotAccess token">wide</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, 5 PM – 12/31/2000, 5 PM"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">minute</span>().<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, 0 – 12/31/2000, 47"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">month</span>(.<span class="dotAccess token">defaultDigits</span>).<span class="call token">format</span>(range) <span class="comment token">// "12/1969 – 12/2000"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">month</span>(.<span class="dotAccess token">twoDigits</span>).<span class="call token">format</span>(range) <span class="comment token">// "12/1969 – 12/2000"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">month</span>(.<span class="dotAccess token">wide</span>).<span class="call token">format</span>(range) <span class="comment token">// "December 1969 – December 2000"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">month</span>(.<span class="dotAccess token">narrow</span>).<span class="call token">format</span>(range) <span class="comment token">// "D 1969 – D 2000"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">month</span>(.<span class="dotAccess token">abbreviated</span>).<span class="call token">format</span>(range) <span class="comment token">// "Dec 1969 – Dec 2000"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">second</span>().<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, 0 – 12/31/2000, 17"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>().<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, MST – 12/31/2000, MT"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="dotAccess token">exemplarLocation</span>).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, Edmonton – 12/31/2000, Edmonton"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="dotAccess token">genericLocation</span>).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, Edmonton Time – 12/31/2000, Edmonton Time"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">genericName</span>(.<span class="dotAccess token">long</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, Mountain Standard Time – 12/31/2000, Mountain Time"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">genericName</span>(.<span class="dotAccess token">short</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, MST – 12/31/2000, MT"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">identifier</span>(.<span class="dotAccess token">short</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, caedm – 12/31/2000, caedm"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">identifier</span>(.<span class="dotAccess token">long</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, America/Edmonton – 12/31/2000, America/Edmonton"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">iso8601</span>(.<span class="dotAccess token">short</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, -0700 – 12/31/2000, -0700"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">iso8601</span>(.<span class="dotAccess token">long</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, -07:00 – 12/31/2000, -07:00"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">localizedGMT</span>(.<span class="dotAccess token">short</span>)).<span class="call token">format</span>(range) <span class="comment token">// "GMT-7"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">localizedGMT</span>(.<span class="dotAccess token">long</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, GMT-07:00 – 12/31/2000, GMT-07:00"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">specificName</span>(.<span class="dotAccess token">long</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, Mountain Standard Time – 12/31/2000, Mountain Standard Time"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">timeZone</span>(.<span class="call token">specificName</span>(.<span class="dotAccess token">short</span>)).<span class="call token">format</span>(range) <span class="comment token">// "12/31/1969, MST – 12/31/2000, MST"</span>
-<span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>().<span class="call token">year</span>().<span class="call token">format</span>(range) <span class="comment token">//"1969 – 2000"</span></code></pre>
+Date.IntervalFormatStyle().day().format(range) // "12/31/1969 – 12/31/2000"
+Date.IntervalFormatStyle().hour().format(range) // "12/31/1969, 5 PM – 12/31/2000, 5 PM"
+Date.IntervalFormatStyle().hour(.conversationalDefaultDigits(amPM: .abbreviated)).format(range) // "12/31/1969, 5 PM – 12/31/2000, 5 PM"
+Date.IntervalFormatStyle().hour(.conversationalDefaultDigits(amPM: .narrow)).format(range) // "12/31/1969, 5 p – 12/31/2000, 5 p"
+Date.IntervalFormatStyle().hour(.conversationalDefaultDigits(amPM: .omitted)).format(range) // "12/31/1969, 5 PM – 12/31/2000, 5 PM"
+Date.IntervalFormatStyle().hour(.conversationalDefaultDigits(amPM: .wide)).format(range) // "12/31/1969, 5 PM – 12/31/2000, 5 PM"
+Date.IntervalFormatStyle().minute().format(range) // "12/31/1969, 0 – 12/31/2000, 47"
+Date.IntervalFormatStyle().month(.defaultDigits).format(range) // "12/1969 – 12/2000"
+Date.IntervalFormatStyle().month(.twoDigits).format(range) // "12/1969 – 12/2000"
+Date.IntervalFormatStyle().month(.wide).format(range) // "December 1969 – December 2000"
+Date.IntervalFormatStyle().month(.narrow).format(range) // "D 1969 – D 2000"
+Date.IntervalFormatStyle().month(.abbreviated).format(range) // "Dec 1969 – Dec 2000"
+Date.IntervalFormatStyle().second().format(range) // "12/31/1969, 0 – 12/31/2000, 17"
+Date.IntervalFormatStyle().timeZone().format(range) // "12/31/1969, MST – 12/31/2000, MT"
+Date.IntervalFormatStyle().timeZone(.exemplarLocation).format(range) // "12/31/1969, Edmonton – 12/31/2000, Edmonton"
+Date.IntervalFormatStyle().timeZone(.genericLocation).format(range) // "12/31/1969, Edmonton Time – 12/31/2000, Edmonton Time"
+Date.IntervalFormatStyle().timeZone(.genericName(.long)).format(range) // "12/31/1969, Mountain Standard Time – 12/31/2000, Mountain Time"
+Date.IntervalFormatStyle().timeZone(.genericName(.short)).format(range) // "12/31/1969, MST – 12/31/2000, MT"
+Date.IntervalFormatStyle().timeZone(.identifier(.short)).format(range) // "12/31/1969, caedm – 12/31/2000, caedm"
+Date.IntervalFormatStyle().timeZone(.identifier(.long)).format(range) // "12/31/1969, America/Edmonton – 12/31/2000, America/Edmonton"
+Date.IntervalFormatStyle().timeZone(.iso8601(.short)).format(range) // "12/31/1969, -0700 – 12/31/2000, -0700"
+Date.IntervalFormatStyle().timeZone(.iso8601(.long)).format(range) // "12/31/1969, -07:00 – 12/31/2000, -07:00"
+Date.IntervalFormatStyle().timeZone(.localizedGMT(.short)).format(range) // "GMT-7"
+Date.IntervalFormatStyle().timeZone(.localizedGMT(.long)).format(range) // "12/31/1969, GMT-07:00 – 12/31/2000, GMT-07:00"
+Date.IntervalFormatStyle().timeZone(.specificName(.long)).format(range) // "12/31/1969, Mountain Standard Time – 12/31/2000, Mountain Standard Time"
+Date.IntervalFormatStyle().timeZone(.specificName(.short)).format(range) // "12/31/1969, MST – 12/31/2000, MST"
+Date.IntervalFormatStyle().year().format(range) //"1969 – 2000"
+```
 
 ### Setting the locale
 
 You can customize the locale of the output by appending the `localized()` method onto the style.
 
-<pre class="splash"><code><span class="keyword token">let</span> franceLocale = <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>)
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">interval</span>.<span class="call token">locale</span>(franceLocale)) <span class="comment token">// "31/12/1969 à 17:00 – 31/12/2000 à 17:47"</span></code></pre>
+``` swift
+let franceLocale = Locale(identifier: "fr_FR")
+range.formatted(.interval.locale(franceLocale)) // "31/12/1969 à 17:00 – 31/12/2000 à 17:47"
+```
 
 ### Initialization Options
 
 | DateStyle      | Description                                                                               |
-| -------------- | ----------------------------------------------------------------------------------------- |
+|----------------|-------------------------------------------------------------------------------------------|
 | `.omitted`     | Excludes the date part.                                                                   |
-| `.numeric`     | Shows date components in their numeric form. For example, "10/21/2015".                   | 
+| `.numeric`     | Shows date components in their numeric form. For example, "10/21/2015".                   |
 | `.abbreviated` | Shows date components in their abbreviated form if possible. For example, "Oct 21, 2015". |
 | `.long`        | Shows date components in their long form if possible. For example, "October 21, 2015".    |
 | `.complete`    | Shows the complete day. For example, "Wednesday, October 21, 2015".                       |
 
 | TimeStyle    | Description                                    |
-| ------------ | ---------------------------------------------- |
+|--------------|------------------------------------------------|
 | `.omitted`   | Excludes the time part.                        |
 | `.shortened` | For example, `04:29 PM`, `16:29`.              |
 | `.standard`  | For example, `4:29:24 PM`, `16:29:24`.         |
-| `.complete`  | For example, `4:29:24 PM PDT`, `16:29:24 GMT`. | 
+| `.complete`  | For example, `4:29:24 PM PDT`, `16:29:24 GMT`. |
 
 
-<pre class="splash"><code><span class="keyword token">struct</span> NarrowIntervalStyle: <span class="type token">FormatStyle</span> {
-    <span class="keyword token">static let</span> interval = <span class="type token">Date</span>.<span class="type token">IntervalFormatStyle</span>(
-        date: .<span class="dotAccess token">abbreviated</span>,
-        time: .<span class="dotAccess token">shortened</span>,
-        locale: <span class="type token">Locale</span>(identifier: <span class="string token">"en_US"</span>),
-        calendar: <span class="type token">Calendar</span>(identifier: .<span class="dotAccess token">gregorian</span>),
-        timeZone: <span class="type token">TimeZone</span>(secondsFromGMT: <span class="number token">0</span>)!
+``` swift
+struct NarrowIntervalStyle: FormatStyle {
+    static let interval = Date.IntervalFormatStyle(
+        date: .abbreviated,
+        time: .shortened,
+        locale: Locale(identifier: "en_US"),
+        calendar: Calendar(identifier: .gregorian),
+        timeZone: TimeZone(secondsFromGMT: 0)!
     )
 
-    <span class="keyword token">func</span> format(<span class="keyword token">_</span> value: <span class="type token">Range</span>&lt;<span class="type token">Date</span>&gt;) -&gt; <span class="type token">String</span> {
-        <span class="type token">NarrowIntervalStyle</span>.<span class="property token">interval</span>.<span class="call token">format</span>(value)
+    func format(_ value: Range<Date>) -> String {
+        NarrowIntervalStyle.interval.format(value)
     }
 }
 
-<span class="keyword token">extension</span> <span class="type token">FormatStyle</span> <span class="keyword token">where</span> <span class="type token">Self</span> == <span class="type token">NarrowIntervalStyle</span> {
-    <span class="keyword token">static var</span> narrowInterval: <span class="type token">NarrowIntervalStyle</span> { .<span class="keyword token">init</span>() }
+extension FormatStyle where Self == NarrowIntervalStyle {
+    static var narrowInterval: NarrowIntervalStyle { .init() }
 }
 
-range.<span class="call token">formatted</span>(.<span class="dotAccess token">narrowInterval</span>)</code></pre>
-
+range.formatted(.narrowInterval)
+```
 

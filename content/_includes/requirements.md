@@ -24,4 +24,3 @@ This badge represents a style that has been updated, or is only available only, 
 - Duration style
 - URL style
 - (Updated) Verbatim date style
-

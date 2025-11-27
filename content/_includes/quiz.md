@@ -21,18 +21,18 @@ All built-in number types are supported by these format styles (`Float`, `Double
 
 See <a href="/numeric-styles/">Number Style</a>
 
-| Property                                                    | Description                                                   |
-| ----------------------------------------------------------- | ------------------------------------------------------------- |
-| [Rounding](/numeric-styles/#numbers-rounding)                               | Customize the rounding behaviour                              |
-| [Sign](/numeric-styles/#numbers-sign)                                       | Do you want to show or hide the + or - sign?                  |
-| [Decimal Separator](/numeric-styles/#numbers-decimal-separator)             | Do you want to show or hide the decimal separator             |
-| [Grouping](/numeric-styles/#numbers-grouping)                               | How do you want the thousands numbers to be grouped           |
-| [Precision](/numeric-styles/#numbers-prescision)                            | How many fractional or significant digits do you want to show |
-| [Notation](/numeric-styles/#numbers-notation)                               | Enable scientific or compact notation                         |
-| [Scale](/numeric-styles/#numbers-scale)                                     | Scale the number up or down before display                    |
-| [Locale](/numeric-styles/#numbers-locale)                                   | Set the `Locale` for one output                               |
-| [Compositing](/numeric-styles/#numbers-compositing)                         | Mix and match any and all of the above                        |
-| [AttributedString output](/numeric-styles/#numbers-attributed-string-output) | Output an `AttributedString`                                 |
+| Property                                                                     | Description                                                   |
+|------------------------------------------------------------------------------|---------------------------------------------------------------|
+| [Rounding](/numeric-styles/#numbers-rounding)                                | Customize the rounding behaviour                              |
+| [Sign](/numeric-styles/#numbers-sign)                                        | Do you want to show or hide the + or - sign?                  |
+| [Decimal Separator](/numeric-styles/#numbers-decimal-separator)              | Do you want to show or hide the decimal separator             |
+| [Grouping](/numeric-styles/#numbers-grouping)                                | How do you want the thousands numbers to be grouped           |
+| [Precision](/numeric-styles/#numbers-prescision)                             | How many fractional or significant digits do you want to show |
+| [Notation](/numeric-styles/#numbers-notation)                                | Enable scientific or compact notation                         |
+| [Scale](/numeric-styles/#numbers-scale)                                      | Scale the number up or down before display                    |
+| [Locale](/numeric-styles/#numbers-locale)                                    | Set the `Locale` for one output                               |
+| [Compositing](/numeric-styles/#numbers-compositing)                          | Mix and match any and all of the above                        |
+| [AttributedString output](/numeric-styles/#numbers-attributed-string-output) | Output an `AttributedString`                                  |
 
 {{< /expand >}}
 
@@ -48,8 +48,8 @@ See <a href="/numeric-styles/#percent-style">Percent Style</a>
 When formatting a floating point number (Double/Float/Decimal), `1.0` is "100%", while formatting the integer `1` is only "1%"
 {{< /hint >}}
 
-| Property                                                     | Description                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------- |
+| Property                                                                     | Description                                                   |
+|------------------------------------------------------------------------------|---------------------------------------------------------------|
 | [Rounding](/numeric-styles/#percent-rounding)                                | Customize the rounding behaviour                              |
 | [Sign](/numeric-styles/#percent-sign)                                        | Do you want to show or hide the + or - sign?                  |
 | [Decimal Separator](/numeric-styles/#percent-decimal-separator)              | Do you want to show or hide the decimal separator             |
@@ -87,8 +87,8 @@ Currency requires you to set the ISO 4217 code for the target currency to output
 Floating point types shouldn't be used to store or do calculations on numbers that require a lot of accuracy. This includes currency values.
 {{< /hint >}}
 
-| Property                                                      | Description                                                   |
-| ------------------------------------------------------------- | ------------------------------------------------------------- |
+| Property                                                                      | Description                                                   |
+|-------------------------------------------------------------------------------|---------------------------------------------------------------|
 | [Rounding](/numeric-styles/#currency-rounding)                                | Customize the rounding behaviour                              |
 | [Sign](/numeric-styles/#currency-sign)                                        | Do you want to show or hide the + or - sign?                  |
 | [Decimal Separator](/numeric-styles/#currency-decimal-separator)              | Do you want to show or hide the decimal separator             |
@@ -330,4 +330,3 @@ Parse a URL string into a URL value.
 {{< /expand >}}
 
 {{< /expand >}}
-

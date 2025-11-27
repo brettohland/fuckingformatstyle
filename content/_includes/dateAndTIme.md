@@ -6,82 +6,88 @@ sitemap_ignore: true
 To customize the display, you have the option of including a `DateStyle` or a `TimeStyle` parameter.
 
 | DateStyle Option | Description                                                     |
-| ---------------- | --------------------------------------------------------------- |
+|------------------|-----------------------------------------------------------------|
 | `.omitted`       | Omits the date from display                                     |
 | `.numeric`       | Displays the date components as numbers                         |
 | `.abbreviated`   | Displays the year, month, and numerical day. Month is shortened |
-| `.long`          | Displays the year, month, and numerical day. Month is in full   | 
+| `.long`          | Displays the year, month, and numerical day. Month is in full   |
 | `.complete`      | Displays the year, month, weedkay, and numberical day in full   |
 
 | TimeStyle Option | Description                                        |
-| ---------------- | -------------------------------------------------- |
+|------------------|----------------------------------------------------|
 | `.complete`      | Shows the hour, minute, second, and time zone      |
 | `.shortened`     | Shortened hour, minute, and second for your locale |
-| `.omitted`       | Omits the time from display                        | 
+| `.omitted`       | Omits the time from display                        |
 
-<pre class="splash"><code>twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">abbreviated</span>, time: .<span class="dotAccess token">omitted</span>) <span class="comment token">// "Feb 22, 2022"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">complete</span>, time: .<span class="dotAccess token">omitted</span>) <span class="comment token">// "Tuesday, February 22, 2022"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">long</span>, time: .<span class="dotAccess token">omitted</span>) <span class="comment token">// "February 22, 2022"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">numeric</span>, time: .<span class="dotAccess token">omitted</span>) <span class="comment token">// "2/22/2022"</span>
+``` swift
+twosday.formatted(date: .abbreviated, time: .omitted) // "Feb 22, 2022"
+twosday.formatted(date: .complete, time: .omitted) // "Tuesday, February 22, 2022"
+twosday.formatted(date: .long, time: .omitted) // "February 22, 2022"
+twosday.formatted(date: .numeric, time: .omitted) // "2/22/2022"
 
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">omitted</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "2:22:22 AM MST"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">omitted</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "2:22 AM"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">omitted</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "2:22:22 AM"</span>
+twosday.formatted(date: .omitted, time: .complete) // "2:22:22 AM MST"
+twosday.formatted(date: .omitted, time: .shortened) // "2:22 AM"
+twosday.formatted(date: .omitted, time: .standard) // "2:22:22 AM"
 
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">abbreviated</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "Feb 22, 2022, 2:22:22 AM MST"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">abbreviated</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "Feb 22, 2022, 2:22 AM"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">abbreviated</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "Feb 22, 2022, 2:22:22 AM"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">complete</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "Tuesday, February 22, 2022, 2:22:22 AM MST"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">complete</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "Tuesday, February 22, 2022, 2:22 AM"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">complete</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "Tuesday, February 22, 2022, 2:22:22 AM"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">long</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "February 22, 2022, 2:22:22 AM MST"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">long</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "February 22, 2022, 2:22 AM"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">long</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "February 22, 2022, 2:22:22 AM"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">numeric</span>, time: .<span class="dotAccess token">complete</span>) <span class="comment token">// "2/22/2022, 2:22:22 AM MST"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">numeric</span>, time: .<span class="dotAccess token">shortened</span>) <span class="comment token">// "2/22/2022, 2:22 AM"</span>
-twosday.<span class="call token">formatted</span>(date: .<span class="dotAccess token">numeric</span>, time: .<span class="dotAccess token">standard</span>) <span class="comment token">// "2/22/2022, 2:22:22 AM"</span></code></pre>
+twosday.formatted(date: .abbreviated, time: .complete) // "Feb 22, 2022, 2:22:22 AM MST"
+twosday.formatted(date: .abbreviated, time: .shortened) // "Feb 22, 2022, 2:22 AM"
+twosday.formatted(date: .abbreviated, time: .standard) // "Feb 22, 2022, 2:22:22 AM"
+twosday.formatted(date: .complete, time: .complete) // "Tuesday, February 22, 2022, 2:22:22 AM MST"
+twosday.formatted(date: .complete, time: .shortened) // "Tuesday, February 22, 2022, 2:22 AM"
+twosday.formatted(date: .complete, time: .standard) // "Tuesday, February 22, 2022, 2:22:22 AM"
+twosday.formatted(date: .long, time: .complete) // "February 22, 2022, 2:22:22 AM MST"
+twosday.formatted(date: .long, time: .shortened) // "February 22, 2022, 2:22 AM"
+twosday.formatted(date: .long, time: .standard) // "February 22, 2022, 2:22:22 AM"
+twosday.formatted(date: .numeric, time: .complete) // "2/22/2022, 2:22:22 AM MST"
+twosday.formatted(date: .numeric, time: .shortened) // "2/22/2022, 2:22 AM"
+twosday.formatted(date: .numeric, time: .standard) // "2/22/2022, 2:22:22 AM"
+```
 
 ### Setting the Locale & Calendar
 
 In order to set the Locale and Calendar of the output string, you need to initialize an instance of `Date.FormatStyle`.
 
-<pre class="splash"><code><span class="keyword token">let</span> frenchHebrew = <span class="type token">Date</span>.<span class="type token">FormatStyle</span>(
-    date: .<span class="dotAccess token">complete</span>,
-    time: .<span class="dotAccess token">complete</span>,
-    locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>),
-    calendar: <span class="type token">Calendar</span>(identifier: .<span class="dotAccess token">hebrew</span>),
-    timeZone: <span class="type token">TimeZone</span>(secondsFromGMT: <span class="number token">0</span>)!,
-    capitalizationContext: .<span class="dotAccess token">standalone</span>
+``` swift
+let frenchHebrew = Date.FormatStyle(
+    date: .complete,
+    time: .complete,
+    locale: Locale(identifier: "fr_FR"),
+    calendar: Calendar(identifier: .hebrew),
+    timeZone: TimeZone(secondsFromGMT: 0)!,
+    capitalizationContext: .standalone
 )
 
-twosday.<span class="call token">formatted</span>(frenchHebrew) <span class="comment token">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span>
-frenchHebrew.<span class="call token">format</span>(twosday) <span class="comment token">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>
+twosday.formatted(frenchHebrew) // "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"
+frenchHebrew.format(twosday) // "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"
+```
 
 You can also extend the `FormatStyle` protocol as a way of simplifying access to your new custom `Date.FormatStyle`
 
-<pre class="splash"><code><span class="keyword token">struct</span> FrenchHebrewStyle: <span class="type token">FormatStyle</span> {
-    <span class="keyword token">typealias</span> FormatInput = <span class="type token">Date</span>
-    <span class="keyword token">typealias</span> FormatOutput = <span class="type token">String</span>
+``` swift
+struct FrenchHebrewStyle: FormatStyle {
+    typealias FormatInput = Date
+    typealias FormatOutput = String
 
-    <span class="keyword token">static let</span> frenchHebrew = <span class="type token">Date</span>.<span class="type token">FormatStyle</span>(
-        date: .<span class="dotAccess token">complete</span>,
-        time: .<span class="dotAccess token">complete</span>,
-        locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>),
-        calendar: <span class="type token">Calendar</span>(identifier: .<span class="dotAccess token">hebrew</span>),
-        timeZone: <span class="type token">TimeZone</span>(secondsFromGMT: <span class="number token">0</span>)!,
-        capitalizationContext: .<span class="dotAccess token">standalone</span>
+    static let frenchHebrew = Date.FormatStyle(
+        date: .complete,
+        time: .complete,
+        locale: Locale(identifier: "fr_FR"),
+        calendar: Calendar(identifier: .hebrew),
+        timeZone: TimeZone(secondsFromGMT: 0)!,
+        capitalizationContext: .standalone
     )
 
-    <span class="keyword token">func</span> format(<span class="keyword token">_</span> value: <span class="type token">Date</span>) -&gt; <span class="type token">String</span> {
-        <span class="type token">FrenchHebrewStyle</span>.<span class="property token">frenchHebrew</span>.<span class="call token">format</span>(value)
+    func format(_ value: Date) -> String {
+        FrenchHebrewStyle.frenchHebrew.format(value)
     }
 }
 
-<span class="keyword token">extension</span> <span class="type token">FormatStyle</span> <span class="keyword token">where</span> <span class="type token">Self</span> == <span class="type token">FrenchHebrewStyle</span> {
-    <span class="keyword token">static var</span> frenchHebrew: <span class="type token">FrenchHebrewStyle</span> { .<span class="keyword token">init</span>() }
+extension FormatStyle where Self == FrenchHebrewStyle {
+    static var frenchHebrew: FrenchHebrewStyle { .init() }
 }
 
-twosday.<span class="call token">formatted</span>(.<span class="dotAccess token">frenchHebrew</span>) <span class="comment token">// "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"</span></code></pre>
+twosday.formatted(.frenchHebrew) // "Mardi 22 février 2022 ap. J.-C. 9:22:22 UTC"
+```
 
 ### Localizing Number Systems
 
@@ -89,10 +95,12 @@ In cases where a given `Locale` has multiple number systems available, numeric f
 
 #### ICU
 
-<pre class="splash"><code><span class="comment token">// Without</span>
-<span class="keyword token">let</span> defaultHebrew = <span class="type token">Locale</span>(identifier: <span class="string token">"he"</span>)
-<span class="type token">Date</span>.<span class="property token">now</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">year</span>().<span class="call token">month</span>().<span class="call token">day</span>().<span class="call token">locale</span>(defaultHebrew)) <span class="comment token">// "23 בספט׳ 2023"
+``` swift
+// Without
+let defaultHebrew = Locale(identifier: "he")
+Date.now.formatted(.dateTime.year().month().day().locale(defaultHebrew)) // "23 בספט׳ 2023"
 
-// With</span>
-<span class="keyword token">let</span> hebrew = <span class="type token">Locale</span>(identifier: <span class="string token">"he@numbers=hebr;calendar=hebrew"</span>)
-<span class="type token">Date</span>.<span class="property token">now</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">dateTime</span>.<span class="call token">year</span>().<span class="call token">month</span>().<span class="call token">day</span>().<span class="call token">locale</span>(hebrew)) <span class="comment token">// "כ״ג בספט׳ ב׳כ״ג"</span></code></pre>
+// With
+let hebrew = Locale(identifier: "he@numbers=hebr;calendar=hebrew")
+Date.now.formatted(.dateTime.year().month().day().locale(hebrew)) // "כ״ג בספט׳ ב׳כ״ג"
+```

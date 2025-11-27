@@ -3,22 +3,24 @@ sitemap_ignore: true
 ---
 As a protocol, `FormatStyle` is quite simple to conform to:
 
-<pre class="splash"><code><span class="comment token">/// A type that can convert a given data type into a representation</span>
-<span class="keyword token">@available</span>(macOS <span class="number token">12.0</span>, iOS <span class="number token">15.0</span>, tvOS <span class="number token">15.0</span>, watchOS <span class="number token">8.0</span>, *)
-<span class="keyword token">public protocol</span> FormatStyle : <span class="type token">Decodable</span>, <span class="type token">Encodable</span>, <span class="type token">Hashable</span> {
+``` swift
+/// A type that can convert a given data type into a representation
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+public protocol FormatStyle : Decodable, Encodable, Hashable {
 
-    <span class="comment token">/// The type of data to format.</span>
-    <span class="keyword token">associatedtype</span> FormatInput
+    /// The type of data to format.
+    associatedtype FormatInput
 
-    <span class="comment token">/// The type of the formatted data.</span>
-    <span class="keyword token">associatedtype</span> FormatOutput
+    /// The type of the formatted data.
+    associatedtype FormatOutput
 
-    <span class="comment token">/// Creates a `FormatOutput` instance from `value`.</span>
-    <span class="keyword token">func</span> format(<span class="keyword token">_</span> value: <span class="type token">Self</span>.<span class="type token">FormatInput</span>) -&gt; <span class="type token">Self</span>.<span class="type token">FormatOutput</span>
+    /// Creates a `FormatOutput` instance from `value`.
+    func format(_ value: Self.FormatInput) -> Self.FormatOutput
 
-    <span class="comment token">/// If the format allows selecting a locale, returns a copy of this format with the new locale set. Default implementation returns an unmodified self.</span>
-    <span class="keyword token">func</span> locale(<span class="keyword token">_</span> locale: <span class="type token">Locale</span>) -&gt; <span class="type token">Self</span>
-}</code></pre>
+    /// If the format allows selecting a locale, returns a copy of this format with the new locale set. Default implementation returns an unmodified self.
+    func locale(_ locale: Locale) -> Self
+}
+```
 
 Essentially, this provides you with the ability to convert any data type into any other data type or representation.
 
