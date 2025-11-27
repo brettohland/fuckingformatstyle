@@ -5,7 +5,7 @@ sitemap_ignore: true
 ## Available Options
 
 | Parameter                 | Description                                       |
-| ------------------------- | ------------------------------------------------- |
+|---------------------------|---------------------------------------------------|
 | `.always`                 | Always display this value                         |
 | `.never`                  | Omit this value                                   |
 | `.omitIfHTTPFamily`       | Omit this value if the URL is `http` or `https`   |
@@ -18,119 +18,121 @@ Brushing up on the [URLComponents documentation](https://developer.apple.com/doc
 
 {{< /hint >}}
 
-<pre class="splash"><code><span class="keyword token">let</span> appleURL = <span class="type token">URL</span>(string: <span class="string token">"https://apple.com"</span>)!
-appleURL.<span class="call token">formatted</span>() <span class="comment token">// "https://apple.com"</span>
-appleURL.<span class="call token">formatted</span>(.<span class="dotAccess token">url</span>) <span class="comment token">// "https://apple.com"</span>
-appleURL.<span class="call token">formatted</span>(.<span class="dotAccess token">url</span>.<span class="call token">locale</span>(<span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>))) <span class="comment token">// "https://apple.com"</span>
+``` swift
+let appleURL = URL(string: "https://apple.com")!
+appleURL.formatted() // "https://apple.com"
+appleURL.formatted(.url) // "https://apple.com"
+appleURL.formatted(.url.locale(Locale(identifier: "fr_FR"))) // "https://apple.com"
 
-<span class="keyword token">var</span> httpComponents = <span class="type token">URLComponents</span>(url: appleURL, resolvingAgainstBaseURL: <span class="keyword token">false</span>)!
-httpComponents.<span class="property token">scheme</span> = <span class="string token">"https"</span>
-httpComponents.<span class="property token">user</span> = <span class="string token">"jAppleseed"</span>
-httpComponents.<span class="property token">password</span> = <span class="string token">"Test1234"</span>
-httpComponents.<span class="property token">host</span> = <span class="string token">"apple.com"</span>
-httpComponents.<span class="property token">port</span> = <span class="number token">80</span>
-httpComponents.<span class="property token">path</span> = <span class="string token">"/macbook-pro"</span>
-httpComponents.<span class="property token">query</span> = <span class="string token">"get-free"</span>
-httpComponents.<span class="property token">fragment</span> = <span class="string token">"someFragmentOfSomething"</span>
+var httpComponents = URLComponents(url: appleURL, resolvingAgainstBaseURL: false)!
+httpComponents.scheme = "https"
+httpComponents.user = "jAppleseed"
+httpComponents.password = "Test1234"
+httpComponents.host = "apple.com"
+httpComponents.port = 80
+httpComponents.path = "/macbook-pro"
+httpComponents.query = "get-free"
+httpComponents.fragment = "someFragmentOfSomething"
 
-<span class="keyword token">let</span> complexURL = httpComponents.<span class="property token">url</span>!
-<span class="keyword token">let</span> everythingStyle = <span class="type token">URL</span>.<span class="type token">FormatStyle</span>(
-    scheme: .<span class="dotAccess token">always</span>,
-    user: .<span class="dotAccess token">always</span>,
-    password: .<span class="dotAccess token">always</span>,
-    host: .<span class="dotAccess token">always</span>,
-    port: .<span class="dotAccess token">always</span>,
-    path: .<span class="dotAccess token">always</span>,
-    query: .<span class="dotAccess token">always</span>,
-    fragment: .<span class="dotAccess token">always</span>
+let complexURL = httpComponents.url!
+let everythingStyle = URL.FormatStyle(
+    scheme: .always,
+    user: .always,
+    password: .always,
+    host: .always,
+    port: .always,
+    path: .always,
+    query: .always,
+    fragment: .always
 )
 
-everythingStyle.<span class="call token">format</span>(complexURL) <span class="comment token">// "https://jAppleseed:Test1234@apple.com:80/macbook-pro?get-free#someFragmentOfSomething"</span>
+everythingStyle.format(complexURL) // "https://jAppleseed:Test1234@apple.com:80/macbook-pro?get-free#someFragmentOfSomething"
 
-<span class="keyword token">let</span> omitStyle = <span class="type token">URL</span>.<span class="type token">FormatStyle</span>(
-    scheme: .<span class="dotAccess token">omitIfHTTPFamily</span>,
-    user: .<span class="dotAccess token">omitIfHTTPFamily</span>,
-    password: .<span class="dotAccess token">omitIfHTTPFamily</span>,
-    host: .<span class="dotAccess token">omitIfHTTPFamily</span>,
-    port: .<span class="dotAccess token">omitIfHTTPFamily</span>,
-    path: .<span class="dotAccess token">omitIfHTTPFamily</span>,
-    query: .<span class="dotAccess token">omitIfHTTPFamily</span>,
-    fragment: .<span class="dotAccess token">omitIfHTTPFamily</span>
+let omitStyle = URL.FormatStyle(
+    scheme: .omitIfHTTPFamily,
+    user: .omitIfHTTPFamily,
+    password: .omitIfHTTPFamily,
+    host: .omitIfHTTPFamily,
+    port: .omitIfHTTPFamily,
+    path: .omitIfHTTPFamily,
+    query: .omitIfHTTPFamily,
+    fragment: .omitIfHTTPFamily
 )
 
-<span class="keyword token">var</span> httpsComponent = httpComponents
-httpsComponent.<span class="property token">scheme</span> = <span class="string token">"https"</span>
-<span class="keyword token">let</span> httpsURL = httpsComponent.<span class="property token">url</span>!
+var httpsComponent = httpComponents
+httpsComponent.scheme = "https"
+let httpsURL = httpsComponent.url!
 
-<span class="keyword token">var</span> ftpComponents = httpComponents
-ftpComponents.<span class="property token">scheme</span> = <span class="string token">"ftp"</span>
-<span class="keyword token">let</span> ftpURL = ftpComponents.<span class="property token">url</span>!
+var ftpComponents = httpComponents
+ftpComponents.scheme = "ftp"
+let ftpURL = ftpComponents.url!
 
-omitStyle.<span class="call token">format</span>(complexURL) <span class="comment token">// ""</span>
-omitStyle.<span class="call token">format</span>(httpsURL) <span class="comment token">// ""</span>
-omitStyle.<span class="call token">format</span>(ftpURL) <span class="comment token">// "ftp://jAppleseed@apple.com:80/macbook-pro?get-free#someFragmentOfSomething"</span>
+omitStyle.format(complexURL) // ""
+omitStyle.format(httpsURL) // ""
+omitStyle.format(ftpURL) // "ftp://jAppleseed@apple.com:80/macbook-pro?get-free#someFragmentOfSomething"
 
-<span class="keyword token">let</span> localhostURL = <span class="type token">URL</span>(string: <span class="string token">"https://localhost:80/macbook-pro"</span>)!
+let localhostURL = URL(string: "https://localhost:80/macbook-pro")!
 
-<span class="keyword token">let</span> displayWhen = <span class="type token">URL</span>.<span class="type token">FormatStyle</span>(
-    scheme: .<span class="dotAccess token">always</span>,
-    user: .<span class="dotAccess token">never</span>,
-    password: .<span class="dotAccess token">never</span>,
-    host: .<span class="call token">displayWhen</span>(.<span class="dotAccess token">host</span>, matches: [<span class="string token">"localhost"</span>]),
-    port: .<span class="dotAccess token">always</span>,
-    path: .<span class="dotAccess token">always</span>,
-    query: .<span class="dotAccess token">never</span>,
-    fragment: .<span class="dotAccess token">never</span>
+let displayWhen = URL.FormatStyle(
+    scheme: .always,
+    user: .never,
+    password: .never,
+    host: .displayWhen(.host, matches: ["localhost"]),
+    port: .always,
+    path: .always,
+    query: .never,
+    fragment: .never
 )
 
-displayWhen.<span class="call token">format</span>(complexURL) <span class="comment token">// "https://:80/macbook-pro"</span>
-displayWhen.<span class="call token">format</span>(localhostURL) <span class="comment token">// "https://localhost:80/macbook-pro"</span>
+displayWhen.format(complexURL) // "https://:80/macbook-pro"
+displayWhen.format(localhostURL) // "https://localhost:80/macbook-pro"
 
-<span class="keyword token">let</span> omitWhen = <span class="type token">URL</span>.<span class="type token">FormatStyle</span>(
-    scheme: .<span class="dotAccess token">always</span>,
-    user: .<span class="dotAccess token">never</span>,
-    password: .<span class="dotAccess token">never</span>,
-    host: .<span class="call token">omitWhen</span>(.<span class="dotAccess token">host</span>, matches: [<span class="string token">"localhost"</span>]),
-    port: .<span class="dotAccess token">always</span>,
-    path: .<span class="dotAccess token">always</span>,
-    query: .<span class="dotAccess token">never</span>,
-    fragment: .<span class="dotAccess token">never</span>
+let omitWhen = URL.FormatStyle(
+    scheme: .always,
+    user: .never,
+    password: .never,
+    host: .omitWhen(.host, matches: ["localhost"]),
+    port: .always,
+    path: .always,
+    query: .never,
+    fragment: .never
 )
 
-omitWhen.<span class="call token">format</span>(complexURL) <span class="comment token">// "https://apple.com:80/macbook-pro"</span>
-omitWhen.<span class="call token">format</span>(localhostURL) <span class="comment token">// "https://:80/macbook-pro"</span>
+omitWhen.format(complexURL) // "https://apple.com:80/macbook-pro"
+omitWhen.format(localhostURL) // "https://:80/macbook-pro"
 
-<span class="keyword token">let</span> omitSpecificWhen = <span class="type token">URL</span>.<span class="type token">FormatStyle</span>(
-    scheme: .<span class="dotAccess token">always</span>,
-    user: .<span class="dotAccess token">never</span>,
-    password: .<span class="dotAccess token">never</span>,
-    host: .<span class="call token">omitSpecificSubdomains</span>([<span class="string token">"secret"</span>], includeMultiLevelSubdomains: <span class="keyword token">false</span>),
-    port: .<span class="dotAccess token">always</span>,
-    path: .<span class="dotAccess token">always</span>,
-    query: .<span class="dotAccess token">never</span>,
-    fragment: .<span class="dotAccess token">never</span>
+let omitSpecificWhen = URL.FormatStyle(
+    scheme: .always,
+    user: .never,
+    password: .never,
+    host: .omitSpecificSubdomains(["secret"], includeMultiLevelSubdomains: false),
+    port: .always,
+    path: .always,
+    query: .never,
+    fragment: .never
 )
 
-<span class="keyword token">var</span> secretAppleURL = <span class="type token">URL</span>(string: <span class="string token">"https://secret.apple.com/macbook-pro"</span>)!
+var secretAppleURL = URL(string: "https://secret.apple.com/macbook-pro")!
 
-omitSpecificWhen.<span class="call token">format</span>(complexURL) <span class="comment token">// "https://apple.com:80/macbook-pro"</span>
-omitSpecificWhen.<span class="call token">format</span>(secretAppleURL) <span class="comment token">// "https://apple.com/macbook-pro"</span>
+omitSpecificWhen.format(complexURL) // "https://apple.com:80/macbook-pro"
+omitSpecificWhen.format(secretAppleURL) // "https://apple.com/macbook-pro"
 
-<span class="keyword token">let</span> omitSpecificWhenWhere = <span class="type token">URL</span>.<span class="type token">FormatStyle</span>(
-    scheme: .<span class="dotAccess token">always</span>,
-    user: .<span class="dotAccess token">never</span>,
-    password: .<span class="dotAccess token">never</span>,
-    host: .<span class="call token">omitSpecificSubdomains</span>([<span class="string token">"secret"</span>], includeMultiLevelSubdomains: <span class="keyword token">false</span>, when: .<span class="dotAccess token">user</span>, matches: [<span class="string token">"jAppleseed"</span>]),
-    port: .<span class="dotAccess token">always</span>,
-    path: .<span class="dotAccess token">always</span>,
-    query: .<span class="dotAccess token">never</span>,
-    fragment: .<span class="dotAccess token">never</span>
+let omitSpecificWhenWhere = URL.FormatStyle(
+    scheme: .always,
+    user: .never,
+    password: .never,
+    host: .omitSpecificSubdomains(["secret"], includeMultiLevelSubdomains: false, when: .user, matches: ["jAppleseed"]),
+    port: .always,
+    path: .always,
+    query: .never,
+    fragment: .never
 )
 
-<span class="keyword token">let</span> complexSecretURL = <span class="type token">URL</span>(string: <span class="string token">"https://jAppleseed:Test1234@secret.apple.com:80/macbook-pro?get-free#someFragmentOfSomething"</span>)!
+let complexSecretURL = URL(string: "https://jAppleseed:Test1234@secret.apple.com:80/macbook-pro?get-free#someFragmentOfSomething")!
 
-omitSpecificWhenWhere.<span class="call token">format</span>(complexSecretURL) <span class="comment token">// "https://apple.com:80/macbook-pro"</span>
-omitSpecificWhenWhere.<span class="call token">format</span>(secretAppleURL) <span class="comment token">// "https://secret.apple.com/macbook-pro"</span></code></pre>
+omitSpecificWhenWhere.format(complexSecretURL) // "https://apple.com:80/macbook-pro"
+omitSpecificWhenWhere.format(secretAppleURL) // "https://secret.apple.com/macbook-pro"
+```
 
 ## Parsing URLs
 
@@ -143,7 +145,7 @@ If you're looking to parse URLs in a structured way, you can use the URL parse s
 For each component of the URL (scheme, user, password, host, port, path, query, or fragment) you can configure them with the following options:
 
 | Parameter         | Description                               |
-| ----------------- | ----------------------------------------- |
+|-------------------|-------------------------------------------|
 | `.optional`       | Sets the unit as optional                 |
 | `.required`       | Sets the unit as required for a valid URL |
 | `.defaultValue()` | If missing, uses the default value        |
@@ -154,30 +156,32 @@ By default, only the scheme and the host are set as required.
 
 {{< /hint >}}
 
-<pre class="splash"><code><span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>(port: .<span class="call token">defaultValue</span>(<span class="number token">80</span>)).<span class="call token">parse</span>(<span class="string token">"http://www.apple.com"</span>) <span class="comment token">// http://www.apple.com:80</span>
-<span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>(port: .<span class="dotAccess token">optional</span>).<span class="call token">parse</span>(<span class="string token">"http://www.apple.com"</span>) <span class="comment token">// http://www.apple.com</span>
-<span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>(port: .<span class="dotAccess token">required</span>).<span class="call token">parse</span>(<span class="string token">"http://www.apple.com"</span>) <span class="comment token">// throws an error
+``` swift
+try URL.FormatStyle.Strategy(port: .defaultValue(80)).parse("http://www.apple.com") // http://www.apple.com:80
+try URL.FormatStyle.Strategy(port: .optional).parse("http://www.apple.com") // http://www.apple.com
+try URL.FormatStyle.Strategy(port: .required).parse("http://www.apple.com") // throws an error
 
-// This returns a valid URL</span>
-<span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>()
-    .<span class="call token">scheme</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">user</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">password</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">host</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">port</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">path</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">query</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">fragment</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">parse</span>(<span class="string token">"https://jAppleseed:Test1234@apple.com:80/macbook-pro?get-free#someFragmentOfSomething"</span>)
+// This returns a valid URL
+try URL.FormatStyle.Strategy()
+    .scheme(.required)
+    .user(.required)
+    .password(.required)
+    .host(.required)
+    .port(.required)
+    .path(.required)
+    .query(.required)
+    .fragment(.required)
+    .parse("https://jAppleseed:Test1234@apple.com:80/macbook-pro?get-free#someFragmentOfSomething")
 
-<span class="comment token">// This throws an error (the port is missing)</span>
-<span class="keyword token">try</span> <span class="type token">URL</span>.<span class="type token">FormatStyle</span>.<span class="type token">Strategy</span>()
-    .<span class="call token">scheme</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">user</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">password</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">host</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">port</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">path</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">query</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">fragment</span>(.<span class="dotAccess token">required</span>)
-    .<span class="call token">parse</span>(<span class="string token">"https://jAppleseed:Test1234@apple.com/macbook-pro?get-free#someFragmentOfSomething"</span>)</code></pre>
+// This throws an error (the port is missing)
+try URL.FormatStyle.Strategy()
+    .scheme(.required)
+    .user(.required)
+    .password(.required)
+    .host(.required)
+    .port(.required)
+    .path(.required)
+    .query(.required)
+    .fragment(.required)
+    .parse("https://jAppleseed:Test1234@apple.com/macbook-pro?get-free#someFragmentOfSomething")
+```

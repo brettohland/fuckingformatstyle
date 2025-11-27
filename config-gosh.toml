@@ -6,8 +6,8 @@ author = "brett ohland/Ampersand Softworks"
 description = "The missing manual Apple forgot to write"
 
 # Required to get well formatted code blocks
-pygmentsUseClasses = true
-pygmentsCodeFences = true
+pygmentsUseClasses = false
+pygmentsCodeFences = false
 disablePathToLower = true
 enableGitInfo = true
 

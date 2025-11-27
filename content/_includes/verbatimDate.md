@@ -9,49 +9,54 @@ sitemap_ignore: true
 
 You can easily backport the Xcode 14 type method to your project that supports the Xcode 13 platforms by including the following extension in your project:
 
-<pre class="splash"><code><span class="keyword token">public extension</span> <span class="type token">FormatStyle</span> <span class="keyword token">where</span> <span class="type token">Self</span> == <span class="type token">Date</span>.<span class="type token">VerbatimFormatStyle</span> {
-    <span class="keyword token">static func</span> verbatim(
-        <span class="keyword token">_</span> format: <span class="type token">Date</span>.<span class="type token">FormatString</span>,
-        locale: <span class="type token">Locale</span>? = <span class="keyword token">nil</span>,
-        timeZone: <span class="type token">TimeZone</span>,
-        calendar: <span class="type token">Calendar</span>
-    ) -&gt; <span class="type token">Date</span>.<span class="type token">VerbatimFormatStyle</span> {
-        <span class="keyword token">return</span> <span class="type token">Date</span>.<span class="type token">VerbatimFormatStyle</span>(format: format, locale: locale, timeZone: timeZone, calendar: calendar)
+``` swift
+public extension FormatStyle where Self == Date.VerbatimFormatStyle {
+    static func verbatim(
+        _ format: Date.FormatString,
+        locale: Locale? = nil,
+        timeZone: TimeZone,
+        calendar: Calendar
+    ) -> Date.VerbatimFormatStyle {
+        return Date.VerbatimFormatStyle(format: format, locale: locale, timeZone: timeZone, calendar: calendar)
     }
-}</code></pre>
+}
+```
 
 ### Format Strings
 
 The power of the verbatim format style lies in the `Date.FormatString` that is passed in. This struct conforms to the [ExpressibleByStringInterpolation protocol](https://developer.apple.com/documentation/swift/expressiblebystringinterpolation) which allows us mix and match structured values ([known as tokens](#symbol-tokens)) and strings as much as we want.
 
-<pre class="splash"><code><span class="keyword token">let</span> twosdayDateComponents = <span class="type token">DateComponents</span>(
-    year: <span class="number token">2022</span>,
-    month: <span class="number token">2</span>,
-    day: <span class="number token">22</span>,
-    hour: <span class="number token">22</span>,
-    minute: <span class="number token">22</span>,
-    second: <span class="number token">22</span>
+``` swift
+let twosdayDateComponents = DateComponents(
+    year: 2022,
+    month: 2,
+    day: 22,
+    hour: 22,
+    minute: 22,
+    second: 22
 )
 
-<span class="keyword token">let</span> twosday = <span class="type token">Calendar</span>(identifier: .<span class="dotAccess token">gregorian</span>).<span class="call token">date</span>(from: twosdayDateComponents)!
+let twosday = Calendar(identifier: .gregorian).date(from: twosdayDateComponents)!
 
-<span class="keyword token">let</span> verbatim = <span class="type token">Date</span>.<span class="type token">VerbatimFormatStyle</span>(
-    format: <span class="string token">"It's Twosday!</span> \(year: .<span class="dotAccess token">defaultDigits</span>)<span class="string token">-</span>\(month: .<span class="dotAccess token">abbreviated</span>)<span class="string token">(</span>\(month: .<span class="dotAccess token">defaultDigits</span>)<span class="string token">)-</span>\(day: .<span class="dotAccess token">defaultDigits</span>) <span class="string token">at</span> \(hour: .<span class="call token">twoDigits</span>(clock: .<span class="dotAccess token">twentyFourHour</span>, hourCycle: .<span class="dotAccess token">oneBased</span>))<span class="string token">:</span>\(minute: .<span class="dotAccess token">defaultDigits</span>)<span class="string token">:</span>\(second: .<span class="dotAccess token">defaultDigits</span>)<span class="string token">"</span>,
-    locale: <span class="type token">Locale</span>(identifier: <span class="string token">"en_US"</span>),
-    timeZone: <span class="type token">TimeZone</span>.<span class="property token">current</span>,
-    calendar: .<span class="dotAccess token">current</span>
+let verbatim = Date.VerbatimFormatStyle(
+    format: "It's Twosday! \(year: .defaultDigits)-\(month: .abbreviated)(\(month: .defaultDigits))-\(day: .defaultDigits) at \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .defaultDigits):\(second: .defaultDigits)",
+    locale: Locale(identifier: "en_US"),
+    timeZone: TimeZone.current,
+    calendar: .current
 )
 
-verbatim.<span class="call token">format</span>(twosday) <span class="comment token">// "It's Twosday! 2022-Feb(2)-22 at 22:22:22"</span>
+verbatim.format(twosday) // "It's Twosday! 2022-Feb(2)-22 at 22:22:22"
 
-twosday.<span class="call token">formatted</span>(
-    .<span class="call token">verbatim</span>(
-        <span class="string token">"It's Twosday!</span> \(year: .<span class="dotAccess token">defaultDigits</span>)<span class="string token">-</span>\(month: .<span class="dotAccess token">abbreviated</span>)<span class="string token">(</span>\(month: .<span class="dotAccess token">defaultDigits</span>)<span class="string token">)-</span>\(day: .<span class="dotAccess token">defaultDigits</span>) <span class="string token">at</span> \(hour: .<span class="call token">twoDigits</span>(clock: .<span class="dotAccess token">twentyFourHour</span>, hourCycle: .<span class="dotAccess token">oneBased</span>))<span class="string token">:</span>\(minute: .<span class="dotAccess token">defaultDigits</span>)<span class="string token">:</span>\(second: .<span class="dotAccess token">defaultDigits</span>)<span class="string token">"</span>,
-        locale: <span class="type token">Locale</span>(identifier: <span class="string token">"fr_FR"</span>),
-        timeZone: <span class="type token">TimeZone</span>.<span class="property token">current</span>,
-        calendar: .<span class="dotAccess token">current</span>
+twosday.formatted(
+    .verbatim(
+        "It's Twosday! \(year: .defaultDigits)-\(month: .abbreviated)(\(month: .defaultDigits))-\(day: .defaultDigits) at \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .defaultDigits):\(second: .defaultDigits)",
+        locale: Locale(identifier: "fr_FR"),
+        timeZone: TimeZone.current,
+        calendar: .current
     )
-) <span class="comment token">// "It's Twosday! 2022-févr.(2)-22 at 22:22:22"</span></code></pre>
+) // "It's Twosday! 2022-févr.(2)-22 at 22:22:22"
+
+``` swift
 
 {{< hint type=warning >}}
 
@@ -88,7 +93,7 @@ Every conceivable piece of information inside of a `Date` is available for use.
 <h4 id="era-token">Era</h4>
 
 | Option         | Description                                                 |
-| -------------- | ----------------------------------------------------------- |
+|----------------|-------------------------------------------------------------|
 | `.abbreviated` | Abbreviated Era name. For example, "AD", "Reiwa", "令和".   |
 | `.wide`        | Wide era name. For example, "Anno Domini", "Reiwa", "令和". |
 | `.narrow`      | Narrow era name. For example, For example, "A", "R", "R".   |
@@ -98,7 +103,7 @@ Every conceivable piece of information inside of a `Date` is available for use.
 <h4 id="year-token">Year</h4>
 
 | Option                              | Description                                                                                                                                                                                                                                                                                                                                                                     |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `.defaultDigits`                    | Minimum number of digits that shows the full year. For example, `2`, `20`, `201`, `2017`, `20173`.                                                                                                                                                                                                                                                                              |
 | `.twoDigits`                        | Two low-order digits. Padded or truncated if necessary. For example, `02`, `20`, `01`, `17`, `73`.                                                                                                                                                                                                                                                                              |
 | `.padded(_ length: Int)`            | Three or more digits. Padded if necessary. For example, `002`, `020`, `201`, `2017`, `20173`.                                                                                                                                                                                                                                                                                   |
@@ -110,7 +115,7 @@ Every conceivable piece of information inside of a `Date` is available for use.
 <h4 id="yearforweekofyear-token">YearForWeekOfYear</h4>
 
 | Option                   | Description                                                                                                                          |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | `.defaultDigits`         | Minimum number of digits that shows the full year in "Week of Year"-based calendars. For example, `2`, `20`, `201`, `2017`, `20173`. |
 | `.twoDigits`             | Two low-order digits.  Padded or truncated if necessary. For example, `02`, `20`, `01`, `17`, `73`.                                  |
 | `.padded(_ length: Int)` | Three or more digits. Padded if necessary. For example, `002`, `020`, `201`, `2017`, `20173`.                                        |
@@ -122,7 +127,7 @@ Every conceivable piece of information inside of a `Date` is available for use.
 Calendars such as the Chinese lunar calendar (and related calendars) and the Hindu calendars use 60-year cycles of year names. If the calendar does not provide cyclic year name data, or if the year value to be formatted is out of the range of years for which cyclic name data is provided, then numeric formatting is used (behaves like `Year`).
 
 | Option         | Description                                        |
-| -------------- | -------------------------------------------------- |
+|----------------|----------------------------------------------------|
 | `.abbreviated` | Abbreviated cyclic year name. For example, "甲子". |
 | `.wide`        | Wide cyclic year name. For example, "甲子".        |
 | `.narrow`      | Narrow cyclic year name. For example, "甲子".      |
@@ -133,7 +138,7 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 <h4 id="quarter-token">Quarter</h4>
 
 | Option         | Description                                                 |
-| -------------- | ----------------------------------------------------------- |
+|----------------|-------------------------------------------------------------|
 | `.oneDigit`    | Numeric: one digit quarter. For example `2`.                |
 | `.twoDigits`   | Numeric: two digits with zero padding. For example `02`.    |
 | `.abbreviated` | Abbreviated quarter. For example `Q2`.                      |
@@ -145,13 +150,13 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 
 <h4 id="month-token">Month</h4>
 
-| Option           | Description                                                                                                                                 |     |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| `.defaultDigits` | Minimum number of digits that shows the numeric month. Intended to be used in conjunction with `Day.defaultDigits`. For example, `9`, `12`. |     |
-| `.twoDigits`     | 2 digits, zero pad if needed. For example, `09`, `12`.                                                                                      |     |
-| `.abbreviated`   | Abbreviated month name. For example, "Sep".                                                                                                 |     |
-| `.wide`          | Wide month name. For example, "September".                                                                                                  | ``  |
-| `.narrow`        | Narrow month name. For example, "S".                                                                                                        |     |
+| Option           | Description                                                                                                                                 |    |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------|----|
+| `.defaultDigits` | Minimum number of digits that shows the numeric month. Intended to be used in conjunction with `Day.defaultDigits`. For example, `9`, `12`. |    |
+| `.twoDigits`     | 2 digits, zero pad if needed. For example, `09`, `12`.                                                                                      |    |
+| `.abbreviated`   | Abbreviated month name. For example, "Sep".                                                                                                 |    |
+| `.wide`          | Wide month name. For example, "September".                                                                                                  | `` |
+| `.narrow`        | Narrow month name. For example, "S".                                                                                                        |    |
 
 ---
     
@@ -160,7 +165,7 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 
 | Option           | Description                                                                        |
-| ---------------- | ---------------------------------------------------------------------------------- |
+|------------------|------------------------------------------------------------------------------------|
 | `.defaultDigits` | Numeric week of year. For example, `8`, `27`.                                      |
 | `.twoDigits`     | Two-digit numeric week of year, zero padded as necessary. For example, `08`, `27`. |
 | `.weekOfMonth`   | One-digit numeric week of month, starting from 1. For example, `1`.                |
@@ -170,7 +175,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 <h4 id="day-token">Day</h4>
 
 | Option                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `.defaultDigits`                 | Minimum number of digits that shows the full numeric day of month. For example, `1`, `18`.                                                                                                                                                                                                                                                                                                                                                   |
 | `.twoDigits`                     | Two-digit, zero-padded if necessary. For example, `01`, `18`.                                                                                                                                                                                                                                                                                                                                                                                |
 | `.ordinalOfDayInMonth`           | Ordinal of day in month. For example, the 2nd Wed in July would yield `2`.                                                                                                                                                                                                                                                                                                                                                                   |
@@ -182,7 +187,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 <h4 id="dayofyear-token">DayOfYear</h4>
 
 | Option           | Description                                                                                      |
-| ---------------- | ------------------------------------------------------------------------------------------------ |
+|------------------|--------------------------------------------------------------------------------------------------|
 | `.defaultDigits` | Minimum number of digits that shows the full numeric day of year. For example, `7`, `33`, `345`. |
 | `.twoDigits`     | Two-digit day of year, with zero-padding as necessary. For example, `07`, `33`, `345`.           |
 | `.threeDigits`   | Three-digit day of year, with zero-padding as necessary. For example, `007`, `033`, `345`.       |
@@ -193,7 +198,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 <h4 id="weekday-token">Weekday</h4>
 
 | Option         | Description                                                                             |
-| -------------- | --------------------------------------------------------------------------------------- |
+|----------------|-----------------------------------------------------------------------------------------|
 | `.abbreviated` | Abbreviated day of week name. For example, "Tue".                                       |
 | `.wide`        | Wide day of week name. For example, "Tuesday".                                          |
 | `.narrow`      | Narrow day of week name. For example, "T".                                              |
@@ -214,7 +219,7 @@ Each of the options can be passed a `width` case.
 - narrow
 
 | Option                | Description                                                                                                                                                                           |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `.standard(_ width:)` | Standard day period. For example, <br> Abbreviated: `12 am.`<br> Wide: `12 am`<br> Narrow: `12a`.                                                                                     |
 | `.with12s(_ width:)`  | Day period including designations for noon and midnight. For example, <br>Abbreviated: `mid`<br>Wide: `midnight`<br>Narrow: `md`.<br>                                                 |
 | `.conversational`     | Conversational day period. For example,<br>Abbreviated: `at night`, `nachm.`, `ip.`<br>Wide: `at night`, `nachmittags`, `iltapäivällä`.<br>Narrow: `at night`, `nachm.`, `iltap`.<br> |
@@ -224,7 +229,7 @@ Each of the options can be passed a `width` case.
 <h4 id="minute-token">Minute</h4>
 
 | Option           | Description                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------ |
+|------------------|--------------------------------------------------------------------------------------------|
 | `.defaultDigits` | Minimum digits to show the numeric minute. Truncated, not rounded. For example, `8`, `59`. |
 | `.twoDigits`     | Two-digit numeric, zero padded if needed. For example, `08`, `59`.                         |
     
@@ -234,7 +239,7 @@ Each of the options can be passed a `width` case.
 <h4 id="second-token">Second</h4>
 
 | Option           | Description                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------ |
+|------------------|--------------------------------------------------------------------------------------------|
 | `.defaultDigits` | Minimum digits to show the numeric second. Truncated, not rounded. For example, `8`, `12`. |
 | `.twoDigits`     | Two digits numeric, zero padded if needed, not rounded. For example, `08`, `12`.           |
     
@@ -244,7 +249,7 @@ Each of the options can be passed a `width` case.
 <h4 id="secondfraction-token">SecondFraction</h4>
 
 | Option                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `.fractional(_ val:)`   | Fractional second (numeric).<br>Truncates, like other numeric time fields, but in this case to the number of digits specified by the associated `Int`.<br>For example, specifying `4` for seconds value `12.34567` yields `12.3456`.                                                                                                                                                                                                                                                                                                                                     |
 | `.milliseconds(_ val:)` | Milliseconds in day (numeric).<br>The associated `Int` specifies the minimum number of digits, with zero-padding as necessary. The maximum number of digits is 9.<br> This field behaves exactly like a composite of all time-related fields, not including the zone fields. As such, it also reflects discontinuities of those fields on DST transition days. On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump backward. This reflects the fact that is must be combined with the offset field to obtain a unique local time value. |
 
@@ -258,7 +263,7 @@ Each talkes a `Width` case.
 - `long`
 
 | Option                    | Description                                                                                                                                                                                                              |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `.specificName(_ width:)` | Specific non-location format. Falls back to `shortLocalizedGMT` if unavailable. For example, <br>short: "PDT" <br>long: "Pacific Daylight Time".                                                                         |
 | `.genericName(_ width:)`  | Generic non-location format. Falls back to `genericLocation` if unavailable. For example, <br>short: "PT". Fallback again to `localizedGMT(.short)` if `genericLocation(.short)` is unavaiable. <br>long: "Pacific Time" |
 | `.localizedGMT(_ width:)` | Short localized GMT format. For example, <br>short: "GMT-8" <br>long: "GMT-8:00"                                                                                                                                         |
@@ -271,7 +276,7 @@ Each talkes a `Width` case.
 <h4 id="standalonequarter-token">StandaloneQuarter</h4>
 
 | Option         | Description                                                                            |
-| -------------- | -------------------------------------------------------------------------------------- |
+|----------------|----------------------------------------------------------------------------------------|
 | `.oneDigit`    | Standalone one-digit numeric quarter. For example `2`.                                 |
 | `.twoDigits`   | Two-digit standalone numeric quarter with zero padding if necessary, for example `02`. |
 | `.abbreviated` | Standalone abbreviated quarter. For example `Q2`.                                      |
@@ -284,7 +289,7 @@ Each talkes a `Width` case.
 <h4 id="standalonemonth-token">StandaloneMonth</h4>
 
 | Option           | Description                                                                                                        |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+|------------------|--------------------------------------------------------------------------------------------------------------------|
 | `.defaultDigits` | Stand-alone minimum digits numeric month. Number/name (intended to be used without `Day`). For example, `9`, `12`. |
 | `.twoDigits`     | Stand-alone two-digit numeric month. Two digits, zero pad if needed. For example, `09`, `12`.                      |
 | `.abbreviated`   | Stand-alone abbreviated month.For example, "Sep".                                                                  |
@@ -296,7 +301,7 @@ Each talkes a `Width` case.
 <h4 id="standaloneweekday-token">StandaloneWeekday</h4>
 
 | Option         | Description                                                           |
-| -------------- | --------------------------------------------------------------------- |
+|----------------|-----------------------------------------------------------------------|
 | `.oneDigit`    | Standalone local day of week number/name.                             |
 | `.abbreviated` | Standalone local day of week number/name. For example, "Tue".         |
 | `.wide`        | Standalone wide local day of week number/name.For example, "Tuesday". |
@@ -312,17 +317,16 @@ Hour symbols that does not take users' preferences into account, and is displaye
 Each accepts an `HourCycle` and a `Clock`.
 
 | `.HourCycle` | Description                                                                                |
-| ------------ | ------------------------------------------------------------------------------------------ |
+|--------------|--------------------------------------------------------------------------------------------|
 | `.zeroBased` | The hour ranges from 0 to 11 in a 12-hour clock. Ranges from 0 to 23 in a 24-hour clock.   |
 | `.oneBased`  | The hour ranges from 1 to 12 in the 12-hour clock. Ranges from 1 to 24 in a 24-hour clock. |
 
 | `.Clock`          | Description                                                                                                                                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `.twelveHour`     | In a 12-hour clock system, the 24-hour day is divided into two periods, a.m. and p.m, and each period consists of 12 hours.<br>- Note: Does not include the period marker (AM/PM). Specify a `PeriodSymbol` if that's desired. |
 | `.twentyFourHour` | In a 24-hour clock system, the day runs from midnight to midnight, dividing into 24 hours.<br>- Note: If using `twentyFourHour` together with `PeriodSymbol`, the period is ignored.                                           |
 
 | Option                               | Description                                                                                                                                                                                                                                              |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `.defaultDigits(clock:, hourCycle:)` | Minimum digits to show the numeric hour. For example, `1`, `12`.<br>Or `23` if using the `twentyFourHour` clock.<br>- Note: This format does not take user's locale preferences into account. Consider using `defaultDigits` if applicable.              |
 | `.twoDigits(clock:, hourCycle:)`     | Numeric two-digit hour, zero padded if necessary.<br>For example, `01`, `12`.<br>Or `23` if using the `twentyFourHour` clock.<br>- Note: This format does not take user's locale preferences into account. Consider using `defaultDigits` if applicable. |
-

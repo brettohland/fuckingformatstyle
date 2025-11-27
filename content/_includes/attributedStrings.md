@@ -11,7 +11,9 @@ Many of the format styles listed throughout will output attributed strings by ap
 
 These attributed strings give us the ability to style individual elements of the string.
 
-<pre class="splash"><code><span class="number token">0.88</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">percent</span>.<span class="property token">attributed</span>)</code></pre>
+``` swift
+0.88.formatted(.percent.attributed)
+```
 
 Outputs:
 
@@ -19,44 +21,45 @@ Outputs:
 
 You can then use the Attributed String API to access these elements to add your own styles.
 
-<pre class="splash"><code><span class="keyword token">struct</span> ContentView: <span class="type token">View</span> {
-    <span class="keyword token">var</span> percentAttributed: <span class="type token">AttributedString</span> {
-        <span class="keyword token">var</span> percentAttributedString = <span class="number token">0.8890</span>.<span class="call token">formatted</span>(.<span class="dotAccess token">percent</span>.<span class="property token">attributed</span>)
-        percentAttributedString.<span class="property token">swiftUI</span>.<span class="property token">font</span> = .<span class="dotAccess token">title</span>
-        percentAttributedString.<span class="property token">runs</span>.<span class="call token">forEach</span> { run <span class="keyword token">in
-            if let</span> numberRun = run.<span class="property token">numberPart</span> {
-                <span class="keyword token">switch</span> numberRun {
-                <span class="keyword token">case</span> .<span class="dotAccess token">integer</span>:
-                    percentAttributedString[run.<span class="property token">range</span>].foregroundColor = .<span class="dotAccess token">orange</span>
-                <span class="keyword token">case</span> .<span class="dotAccess token">fraction</span>:
-                    percentAttributedString[run.<span class="property token">range</span>].foregroundColor = .<span class="dotAccess token">blue</span>
+``` swift
+struct ContentView: View {
+    var percentAttributed: AttributedString {
+        var percentAttributedString = 0.8890.formatted(.percent.attributed)
+        percentAttributedString.swiftUI.font = .title
+        percentAttributedString.runs.forEach { run in
+            if let numberRun = run.numberPart {
+                switch numberRun {
+                case .integer:
+                    percentAttributedString[run.range].foregroundColor = .orange
+                case .fraction:
+                    percentAttributedString[run.range].foregroundColor = .blue
                 }
             }
 
-            <span class="keyword token">if let</span> symbolRun = run.<span class="property token">numberSymbol</span> {
-                <span class="keyword token">switch</span> symbolRun {
-                <span class="keyword token">case</span> .<span class="dotAccess token">percent</span>:
-                    percentAttributedString[run.<span class="property token">range</span>].foregroundColor = .<span class="dotAccess token">green</span>
-                <span class="keyword token">case</span> .<span class="dotAccess token">decimalSeparator</span>:
-                    percentAttributedString[run.<span class="property token">range</span>].foregroundColor = .<span class="dotAccess token">red</span>
-                <span class="keyword token">default</span>:
-                    <span class="keyword token">break</span>
+            if let symbolRun = run.numberSymbol {
+                switch symbolRun {
+                case .percent:
+                    percentAttributedString[run.range].foregroundColor = .green
+                case .decimalSeparator:
+                    percentAttributedString[run.range].foregroundColor = .red
+                default:
+                    break
                 }
             }
         }
 
-        <span class="keyword token">return</span> percentAttributedString
+        return percentAttributedString
     }
 
-    <span class="keyword token">var</span> body: <span class="keyword token">some</span> <span class="type token">View</span> {
-        <span class="type token">VStack</span> {
-            <span class="type token">Text</span>(percentAttributed)
+    var body: some View {
+        VStack {
+            Text(percentAttributed)
         }
-        .<span class="call token">padding</span>()
+        .padding()
     }
-}</code></pre>
+}
+```
 
 Will show:
 
 ![Attributed String Output for 88%](/images/attributed-string-swiftui.png)
-
