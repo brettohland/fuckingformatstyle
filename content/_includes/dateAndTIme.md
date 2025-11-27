@@ -104,3 +104,4 @@ Date.now.formatted(.dateTime.year().month().day().locale(defaultHebrew)) // "23 
 let hebrew = Locale(identifier: "he@numbers=hebr;calendar=hebrew")
 Date.now.formatted(.dateTime.year().month().day().locale(hebrew)) // "כ״ג בספט׳ ב׳כ״ג"
 ```
+

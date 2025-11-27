@@ -14,7 +14,7 @@ public protocol FormatStyle : Decodable, Encodable, Hashable {
     /// The type of the formatted data.
     associatedtype FormatOutput
 
-    /// Creates a `FormatOutput` instance from `value`.
+    /// Creates a "FormatOutput" instance from "value".
     func format(_ value: Self.FormatInput) -> Self.FormatOutput
 
     /// If the format allows selecting a locale, returns a copy of this format with the new locale set. Default implementation returns an unmodified self.

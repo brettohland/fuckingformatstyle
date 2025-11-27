@@ -14,8 +14,7 @@ You can either initialize a new instance of `Duration.TimeFormatStyle`, or use t
 Duration.seconds(1_000).formatted() // "0:16:40"
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute)) // "0:17"
 Duration.TimeFormatStyle(pattern: .hourMinute).format(Duration.seconds(1_000)) // "0:17"
-
-``` swift
+```
 
 {{< hint type=note >}}
 

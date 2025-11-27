@@ -100,8 +100,7 @@ averageBaseballThrow.formatted(.measurement(width: .narrow)) // "70'"
 bodyTemperature.formatted(.measurement(width: .wide)) // "98 degrees Fahrenheit"
 bodyTemperature.formatted(.measurement(width: .abbreviated)) // "98°F"
 bodyTemperature.formatted(.measurement(width: .narrow)) // "98°"
-
-``` swift
+```
 
 ### Usage
 
@@ -283,8 +282,7 @@ averageWeight.formatted(.measurement(width: .abbreviated, usage: .personWeight).
 averageWeight.formatted(.measurement(width: .narrow, usage: .general).locale(canada)) // "90kg"
 averageWeight.formatted(.measurement(width: .narrow, usage: .asProvided).locale(canada)) // "197.9lb"
 averageWeight.formatted(.measurement(width: .narrow, usage: .personWeight).locale(canada)) // "90kg"
-
-``` swift
+```
 
 #### UnitTemperature
 
@@ -436,8 +434,7 @@ myHeight.formatted(
     )
     .locale(usa)
 ) // "6′ 3″"
-
-``` swift
+```
 
 <h3>Attributed String Output</h3>
 

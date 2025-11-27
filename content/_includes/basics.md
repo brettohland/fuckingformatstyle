@@ -48,7 +48,6 @@ let byteCountStyle = ByteCountFormatStyle(
 )
 
 byteCountStyle.format(1_000_000_000) //"1 GB (1,000,000,000 bytes)"
-
-``` swift
+```
 
 In general, these are useful to quickly convert your values into strings.

@@ -118,8 +118,7 @@ zeroMeasurement.formatted(.byteCount(style: .file, spellsOutZero: true)) // "Zer
 zeroMeasurement.formatted(.byteCount(style: .file, spellsOutZero: false)) // "0 bytes"
 
 megabyteMeasurement.formatted(.byteCount(style: .file, includesActualByteCount: true)) // "1 MB (1,000,000 bytes)"
-
-``` swift
+```
 
 ### Customizing the locale
 
