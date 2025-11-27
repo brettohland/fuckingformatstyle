@@ -250,8 +250,14 @@ Each of the options can be passed a `width` case.
 
 | Option                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `.fractional(_ val:)`   | Fractional second (numeric).<br>Truncates, like other numeric time fields, but in this case to the number of digits specified by the associated `Int`.<br>For example, specifying `4` for seconds value `12.34567` yields `12.3456`.                                                                                                                                                                                                                                                                                                                                     |
+| `.fractional(_ val:)`   | Fractional second (numeric). Sets the number of fractional seconds to include in the output. See note below.                                                                                                                                                                                                                                                                                                                                     |
 | `.milliseconds(_ val:)` | Milliseconds in day (numeric).<br>The associated `Int` specifies the minimum number of digits, with zero-padding as necessary. The maximum number of digits is 9.<br> This field behaves exactly like a composite of all time-related fields, not including the zone fields. As such, it also reflects discontinuities of those fields on DST transition days. On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump backward. This reflects the fact that is must be combined with the offset field to obtain a unique local time value. |
+
+{{< hint type=note}}
+
+When using the `.fractional(_:)` case, the format style seems to only output a maximum of 3 decimal places.
+
+{{< /hint >}}
 
 ---
 
