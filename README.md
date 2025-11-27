@@ -8,16 +8,15 @@ The source code for both [fuckingformatstyle.com](https://fuckingformatstyle.com
 
 You have two options;
 
-1. Open an [issue](https://github.com/brettohland/fuckingformatstyle/issues). I try to take care of things within a week or less.
+1. Open an [issue](https://github.com/brettohland/fuckingformatstyle/issues)
 2. Open a PR. If you're willing and able, you might need the following sections.
 
 # A Bit Of Documentation
 
 This site is built using [Hugo](https://gohugo.io) and the [Hugo Geekdocs](https://github.com/thegeeklab/hugo-geekdoc) template.
 
-Out of the box, Hugo's support for Swift code highlighting is poor. To work around this, the site manually converts all Swift code blocks into HTML using [SplashMarkdown](https://github.com/xyproto/splash) during deployment.
+Hugo/Chroma's syntax highlighting for Swift isn't great, so there's a post-processing step that's used to add syntax highlighting using [SplashMarkdown](https://github.com/xyproto/splash) during deployment.
 
-## Where's The Actual Content?
+# Where's The Content?
 
-All of the copy and code examples are stored inside of the `/sections` folder. During deployment, each markdown file will have their code blocks converted and they will be placed in their final location inside of the `/content/_includes/` folder.
-
+The bulk of the content is located inside of the `/content/includes` folder ([link](https://github.com/brettohland/fuckingformatstyle/tree/main/content/_includes)). 
