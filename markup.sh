@@ -88,9 +88,9 @@ find "$DIR" -name "*.html" -type f | while read -r html_file; do
                 
                 # Print the parts
                 if (before_code != "") print before_code
-                print open_tag
-                print highlighted
-                print close_tag
+                printf "%s", open_tag
+                printf "%s", highlighted
+                printf "%s", close_tag
                 if (after_code != "") print after_code
                 
                 inside_code = 0
@@ -132,12 +132,12 @@ find "$DIR" -name "*.html" -type f | while read -r html_file; do
             # Print: line before code (if any) + opening tag + highlighted code + closing tag + line after code (if any)
             if (line_before_code != "") {
                 print line_before_code
-                print open_tag
+                printf "%s", open_tag
             } else {
-                print open_tag
+                printf "%s", open_tag
             }
-            print highlighted
-            print close_tag
+            printf "%s", highlighted
+            printf "%s", close_tag
             if (line_after_code != "") print line_after_code
             
             inside_code = 0

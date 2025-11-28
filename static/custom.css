@@ -52,8 +52,8 @@ hr {
   padding: 0 1em;
 }
 
-.gdoc-markdown pre code {
-  padding-top: 0;
+.gdoc-markdown .table-wrap code {
+  background-color: unset;
 }
 
 .gdoc-nav nav {
