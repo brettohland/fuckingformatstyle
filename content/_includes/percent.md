@@ -10,7 +10,7 @@ The easiest and best way to access this style is through the `.percent` extensio
 
 You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>.Percent`, `FloatingPointFormatStyle<BinaryFloatingPoint>.Percent` or `Decimal.FormatStyle.Percent` and use method chaining to customize the output.
   
-```
+``` swift
 FloatingPointFormatStyle<Double>.Percent().rounded(rule: .up, increment: 1).format(0.109) // "11%"
 IntegerFormatStyle<Int>.Percent().notation(.compactName).format(1_000) // "1K%"
 Decimal.FormatStyle.Percent().scale(12).format(0.1) // "1.2%"

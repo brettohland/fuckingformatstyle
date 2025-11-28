@@ -7,7 +7,7 @@ description = "The missing FormatStyle manual that Apple forgot to write."
 
 # Required to get well formatted code blocks
 pygmentsUseClasses = false
-pygmentsCodeFences = false
+pygmentsCodeFences = true
 disablePathToLower = true
 enableGitInfo = true
 
@@ -19,14 +19,7 @@ ignoreFiles = ['content/_includes/README\.md$']
 [taxonomies]
 
 [markup]
-  [markup.highlight]
-    lineNos = true
-    lineNumbersInTable = true
-    noClasses = false
-    tabWidth = 4
-    style = "solarised-dark256"
   [markup.goldmark.renderer]
-    # Needed for mermaid shortcode
     unsafe = true
   [markup.tableOfContents]
     startLevel = 1

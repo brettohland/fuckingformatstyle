@@ -52,6 +52,10 @@ hr {
   padding: 0 1em;
 }
 
+.gdoc-markdown pre code {
+  padding-top: 0;
+}
+
 .gdoc-nav nav {
   position: sticky;
   top: 0;
@@ -125,7 +129,7 @@ a.version-badge:visited {
   } 
 }
 
-.splash code {
+.language-swift {
   overflow-x: scroll;
 }
 
@@ -140,43 +144,43 @@ a.version-badge:visited {
       --footer-link-color-visited: white;
   }
 
-  .splash .keyword {
+  .language-swift .keyword {
     color: #000000;
     font-weight: bold;
   }
 
-  .splash .string {
+  .language-swift .string {
     color: #dd1144;
   }
 
-  .splash .type {
+  .language-swift .type {
     color: #000080;
   }
 
-  .splash .call {
+  .language-swift .call {
     color: #990000;
     font-weight: bold;
   }
 
-  .splash .property {
+  .language-swift .property {
     color: #000080;
   }
 
-  .splash .number {
+  .language-swift .number {
     color: #027e83;
   }
 
-  .splash .comment {
+  .language-swift .comment {
     color: #676765;
     font-style: italic;
   }
 
-  .splash .dotAccess {
+  .language-swift .dotAccess {
     color: #445588;
     font-weight: bold;
   }
 
-  .splash .preprocessing {
+  .language-swift .preprocessing {
     color: #676767;
     font-weight: bold;
     font-style: italic;
@@ -195,43 +199,43 @@ a.version-badge:visited {
       --footer-link-color-visited: white;
   }
 
-  .splash .keyword {
+  .language-swift .keyword {
     color: #000000;
     font-weight: bold;
   }
 
-  .splash .string {
+  .language-swift .string {
     color: #dd1144;
   }
 
-  .splash .type {
+  .language-swift .type {
     color: #000080;
   }
 
-  .splash .call {
+  .language-swift .call {
     color: #990000;
     font-weight: bold;
   }
 
-  .splash .property {
+  .language-swift .property {
     color: #000080;
   }
 
-  .splash .number {
+  .language-swift .number {
     color: #027e83;
   }
 
-  .splash .comment {
+  .language-swift .comment {
     color: #676765;
     font-style: italic;
   }
 
-  .splash .dotAccess {
+  .language-swift .dotAccess {
     color: #445588;
     font-weight: bold;
   }
 
-  .splash .preprocessing {
+  .language-swift .preprocessing {
     color: #676767;
     font-weight: bold;
     font-style: italic;
@@ -239,86 +243,86 @@ a.version-badge:visited {
 
 }
 
-:root[color-mode="light"] .splash .keyword {
+:root[color-mode="light"] .language-swift .keyword {
   color: #000000;
   font-weight: bold;
 }
 
-:root[color-mode="light"] .splash .string {
+:root[color-mode="light"] .language-swift .string {
   color: #dd1144;
 }
 
-:root[color-mode="light"] .splash .type {
+:root[color-mode="light"] .language-swift .type {
   color: #000080;
 }
 
-:root[color-mode="light"] .splash .call {
+:root[color-mode="light"] .language-swift .call {
   color: #990000;
   font-weight: bold;
 }
 
-:root[color-mode="light"] .splash .property {
+:root[color-mode="light"] .language-swift .property {
   color: #000080;
 }
 
-:root[color-mode="light"] .splash .number {
+:root[color-mode="light"] .language-swift .number {
   color: #027e83;
 }
 
-:root[color-mode="light"] .splash .comment {
+:root[color-mode="light"] .language-swift .comment {
   color: #676765;
   font-style: italic;
 }
 
-:root[color-mode="light"] .splash .dotAccess {
+:root[color-mode="light"] .language-swift .dotAccess {
   color: #445588;
   font-weight: bold;
 }
 
-:root[color-mode="light"] .splash .preprocessing {
+:root[color-mode="light"] .language-swift .preprocessing {
   color: #676767;
   font-weight: bold;
   font-style: italic;
 }
 
 @media (prefers-color-scheme: dark) {
-  .splash .keyword {
+  .language-swift .keyword {
     color: #ff79c6;
     font-weight: bold;
   }
 
-  .splash .string {
+  .language-swift .string {
     color: #f1fa8c;
   }
 
-  .splash .type {
+  .language-swift .type {
     color: #ff79c6;
   }
 
-  .splash .call {
+  .language-swift .call {
     color: #50fa7b;
     font-weight: bold;
   }
 
-  .splash .property {
+  .language-swift .property {
     color: #ff79c6;
   }
 
-  .splash .number {
+  .language-swift .number {
     color: #bd93f9;
   }
 
-  .splash .comment {
+  .language-swift .comment {
     color: #96a6d8;
     font-style: italic;
   }
 
-  .splash .dotAccess {
+  .language-swift .dotAccess {
     color: #8be9fd;
     font-weight: bold;
   }
 
-  .splash .preprocessing {
+  .language-swift .preprocessing {
     color: #ff79c6;
     font-weight: bold;
     font-style: italic;

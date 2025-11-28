@@ -2,7 +2,7 @@
 draft: false
 ---
 
-## [v1.7](https://github.com/brettohland/fuckingformatstyle/tree/v1.7) (2025-11-27)
+## [v1.8](https://github.com/brettohland/fuckingformatstyle/tree/v1.8) (2025-11-27)
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.7...1.8)
 

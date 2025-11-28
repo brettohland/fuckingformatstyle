@@ -55,7 +55,6 @@ twosday.formatted(
         calendar: .current
     )
 ) // "It's Twosday! 2022-févr.(2)-22 at 22:22:22"
-
 ```
 
 {{< hint type=warning >}}

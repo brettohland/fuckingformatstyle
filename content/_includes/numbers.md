@@ -4,7 +4,7 @@ sitemap_ignore: true
 
 The easiest and best way to access this style is through the `.number` extension on `FormatStyle`. From there, you can use method chaining to customize the output.
 
-``` swift
+```swift
 Float(10).formatted(.number.scale(200.0).notation(.compactName).grouping(.automatic)) // "2K"
 ```
 
@@ -255,7 +255,6 @@ let enArabICU = Locale(identifier: "en@numbers=arab")
 12345.formatted(.number.locale(enArabICU)) // "١٢٬٣٤٥"
 Date.now.formatted(.dateTime.year().month().day().locale(enArabICU)) // "Sep ٢٣, ٢٠٢٣"
 ```
-
 
 <h3 id="numbers-compositing">Compositing</h3>
 

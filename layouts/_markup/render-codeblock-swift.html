@@ -1,0 +1,6 @@
+<!--
+The post-processing step will feed the .Inner contents through SplashHTMLGen which will
+already handle HTML entity encoding. We have to force Hugo to use the safeHTML version
+so we don't double-encode things.
+-->
+<pre><code class="language-{{ .Type }}">{{- .Inner | safeHTML -}}</code></pre>

@@ -9,7 +9,7 @@ The easiest and best way to access this style is through the `.currency(code:)` 
 
 You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>.Percent`, `FloatingPointFormatStyle<BinaryFloatingPoint>.Percent` or `Decimal.FormatStyle.Percent` and use method chaining to customize the output.
   
-```
+``` swift
 FloatingPointFormatStyle<Double>.Currency(code: "JPY").rounded(rule: .up, increment: 1).format(10.9) // ¥11"
 IntegerFormatStyle<Int>.Currency(code: "GBP").presentation(.fullName).format(42) // "42.00 British pounds"
 Decimal.FormatStyle.Currency(code: "USD").scale(12).format(0.1) // "$1.20"
@@ -260,7 +260,7 @@ Due to rounding issues, you should never use floating point types (`Double`, `Fl
 {{< /hint >}}
 
 ``` swift
-// Inclusing the locale with the style
+// Including the locale with the style
 try Decimal("$3.14", format: .currency(code: "USD").locale(enUS)) // 3.14
 
 // Defining the style first, then reusing it
