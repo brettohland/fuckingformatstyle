@@ -71,6 +71,7 @@ hr {
   font-size: 15px;
   border-radius: 0.5em;
   color: white;
+  text-decoration: none;
 }
 
 a.version-badge:visited {
@@ -89,6 +90,10 @@ a.version-badge:visited {
 
 .version-badge.xcode14:visited {
   color: #343a40;
+}
+
+.version-badge.xcode16 {
+  background: #FF6B1A;
 }
 
 .hovertext {

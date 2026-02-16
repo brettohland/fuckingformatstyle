@@ -71,6 +71,22 @@ There are no options available to set the units you would like to display, the s
 
 ---
 
+<h2 id="anchored-relative-date-style-single-date">Anchored Relative Date Style {{< xcode16-badge >}}</h2>
+
+{{< api-links docs="foundation/date/anchoredrelativeformatstyle" source="FoundationInternationalization/Formatting/Date/Date+AnchoredRelativeFormatStyle.swift" >}}
+
+{{< hint type=tip title=TL;DR >}}
+
+The relative date style, but detached from the system clock. You set a fixed anchor date and format it from any reference point.
+
+{{< /hint >}}
+
+The standard relative format style always compares a date to "now", which means every call to `format` can produce a different result. The anchored relative format style solves this by letting you lock in an **anchor date** and then choose the reference point yourself.
+
+{{< include file="/_includes/anchoredRelativeDate.md" type="page" >}}
+
+---
+
 <h2 id="verbatim-date-style-single-date">Verbatim Date Style {{< xcode13-badge >}} {{< xcode14-badge >}}</h2>
 
 {{< api-links docs="foundation/date/verbatimformatstyle" source="FoundationInternationalization/Formatting/Date/Date+VerbatimFormatStyle.swift" >}}

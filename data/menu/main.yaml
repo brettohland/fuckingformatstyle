@@ -41,6 +41,9 @@ main:
       - name: Relative Date Style
         ref: "/date-styles/#relative-date-style-single-date"
         external: true
+      - name: Anchored Relative Date Style
+        ref: "/date-styles/#anchored-relative-date-style-single-date"
+        external: true
       - name: Verbatim Style
         ref: "/date-styles/#verbatim-date-style-single-date"
         external: true
