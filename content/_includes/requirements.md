@@ -24,3 +24,9 @@ This badge represents a style that has been updated, or is only available only, 
 - Duration style
 - URL style
 - (Updated) Verbatim date style
+
+<h3 id="xcode16">{{< xcode16-badge >}}</h3>
+
+This badge represents a style that is only available on platforms built by Xcode 16 and above (iOS 18.0+, iPadOS 18.0+, Mac Catalyst 18.0+, tvOS 18.0+, watchOS 11.0+, macOS 15.0+, visionOS 1.0+):
+
+- Anchored relative date style
