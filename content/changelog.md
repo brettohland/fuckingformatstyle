@@ -2,6 +2,21 @@
 draft: false
 ---
 
+## v1.9 (2026-02-16)
+
+**Merged pull requests:**
+
+* Document Date.AnchoredRelativeFormatStyle (Xcode 16+) by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/42
+* Fix typos and broken links in content files by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/41
+
+**Other changes:**
+
+* Markup script no longer adds phantom newline characters
+* Removes background from `<code>` tags inside of tables
+* Adds custom codeblock render template to avoid double escaping HTML elements in Swift code
+* Updates the markup.sh script and deploy script
+* Fixes CSS issue with code blocks
+
 ## [v1.8](https://github.com/brettohland/fuckingformatstyle/tree/v1.8) (2025-11-27)
 
 [Full Changelog](https://github.com/brettohland/fuckingformatstyle/compare/v1.7...1.8)
