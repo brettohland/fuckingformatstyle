@@ -9,6 +9,8 @@ Visit the "Build a Format Style Workshop".
 
 {{< /hint >}}
 
+{{< api-links docs="foundation/formatstyle" source="FoundationEssentials/Formatting/FormatStyle.swift" >}}
+
 {{< include file="/_includes/custom.md" type="page" >}}
 
 <div class="gdoc-page__footer flex flex-wrap justify-between">

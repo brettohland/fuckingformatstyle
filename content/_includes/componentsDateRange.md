@@ -35,8 +35,17 @@ testRange.formatted(.components(style: .abbreviated, fields: [.year])
 testRange.formatted(.components(style: .condensedAbbreviated, fields: [.day, .month, .year, .hour, .second, .week])) // "31y"
 
 let appleReferenceDay = Date(timeIntervalSinceReferenceDate: 0)
+let twosdayDateComponents = DateComponents(
+    year: 2022,
+    month: 2,
+    day: 22,
+    hour: 2,
+    minute: 22,
+    second: 22,
+    nanosecond: 22
+)
 let twosday = Calendar(identifier: .gregorian).date(from: twosdayDateComponents)!
-let secondRange = appleReferenceDay .. <twosday
+let secondRange = appleReferenceDay..<twosday
 
 // 21 yrs, 1 mth, 3 wks, 9 hr, 1,342 sec
 secondRange.formatted(.components(style: .abbreviated, fields: [.day, .month, .year, .hour, .second, .week]))
@@ -66,7 +75,7 @@ secondRange.formatted(.components(style: .spellOut, fields: [.day, .month, .year
 
 ### Fully Customizing & Setting Calendar
 
-You can set the calendar by using the `Date.ComponentFormatStyle` initializer and using the resulting format style.
+You can set the calendar by using the `Date.ComponentsFormatStyle` initializer and using the resulting format style.
 
 ``` swift
 let componentsFormat = Date.ComponentsFormatStyle(

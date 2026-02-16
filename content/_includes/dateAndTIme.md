@@ -11,7 +11,7 @@ To customize the display, you have the option of including a `DateStyle` or a `T
 | `.numeric`       | Displays the date components as numbers                         |
 | `.abbreviated`   | Displays the year, month, and numerical day. Month is shortened |
 | `.long`          | Displays the year, month, and numerical day. Month is in full   |
-| `.complete`      | Displays the year, month, weedkay, and numberical day in full   |
+| `.complete`      | Displays the year, month, weekday, and numerical day in full    |
 
 | TimeStyle Option | Description                                        |
 |------------------|----------------------------------------------------|

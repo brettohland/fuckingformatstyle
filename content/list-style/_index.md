@@ -11,8 +11,10 @@ Outputs an array as a list, you can further customize how each element in the ar
 
 {{< xcode13-badge >}}
 
+{{< api-links docs="foundation/listformatstyle" source="FoundationInternationalization/Formatting/ListFormatStyle.swift" >}}
+
 This format style works on any Array or items. In cases where the items are string convertible, the output is standard.
- 
+
 {{< include file="/_includes/listStyle.md" type="page" >}}
 
 <div class="gdoc-page__footer flex flex-wrap justify-between">

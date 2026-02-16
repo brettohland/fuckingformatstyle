@@ -52,7 +52,7 @@ guest.formatted(inFrance)
 
 #### Parsing Names From Strings
 
-This is primarily useful when dealing with differences in name order for a given `Locale`. 
+This is primarily useful when dealing with differences in name order for a given `Locale`.
 
 ``` swift
 // namePrefix: Dr givenName: Elizabeth middleName: Jillian familyName: Smith nameSuffix: Esq.

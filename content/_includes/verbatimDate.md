@@ -130,7 +130,7 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 | `.abbreviated` | Abbreviated cyclic year name. For example, "甲子". |
 | `.wide`        | Wide cyclic year name. For example, "甲子".        |
 | `.narrow`      | Narrow cyclic year name. For example, "甲子".      |
-    
+
 
 ---
 
@@ -158,7 +158,7 @@ Calendars such as the Chinese lunar calendar (and related calendars) and the Hin
 | `.narrow`        | Narrow month name. For example, "S".                                                                                                        |    |
 
 ---
-    
+
 <h4 id="week-token">Week</h4>
 
 Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
@@ -178,11 +178,11 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 | `.defaultDigits`                 | Minimum number of digits that shows the full numeric day of month. For example, `1`, `18`.                                                                                                                                                                                                                                                                                                                                                   |
 | `.twoDigits`                     | Two-digit, zero-padded if necessary. For example, `01`, `18`.                                                                                                                                                                                                                                                                                                                                                                                |
 | `.ordinalOfDayInMonth`           | Ordinal of day in month. For example, the 2nd Wed in July would yield `2`.                                                                                                                                                                                                                                                                                                                                                                   |
-| `.ulianModified(minimumLength:)` | The field length specifies the minimum number of digits, with zero-padding as necessary. <br> This is different from the conventional Julian day number in two regards. First, it demarcates days at local zone midnight, rather than noon GMT. Second, it is a local number; that is, it depends on the local time zone. It can be thought of as a single number that encompasses all the date-related fields. <br> For example, `2451334`. |
+| `.julianModified(minimumLength:)` | The field length specifies the minimum number of digits, with zero-padding as necessary. <br> This is different from the conventional Julian day number in two regards. First, it demarcates days at local zone midnight, rather than noon GMT. Second, it is a local number; that is, it depends on the local time zone. It can be thought of as a single number that encompasses all the date-related fields. <br> For example, `2451334`. |
 
 
 ---
-    
+
 <h4 id="dayofyear-token">DayOfYear</h4>
 
 | Option           | Description                                                                                      |
@@ -190,7 +190,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 | `.defaultDigits` | Minimum number of digits that shows the full numeric day of year. For example, `7`, `33`, `345`. |
 | `.twoDigits`     | Two-digit day of year, with zero-padding as necessary. For example, `07`, `33`, `345`.           |
 | `.threeDigits`   | Three-digit day of year, with zero-padding as necessary. For example, `007`, `033`, `345`.       |
-    
+
 
 ---
 
@@ -206,7 +206,7 @@ Week symbols. Use with `YearForWeekOfYear` for the year field instead of `Year`.
 | `.twoDigits`   | Local day of week number/name, format style; two digits, zero-padded if necessary.      |
 
 ---
-    
+
 <h4 id="dayperiod-token">DayPeriod</h4>
 
 The time period (for example, "a.m." or "p.m."). May be upper or lower case depending on the locale and other options.
@@ -231,7 +231,7 @@ Each of the options can be passed a `width` case.
 |------------------|--------------------------------------------------------------------------------------------|
 | `.defaultDigits` | Minimum digits to show the numeric minute. Truncated, not rounded. For example, `8`, `59`. |
 | `.twoDigits`     | Two-digit numeric, zero padded if needed. For example, `08`, `59`.                         |
-    
+
 
 ---
 
@@ -241,7 +241,7 @@ Each of the options can be passed a `width` case.
 |------------------|--------------------------------------------------------------------------------------------|
 | `.defaultDigits` | Minimum digits to show the numeric second. Truncated, not rounded. For example, `8`, `12`. |
 | `.twoDigits`     | Two digits numeric, zero padded if needed, not rounded. For example, `08`, `12`.           |
-    
+
 
 ---
 
@@ -262,7 +262,7 @@ When using the `.fractional(_:)` case, the format style seems to only output a m
 
 <h4 id="timezone-token">TimeZone</h4>
 
-Each talkes a `Width` case.
+Each takes a `Width` case.
 
 - `short`
 - `long`
@@ -287,7 +287,7 @@ Each talkes a `Width` case.
 | `.abbreviated` | Standalone abbreviated quarter. For example `Q2`.                                      |
 | `.wide`        | Standalone wide quarter. For example "2nd quarter".                                    |
 | `.narrow`      | Standalone narrow quarter. For example "2".                                            |
-    
+
 
 ---
 
@@ -302,7 +302,7 @@ Each talkes a `Width` case.
 | `.narrow`        | Stand-alone narrow month. For example, "S".                                                                        |
 
 ---
-    
+
 <h4 id="standaloneweekday-token">StandaloneWeekday</h4>
 
 | Option         | Description                                                           |
@@ -314,7 +314,7 @@ Each talkes a `Width` case.
 | `.short`       | Standalone short local day of week number/name. For example, "Tu".    |
 
 ---
-    
+
 <h4 id="verbatimhour-token">VerbatimHour</h4>
 
 Hour symbols that does not take users' preferences into account, and is displayed as-is.

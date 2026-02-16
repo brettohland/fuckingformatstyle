@@ -4,13 +4,13 @@ sitemap_ignore: true
 The easiest and best way to access this style is through the `.currency(code:)` extension on `FormatStyle`. From there, you can use method chaining to customize the output.
 
 ``` swift
-10.formatted(.currency(code: "JPY")) // "10%"
+10.formatted(.currency(code: "JPY")) // "¥10"
 ```
 
 You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>.Percent`, `FloatingPointFormatStyle<BinaryFloatingPoint>.Percent` or `Decimal.FormatStyle.Percent` and use method chaining to customize the output.
-  
+
 ``` swift
-FloatingPointFormatStyle<Double>.Currency(code: "JPY").rounded(rule: .up, increment: 1).format(10.9) // ¥11"
+FloatingPointFormatStyle<Double>.Currency(code: "JPY").rounded(rule: .up, increment: 1).format(10.9) // "¥11"
 IntegerFormatStyle<Int>.Currency(code: "GBP").presentation(.fullName).format(42) // "42.00 British pounds"
 Decimal.FormatStyle.Currency(code: "USD").scale(12).format(0.1) // "$1.20"
 ```
@@ -23,7 +23,7 @@ Decimal.FormatStyle.Currency(code: "USD").scale(12).format(0.1) // "$1.20"
 | [Sign](#currency-sign)                                        | Do you want to show or hide the + or - sign?                  |
 | [Decimal Separator](#currency-decimal-separator)              | Do you want to show or hide the decimal separator             |
 | [Grouping](#currency-grouping)                                | How do you want the thousands numbers to be grouped           |
-| [Precision](#currency-prescision)                             | How many fractional or significant digits do you want to show |
+| [Precision](#currency-precision)                             | How many fractional or significant digits do you want to show |
 | [Presentation](#currency-presentation)                        | Controls the style of the displayed currency                  |
 | [Scale](#currency-scale)                                      | Scale the number up or down before display                    |
 | [Locale](#currency-locale)                                    | Set the `Locale` for one output                               |
@@ -81,7 +81,7 @@ Controls the visibility of the negative and positive sign.
 
 | Sign Display Strategy          | Description                                                            |
 |--------------------------------|------------------------------------------------------------------------|
-| `.automatic`                   | Automatically desides which strategy to use                            |
+| `.automatic`                   | Automatically decides which strategy to use                            |
 | `.never`                       | Never shows the positive (+) or negative (-) signs                     |
 | `.always()`                    | Always shows the positive (+) or negative (-) signs                    |
 | `.always(showsZero:)`          | Accepts a `Bool`, and controls if a `0` value gets a positive (+) sign |
@@ -228,7 +228,7 @@ Controls the locale of the output.
 
 ``` swift
 Decimal(10).formatted(.currency(code: "GBP").presentation(.fullName).locale(Locale(identifier: "fr_FR"))) // "10,00 livres sterling"
-Decimal(10000000).formatted(.currency(code: "GBP").locale(Locale(identifier: "hi_IN"))) // "£1,00,00,000.00
+Decimal(10000000).formatted(.currency(code: "GBP").locale(Locale(identifier: "hi_IN"))) // "£1,00,00,000.00"
 ```
 
 <h3 id="currency-compositing">Compositing</h3>
@@ -267,6 +267,6 @@ try Decimal("$3.14", format: .currency(code: "USD").locale(enUS)) // 3.14
 let enUS = Locale(identifier: "en_US")
 let currencyStyle = Decimal.FormatStyle.Currency(code: "USD", locale: enUS)
 try Decimal("$3.14", format: currencyStyle) // 3.14
-``` 
+```
 
 [See more information](https://github.com/brettohland/fuckingformatstyle/issues/26)

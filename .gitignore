@@ -16,3 +16,6 @@ hugo.linux
 .envrc
 
 .nova
+
+.claude
+CLAUDE.md

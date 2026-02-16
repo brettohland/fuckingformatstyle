@@ -5,6 +5,8 @@ sitemap_ignore: false
 
 <h2 id="number-style">Number Style {{< xcode13-badge >}}</h2>
 
+{{< api-links docs="foundation/integerformatstyle" source="FoundationInternationalization/Formatting/Number/IntegerFormatStyle.swift" >}}
+
 {{< hint type=tip title=TL;DR >}}
 
 The many ways you can customize the display of numbers.
@@ -20,6 +22,8 @@ The examples below show the individual options available to format your final st
 ---
 
 <h2 id="percent-style">Percent Style {{< xcode13-badge >}}</h2>
+
+{{< api-links docs="foundation/integerformatstyle/percent" source="FoundationInternationalization/Formatting/Number/IntegerFormatStyle.swift" >}}
 
 {{< hint type=tip title=TL;DR >}}
 
@@ -43,15 +47,17 @@ Percentages are set by a range from 0.0 to 1.0, where 0.5 being 50%. This is con
 
 <h2 id="currency-style">Currency Style {{< xcode13-badge >}}</h2>
 
+{{< api-links docs="foundation/integerformatstyle/currency" source="FoundationInternationalization/Formatting/Number/IntegerFormatStyle.swift" >}}
+
 {{< hint type=tip title=TL;DR >}}
 
 Output number values in the local currency.
 
 {{< /hint >}}
 
-The currency format style is very similar to the Number and Percent format styles and works with Swift's numerical types (Float, Double, Decimal, and Integer). 
+The currency format style is very similar to the Number and Percent format styles and works with Swift's numerical types (Float, Double, Decimal, and Integer).
 
-The key difference is that you will need to pass in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) country code for the currency you would like to display. 
+The key difference is that you will need to pass in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) country code for the currency you would like to display.
 
 {{< hint type=important >}}
 

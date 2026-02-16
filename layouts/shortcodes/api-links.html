@@ -1,0 +1,9 @@
+<p class="api-links">
+  {{- with .Get "docs" -}}
+    <a href="https://developer.apple.com/documentation/{{ . }}" target="_blank" rel="noopener">Apple Developer Documentation</a>
+  {{- end -}}
+  {{- if and (.Get "docs") (.Get "source") }} · {{ end -}}
+  {{- with .Get "source" -}}
+    <a href="https://github.com/swiftlang/swift-foundation/blob/main/Sources/{{ . }}" target="_blank" rel="noopener">Source</a>
+  {{- end -}}
+</p>

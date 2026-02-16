@@ -6,6 +6,8 @@ There are two format styles available for the `Duration` type:
 
 <h2 id="time-style">Time Style {{< xcode14-badge >}}</h2>
 
+{{< api-links docs="foundation/duration/timeformatstyle" source="FoundationInternationalization/Formatting/Duration+TimeFormatStyle.swift" >}}
+
 Time format style allows you to output your `Duration` as a combination of hours, minutes, and seconds, which is set by the `pattern` parameter on the style.
 
 You can either initialize a new instance of `Duration.TimeFormatStyle`, or use the `.time(pattern:)` extension on FormatStyle.
@@ -63,7 +65,7 @@ Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1,
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1, roundSeconds: .towardZero))) // "0:16"
 Duration.seconds(1_000).formatted(.time(pattern: .hourMinute(padHourToLength: 1, roundSeconds: .up))) // "0:17"
 ```
-The following are the parameter options are for 'minuteSecond`:
+The following are the parameter options for `minuteSecond`:
 
 | Parameter                 | Description                                                                                                                       |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -115,7 +117,9 @@ Duration.seconds(1_000).formatted(.time(pattern: .hourMinuteSecond).attributed)
 
 <h2 id="units-style">Unit Style {{< xcode14-badge >}}</h2>
 
-The units style allows you to declare and customize the specific units to display for your duration. 
+{{< api-links docs="foundation/duration/unitsformatstyle" source="FoundationInternationalization/Formatting/Duration+UnitsFormatStyle.swift" >}}
+
+The units style allows you to declare and customize the specific units to display for your duration.
 
 You can either initialize a new instance of `Duration.UnitsFormatStyle`, or use the `.units()` extension on FormatStyle.
 
@@ -124,7 +128,7 @@ Duration.seconds(100).formatted(.units()) // "1 min, 40 sec"
 Duration.UnitsFormatStyle(allowedUnits: [.hours, .minutes, .seconds], width: .abbreviated).format(.seconds(100)) // "1 min, 40 sec"
 ```
 
-In both cases, there are two variants the initializer or style method. 
+In both cases, there are two variants the initializer or style method.
 
 | Parameter          | Description                                                 |
 |--------------------|-------------------------------------------------------------|
@@ -144,7 +148,7 @@ In both cases, there are two variants the initializer or style method.
 | `valueLengthLimits` | How to pad or truncate values for display.                  |
 | `fractionalPart`    | How to display fractional values if the unit can't be shown |
 
-If you can't spot it at a glance, the difference is the `valueLength`/`valueLengthLimits` parameter which configures how each unit is padded or truncated. `valueLength` accepts an optional `Integer`, while `valueLengthLimits` takes an optional `ValueRange` value. 
+If you can't spot it at a glance, the difference is the `valueLength`/`valueLengthLimits` parameter which configures how each unit is padded or truncated. `valueLength` accepts an optional `Integer`, while `valueLengthLimits` takes an optional `ValueRange` value.
 
 ---
 

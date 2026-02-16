@@ -7,7 +7,7 @@ sitemap_ignore: true
 
 For Swift, it's the easiest way to convert a data type to a **fully localized display string**.
 
-Introduced with iOS 15, the `FormatStyle` is a Swift protocol that outlines a way to take one format and convert it to another. 
+Introduced with iOS 15, the `FormatStyle` is a Swift protocol that outlines a way to take one format and convert it to another.
 
 On top of this, Apple built out a suite of format styles to easily convert the built in data types to strings for display with a dizzying amount of customization.
 
@@ -36,13 +36,13 @@ At the core of it:
 
 ### Performance
 
-Creating an instance of a `Formatter` subclass is expensive and Apple's documentation doesn't go out of it's way to tell you that. An easy trap to fall into is re-initializing a formatter every time you'd like to display some data as a string.
+Creating an instance of a `Formatter` subclass is expensive and Apple's documentation doesn't go out of its way to tell you that. An easy trap to fall into is re-initializing a formatter every time you'd like to display some data as a string.
 
 This isn't too bad if you're re-creating a formatter once per `UIView`, but if you make the mistake of creating a new formatter for every cell in a `UICollectionView`, you're going to be in pain.
 
 `FormatStyle` works like you expect it, and it handles everything behind the scenes.
 
-[Kahn Winter did a bunch of performance testing](https://mobile.twitter.com/thecoolwinter/status/1525562833689247747?s=20&t=kSGBR5hYzEAJF6AacIbn0g) and found that `FormatStyle` use is slightly more performant than correctly re-using `Formatter` subclasses correctly. 
+[Kahn Winter did a bunch of performance testing](https://mobile.twitter.com/thecoolwinter/status/1525562833689247747?s=20&t=kSGBR5hYzEAJF6AacIbn0g) and found that `FormatStyle` use is slightly more performant than correctly re-using `Formatter` subclasses correctly.
 
 So the main benefit to their use is…
 

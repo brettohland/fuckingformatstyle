@@ -9,7 +9,7 @@ Float(10).formatted(.number.scale(200.0).notation(.compactName).grouping(.automa
 ```
 
 You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>`, `FloatingPointFormatStyle<BinaryFloatingPoint>` or `Decimal.FormatStyle` and use method chaining to customize the output.
-  
+
 ``` swift
 FloatingPointFormatStyle<Double>().rounded(rule: .up, increment: 1).format(10.9) // "11"
 IntegerFormatStyle<Int>().notation(.compactName).format(1_000) // "1K"
@@ -24,7 +24,7 @@ Decimal.FormatStyle().scale(10).format(1) // "10"
 | [Sign](#numbers-sign)                                        | Do you want to show or hide the + or - sign?                  |
 | [Decimal Separator](#numbers-decimal-separator)              | Do you want to show or hide the decimal separator             |
 | [Grouping](#numbers-grouping)                                | How do you want the thousands numbers to be grouped           |
-| [Precision](#numbers-prescision)                             | How many fractional or significant digits do you want to show |
+| [Precision](#numbers-precision)                             | How many fractional or significant digits do you want to show |
 | [Notation](#numbers-notation)                                | Enable scientific or compact notation                         |
 | [Scale](#numbers-scale)                                      | Scale the number up or down before display                    |
 | [Locale](#numbers-locale)                                    | Set the `Locale` for one output                               |

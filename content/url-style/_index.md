@@ -11,6 +11,8 @@ Show off the all of the parts of your URL that you'd like.
 
 {{< xcode14-badge >}}
 
+{{< api-links docs="foundation/url/formatstyle" >}}
+
 Easily convert every bit of your URL into a string.
 
 {{< include file="/_includes/url.md" type="page" >}}
