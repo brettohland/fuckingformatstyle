@@ -10,7 +10,9 @@ Print out your various measurements.
 
 {{< xcode13-badge >}}
 
-The Measurement API inside of Foundation is a powerful toolkit for converting and displaying units. 
+{{< api-links docs="foundation/measurement/formatstyle" source="FoundationInternationalization/Formatting/Measurement+FormatStyle+Stub.swift" >}}
+
+The Measurement API inside of Foundation is a powerful toolkit for converting and displaying units.
 
 {{< include file="/_includes/measurement.md" type="page" >}}
 

@@ -129,6 +129,27 @@ a.version-badge:visited {
   } 
 }
 
+.api-links {
+  font-size: 0.8em;
+  margin: -0.5em 0 1em;
+}
+
+.api-links a {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.api-links a:hover {
+  text-decoration: underline;
+  color: #FF1A87;
+}
+
+@media (prefers-color-scheme: dark) {
+  .api-links a {
+    color: #9ca3af;
+  }
+}
+
 .language-swift {
   overflow-x: scroll;
 }

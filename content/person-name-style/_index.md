@@ -11,6 +11,8 @@ Never again do you have to remember if the family name goes before the given nam
 
 {{< xcode13-badge >}}
 
+{{< api-links docs="foundation/personnamecomponents/formatstyle" >}}
+
 This format style solves the complexities of displaying an individual's name in the correct, localized fashion.
 
 {{< include file="/_includes/names.md" type="page" >}}

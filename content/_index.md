@@ -10,7 +10,7 @@ This site is going to help you do just that.
 
 {{< other-version-link >}}
 
-<!--more--> 
+<!--more-->
 
 ---
 

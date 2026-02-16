@@ -34,7 +34,7 @@ As of Xcode 14, this is the canonical list of Dimensions [^1] that are supported
 
 [^2]: Xcode 14 introduced the Byte Count Format Style (`Measurement<UnitInformationStorage>.FormatStyle.ByteCount`) specifically for this unit. [See the Byte Count Style section for more detail](/byte-count-style/).
 
-Measurement is special in that the localized string output can vary significantly depending on the `Locale` used by the format style. 
+Measurement is special in that the localized string output can vary significantly depending on the `Locale` used by the format style.
 
 By default, it uses the style of your device. You can specify the locale used by adding the `.locale()` method to the end of the style method.
 
@@ -43,7 +43,7 @@ There are three parameters available to customize your output. Only `width` is r
 | Parameter                    | Accepted Type                                 | Description                    |
 |------------------------------|-----------------------------------------------|--------------------------------|
 | [`width`](#width)            | `Measurement<UnitType>.FormatStyle.UnitWidth` | Sets how verbose the output is |
-| [`usage`]($usage) (optional) | `MeasurementFormatUnitUsage<UnitType>`        | Sets how the unit will be used |
+| [`usage`](#usage) (optional) | `MeasurementFormatUnitUsage<UnitType>`        | Sets how the unit will be used |
 | [`numberFormatStyle`](#numberformatstyle) (optional) | `FloatingPointFormatStyle<Double>`            | Sets the format style on the number
 
 ``` swift
@@ -113,7 +113,7 @@ Shared Options:
 | Option        | Description                                                                          |
 |---------------|--------------------------------------------------------------------------------------|
 | `.general`    | Outputs the value in the most generalized way for the given locale                   |
-| `.asProvided` | Outputs a string value of the unit the `Dimention` was created with, or converted to |
+| `.asProvided` | Outputs a string value of the unit the `Dimension` was created with, or converted to |
 
 
 ``` swift
@@ -129,7 +129,7 @@ myHeight.formatted(.measurement(width: .abbreviated, usage: .asProvided).locale(
 myHeight.formatted(.measurement(width: .abbreviated, usage: .asProvided).locale(sweden)) // "190 cm"
 ```
 
-The `.general` option will output the string with what would be agreed upon as the generalized usage of that unit for the given locale. In the above case, the US locale used fractional feet while the Swedish locale used centimetres. 
+The `.general` option will output the string with what would be agreed upon as the generalized usage of that unit for the given locale. In the above case, the US locale used fractional feet while the Swedish locale used centimetres.
 
 #### UnitEnergy
 
@@ -140,6 +140,7 @@ The `.general` option will output the string with what would be agreed upon as t
 
 ``` swift
 let usa = Locale(identifier: "en-US")
+let canada = Locale(identifier: "en-CA")
 let sweden = Locale(identifier: "sv-SE")
 
 let recommendedCalories = Measurement(value: 2.0, unit: UnitEnergy.kilowattHours)
@@ -188,6 +189,7 @@ recommendedCalories.formatted(.measurement(width: .narrow, usage: .workout).loca
 
 ``` swift
 let usa = Locale(identifier: "en-US")
+let canada = Locale(identifier: "en-CA")
 let sweden = Locale(identifier: "sv-SE")
 
 let myHeight = Measurement(value: 190, unit: UnitLength.centimeters)
@@ -255,6 +257,7 @@ myHeight.formatted(.measurement(width: .narrow, usage: .personHeight).locale(can
 
 ``` swift
 let usa = Locale(identifier: "en-US")
+let canada = Locale(identifier: "en-CA")
 let sweden = Locale(identifier: "sv-SE")
 
 let averageWeight = Measurement(value: 197.9, unit: UnitMass.pounds)
@@ -293,6 +296,7 @@ averageWeight.formatted(.measurement(width: .narrow, usage: .personWeight).local
 
 ``` swift
 let usa = Locale(identifier: "en-US")
+let canada = Locale(identifier: "en-CA")
 let sweden = Locale(identifier: "sv-SE")
 
 let aNiceDay = Measurement(value: 25.0, unit: UnitTemperature.celsius)
@@ -366,6 +370,7 @@ aNiceDay.formatted(.measurement(width: .narrow, usage: .weather, hidesScaleName:
 
 ``` swift
 let usa = Locale(identifier: "en-US")
+let canada = Locale(identifier: "en-CA")
 let sweden = Locale(identifier: "sv-SE")
 
 let onePint = Measurement(value: 1, unit: UnitVolume.pints)
@@ -398,7 +403,7 @@ onePint.formatted(.measurement(width: .narrow, usage: .liquid).locale(canada)) /
 ### NumberFormatStyle
 
 The `numberFormatStyle` parameter controls the formatting of the numerical portion of the measurement output. Specifically, it's a `FloatingPointFormatStyle<Double>` and can accept any numeric format style you'd like.
-  
+
 [See the Number Style section for more detailed information](/numeric-styles/#number-style).
 
 The example below shows how to output a person's height without fractional inches.

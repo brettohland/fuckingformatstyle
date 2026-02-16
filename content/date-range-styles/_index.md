@@ -5,9 +5,11 @@ sitemap_ignore: false
 
 <h2 id="interval-date-style-date-range">Interval Date Style (Date Range) {{< xcode13-badge >}}</h2>
 
+{{< api-links docs="foundation/date/intervalformatstyle" source="FoundationInternationalization/Formatting/Date/Date+IntervalFormatStyle.swift" >}}
+
 {{< hint type=tip title=TL;DR >}}
 
-Shows the earliest and last dates in a `Range`, similar options to the [Date and Time](#) single date format style.
+Shows the earliest and last dates in a `Range`, similar options to the [Date and Time](/date-styles/#date-and-time-single-date) single date format style.
 
 {{< /hint >}}
 
@@ -19,9 +21,11 @@ For a given `Range<Date>`, this format will output the earliest and last days.
 
 <h2 id="components-date-style-date-range">Components Date Style (Date Range) {{< xcode13-badge >}}</h2>
 
+{{< api-links docs="foundation/date/componentsformatstyle" source="FoundationInternationalization/Formatting/Date/Date+ComponentsFormatStyle+Stub.swift" >}}
+
 {{< hint type=tip title=TL;DR >}}
 
-Shows the distance between the earliest and latest dates in a range, similar to the [Relative Date](#) style for single dates.
+Shows the distance between the earliest and latest dates in a range, similar to the [Relative Date](/date-styles/#relative-date-style-single-date) style for single dates.
 
 {{< /hint >}}
 

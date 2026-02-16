@@ -9,6 +9,8 @@ Simply showing your storage values, and even have fun converting units.
 
 {{< /hint >}}
 
+{{< api-links docs="foundation/bytecountformatstyle" source="FoundationInternationalization/Formatting/ByteCountFormatStyle.swift" >}}
+
 There are actually two byte count format styles available to you (depending on your Xcode version):
 
 1. {{< xcode13-badge >}} `ByteCountFormatStyle` is used to format `Int64` values.

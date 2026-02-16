@@ -12,9 +12,9 @@ You have the ability to set the style of the output
 
 | Width Option | Description                                                         |
 |--------------|---------------------------------------------------------------------|
-| `.standard`  | The standard default, uses the full  localized word.                |
-| `.short`     | Uses a narrow version of the work. For example "&" instead of "and" |
-| `.narrow`    | Uses the least number of characters possible for the word. For example, omitti
+| `.standard`  | The standard default, uses the full localized word.                 |
+| `.short`     | Uses a narrow version of the word. For example "&" instead of "and" |
+| `.narrow`    | Uses the least number of characters possible for the word. For example, omitting the word entirely. |
 
 ``` swift
 letters.formatted(.list(type: .and, width: .narrow))   // "a, b, c, d"
@@ -52,17 +52,22 @@ In the case of more complex, or custom values in the array, you can pass in anot
 For example, you can use any of the date format styles when dealing with an array of Dates.
 
 ``` swift
-let importantDates = [Date.timeIntervalSinceReferenceDate, Date.timeIntervalBetween1970AndReferenceDate]
-importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and)) // "2000 and 1969"
-importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or))  // "2000 or 1969"
+let importantDates = [
+    Date(timeIntervalSinceReferenceDate: 0), // January 1, 2001
+    Date(timeIntervalSince1970: 0)           // January 1, 1970
+]
+let yearOnlyFormat = Date.FormatStyle().year()
 
-importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and, width: .standard)) // "2000 and 1969"
-importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and, width: .narrow))   // "2000, 1969"
-importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and, width: .short))    // "2000 & 1969"
+importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and)) // "2001 and 1970"
+importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or))  // "2001 or 1970"
 
-importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or, width: .standard)) // "2000 or 1969"
-importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or, width: .narrow))   // "2000 or 1969"
-importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or, width: .short))    // "2000 or 1969"
+importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and, width: .standard)) // "2001 and 1970"
+importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and, width: .narrow))   // "2001, 1970"
+importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .and, width: .short))    // "2001 & 1970"
+
+importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or, width: .standard)) // "2001 or 1970"
+importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or, width: .narrow))   // "2001 or 1970"
+importantDates.formatted(.list(memberStyle: yearOnlyFormat, type: .or, width: .short))    // "2001 or 1970"
 
 let yearStyle = ListFormatStyle<Date.FormatStyle, Array<Date>>.init(memberStyle: .dateTime.year())
 importantDates.formatted(yearStyle)
@@ -70,6 +75,6 @@ importantDates.formatted(yearStyle)
 
 {{< hint type=tip >}}
 
-The `memberStyle:` parameter accepts any `FormatStyle` value. This means that you can fully customize how each item within the list is formatted for display by using the options outlined througout the rest of this site.
+The `memberStyle:` parameter accepts any `FormatStyle` value. This means that you can fully customize how each item within the list is formatted for display by using the options outlined throughout the rest of this site.
 
 {{</hint>}}

@@ -9,7 +9,7 @@ The easiest and best way to access this style is through the `.percent` extensio
 ```
 
 You can also initialize an instance of `IntegerFormatStyle<Value: BinaryInteger>.Percent`, `FloatingPointFormatStyle<BinaryFloatingPoint>.Percent` or `Decimal.FormatStyle.Percent` and use method chaining to customize the output.
-  
+
 ``` swift
 FloatingPointFormatStyle<Double>.Percent().rounded(rule: .up, increment: 1).format(0.109) // "11%"
 IntegerFormatStyle<Int>.Percent().notation(.compactName).format(1_000) // "1K%"
@@ -24,14 +24,14 @@ Decimal.FormatStyle.Percent().scale(12).format(0.1) // "1.2%"
 | [Sign](#percent-sign)                                        | Do you want to show or hide the + or - sign?                  |
 | [Decimal Separator](#percent-decimal-separator)              | Do you want to show or hide the decimal separator             |
 | [Grouping](#percent-grouping)                                | How do you want the thousands numbers to be grouped           |
-| [Precision](#percent-prescision)                             | How many fractional or significant digits do you want to show |
+| [Precision](#percent-precision)                             | How many fractional or significant digits do you want to show |
 | [Notation](#percent-notation)                                | Enable scientific or compact notation                         |
 | [Scale](#percent-scale)                                      | Scale the number up or down before display                    |
 | [Locale](#percent-locale)                                    | Set the `Locale` for one output                               |
 | [Compositing](#percent-compositing)                          | Mix and match any and all of the above                        |
 | [AttributedString output](#percent-attributed-string-output) | Output an `AttributedString`                                  |
 
-<h3 id="percent-ounding">Rounding</h3>
+<h3 id="percent-rounding">Rounding</h3>
 
 At its simplest, you can call the `.formatted(.number.rounded())` method on any number type (Float, Double, Decimal, or Integer) in order to get the system's default rounding behaviour.
 
@@ -278,7 +278,7 @@ Percentages parsed as Integers will be a value from 0 - 100, while percentages p
 
 {{< /hint >}}
 
-Percentage strings can be parsed into any of Swift's built-in numeric types. 
+Percentage strings can be parsed into any of Swift's built-in numeric types.
 
 ``` swift
 try? Int("98%", format: .percent) // 98

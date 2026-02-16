@@ -27,7 +27,7 @@ See <a href="/numeric-styles/">Number Style</a>
 | [Sign](/numeric-styles/#numbers-sign)                                        | Do you want to show or hide the + or - sign?                  |
 | [Decimal Separator](/numeric-styles/#numbers-decimal-separator)              | Do you want to show or hide the decimal separator             |
 | [Grouping](/numeric-styles/#numbers-grouping)                                | How do you want the thousands numbers to be grouped           |
-| [Precision](/numeric-styles/#numbers-prescision)                             | How many fractional or significant digits do you want to show |
+| [Precision](/numeric-styles/#numbers-precision)                             | How many fractional or significant digits do you want to show |
 | [Notation](/numeric-styles/#numbers-notation)                                | Enable scientific or compact notation                         |
 | [Scale](/numeric-styles/#numbers-scale)                                      | Scale the number up or down before display                    |
 | [Locale](/numeric-styles/#numbers-locale)                                    | Set the `Locale` for one output                               |
@@ -54,7 +54,7 @@ When formatting a floating point number (Double/Float/Decimal), `1.0` is "100%",
 | [Sign](/numeric-styles/#percent-sign)                                        | Do you want to show or hide the + or - sign?                  |
 | [Decimal Separator](/numeric-styles/#percent-decimal-separator)              | Do you want to show or hide the decimal separator             |
 | [Grouping](/numeric-styles/#percent-grouping)                                | How do you want the thousands numbers to be grouped           |
-| [Precision](/numeric-styles/#percent-prescision)                             | How many fractional or significant digits do you want to show |
+| [Precision](/numeric-styles/#percent-precision)                             | How many fractional or significant digits do you want to show |
 | [Notation](/numeric-styles/#percent-notation)                                | Enable scientific or compact notation                         |
 | [Scale](/numeric-styles/#percent-scale)                                      | Scale the number up or down before display                    |
 | [Locale](/numeric-styles/#percent-locale)                                    | Set the `Locale` for one output                               |
@@ -93,7 +93,7 @@ Floating point types shouldn't be used to store or do calculations on numbers th
 | [Sign](/numeric-styles/#currency-sign)                                        | Do you want to show or hide the + or - sign?                  |
 | [Decimal Separator](/numeric-styles/#currency-decimal-separator)              | Do you want to show or hide the decimal separator             |
 | [Grouping](/numeric-styles/#currency-grouping)                                | How do you want the thousands numbers to be grouped           |
-| [Precision](/numeric-styles/#currency-prescision)                             | How many fractional or significant digits do you want to show |
+| [Precision](/numeric-styles/#currency-precision)                             | How many fractional or significant digits do you want to show |
 | [Presentation](/numeric-styles/#currency-presentation)                        | Controls the style of the displayed currency                  |
 | [Scale](/numeric-styles/#currency-scale)                                      | Scale the number up or down before display                    |
 | [Locale](/numeric-styles/#currency-locale)                                    | Set the `Locale` for one output                               |
@@ -132,7 +132,7 @@ See <a href="/date-styles/#datetime-compositing-single-date">compositing using .
 
 {{< xcode13-badge >}}
 
-Output date strings that conform to the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. 
+Output date strings that conform to the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>.
 
 See  <a href="/date-styles/#iso-8601-date-style-single-date">ISO8601 Style</a>
 
@@ -142,7 +142,7 @@ See  <a href="/date-styles/#iso-8601-date-style-single-date">ISO8601 Style</a>
 
 {{< xcode13-badge >}}
 
-Relative date formatting outputs a plain language string that describes how far away that date is to right now. You can also customize which date components are used in the output. 
+Relative date formatting outputs a plain language string that describes how far away that date is to right now. You can also customize which date components are used in the output.
 
 This is similar to the components format style on date ranges, but that one uses date ranges instead of assuming the current date and time.
 
@@ -305,7 +305,7 @@ All of Swift's built-in numeric types can be parsed from strings. You can also h
 
 [See Parsing Percentages](/numeric-styles/#parsing-percentages-from-strings)
 
-[See Parsing Currencies](/numeric-styles/#parsing-currencies-from-strings) 
+[See Parsing Currencies](/numeric-styles/#parsing-currencies-from-strings)
 
 {{< /expand >}}
 

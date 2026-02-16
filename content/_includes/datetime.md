@@ -356,7 +356,7 @@ You can output an `AttributedString` by appending the `attributed` method onto t
 ``` swift
 twosday.formatted(.dateTime.attributed)
 twosday.formatted(Date.FormatStyle().attributed)
-``` 
+```
 
 ### Localizing Number Systems
 

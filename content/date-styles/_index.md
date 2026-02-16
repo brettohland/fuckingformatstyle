@@ -5,6 +5,8 @@ sitemap_ignore: false
 
 <h2 id="compositing">Compositing {{< xcode13-badge >}}</h2>
 
+{{< api-links docs="foundation/date/formatstyle" source="FoundationInternationalization/Formatting/Date/DateFormatStyle.swift" >}}
+
 {{< hint type=tip title=TL;DR >}}
 
 A flexible way to composite the exact date string of your dreams.
@@ -18,6 +20,8 @@ Like lego blocks, this format style allows you to mix and match the date compone
 ---
 
 <h2 id="date-and-time-single-date">Date and Time {{< xcode13-badge >}}</h2>
+
+{{< api-links docs="foundation/date/formatstyle" source="FoundationInternationalization/Formatting/Date/DateFormatStyle.swift" >}}
 
 {{< hint type=tip title=TL;DR >}}
 
@@ -35,6 +39,8 @@ Each portion (the date and the time), can be customized in the following ways.
 
 <h2 id="iso-8601-date-style-single-date">ISO 8601 Date Style{{< xcode13-badge >}}</h2>
 
+{{< api-links docs="foundation/date/iso8601formatstyle" source="FoundationEssentials/Formatting/Date+ISO8601FormatStyle.swift" >}}
+
 {{< hint type=tip title=TL;DR >}}
 
 The fastest way to output the globe's standard date string.
@@ -49,13 +55,15 @@ Since this is an international standard, the amount of customization is limited 
 
 <h2 id="relative-date-style-single-date">Relative Date Style{{< xcode13-badge >}}</h2>
 
+{{< api-links docs="foundation/date/relativeformatstyle" source="FoundationInternationalization/Formatting/Date/Date+RelativeFormatStyle.swift" >}}
+
 {{< hint type=tip title=TL;DR >}}
 
 Quickly say approximately how long it will be between a date and now.
 
 {{< /hint >}}
 
-This format style will tell you the approximate distance to or from a date to now. 
+This format style will tell you the approximate distance to or from a date to now.
 
 There are no options available to set the units you would like to display, the system will only show the largest unit.
 
@@ -64,6 +72,8 @@ There are no options available to set the units you would like to display, the s
 ---
 
 <h2 id="verbatim-date-style-single-date">Verbatim Date Style {{< xcode13-badge >}} {{< xcode14-badge >}}</h2>
+
+{{< api-links docs="foundation/date/verbatimformatstyle" source="FoundationInternationalization/Formatting/Date/Date+VerbatimFormatStyle.swift" >}}
 
 {{< hint type=tip title=TL;DR >}}
 
