@@ -42,7 +42,7 @@ This isn't too bad if you're re-creating a formatter once per `UIView`, but if y
 
 `FormatStyle` works like you expect it, and it handles everything behind the scenes.
 
-[Kahn Winter did a bunch of performance testing](https://mobile.twitter.com/thecoolwinter/status/1525562833689247747?s=20&t=kSGBR5hYzEAJF6AacIbn0g) and found that `FormatStyle` use is slightly more performant than correctly re-using `Formatter` subclasses correctly.
+[Kahn Winter did a bunch of performance testing](/kahn-winter-formatstyle-performance.png) and found that `FormatStyle` use is slightly more performant than correctly re-using `Formatter` subclasses correctly.
 
 So the main benefit to their use is…
 
