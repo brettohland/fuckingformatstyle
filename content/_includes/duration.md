@@ -6,7 +6,7 @@ There are two format styles available for the `Duration` type:
 
 <h2 id="time-style">Time Style {{< xcode14-badge >}}</h2>
 
-{{< api-links docs="foundation/duration/timeformatstyle" source="FoundationInternationalization/Formatting/Duration+TimeFormatStyle.swift" >}}
+{{< api-links docs="swift/duration/timeformatstyle" source="FoundationInternationalization/Formatting/Duration+TimeFormatStyle.swift" >}}
 
 Time format style allows you to output your `Duration` as a combination of hours, minutes, and seconds, which is set by the `pattern` parameter on the style.
 
@@ -117,7 +117,7 @@ Duration.seconds(1_000).formatted(.time(pattern: .hourMinuteSecond).attributed)
 
 <h2 id="units-style">Unit Style {{< xcode14-badge >}}</h2>
 
-{{< api-links docs="foundation/duration/unitsformatstyle" source="FoundationInternationalization/Formatting/Duration+UnitsFormatStyle.swift" >}}
+{{< api-links docs="swift/duration/unitsformatstyle" source="FoundationInternationalization/Formatting/Duration+UnitsFormatStyle.swift" >}}
 
 The units style allows you to declare and customize the specific units to display for your duration.
 
