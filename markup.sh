@@ -158,8 +158,8 @@ find "$DIR" -name "*.html" -type f | while read -r html_file; do
     }
     ' "$html_file" > "$TEMP_FILE"
     
-    # Replace original file with processed version
-    mv "$TEMP_FILE" "$html_file"
+    # Replace original file with processed version (cp preserves destination permissions)
+    cp "$TEMP_FILE" "$html_file"
     echo "  ✓ Completed"
 done
 
