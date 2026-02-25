@@ -1,0 +1,104 @@
+name: Deploy Sites
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Update changelog
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+          RELEASE_DATE: ${{ github.event.release.published_at }}
+        run: |
+          # Format the date as YYYY-MM-DD
+          DATE=$(echo "$RELEASE_DATE" | cut -c1-10)
+
+          # Build the new changelog entry
+          ENTRY="## [${TAG_NAME}](${RELEASE_URL}) (${DATE})
+
+          ${RELEASE_BODY}"
+
+          # Insert the new entry after the frontmatter (after the second ---)
+          awk -v entry="$ENTRY" '
+            BEGIN { frontmatter_count = 0; inserted = 0 }
+            /^---$/ {
+              frontmatter_count++
+              print
+              if (frontmatter_count == 2 && !inserted) {
+                printf "\n%s\n", entry
+                inserted = 1
+              }
+              next
+            }
+            { print }
+          ' content/changelog.md > content/changelog.md.tmp
+          mv content/changelog.md.tmp content/changelog.md
+
+          echo "Changelog updated with ${TAG_NAME}"
+
+      - name: Commit and push changelog
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/changelog.md
+          git commit -m "Update changelog for ${TAG_NAME}"
+          git push origin main
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Cache SplashHTMLGen
+        id: cache-splash
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/bin/SplashHTMLGen
+          key: splashhtmlgen-${{ hashFiles('.github/workflows/deploy.yml') }}
+
+      - name: Build SplashHTMLGen
+        if: steps.cache-splash.outputs.cache-hit != 'true'
+        run: |
+          git clone https://github.com/JohnSundell/Splash.git /tmp/Splash
+          cd /tmp/Splash
+          swift build -c release
+          cp $(swift build -c release --show-bin-path)/SplashHTMLGen /usr/local/bin/SplashHTMLGen
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
+
+      - name: Add DreamHost to known hosts
+        run: ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Build and deploy fuckingformatstyle.com
+        run: |
+          hugo
+          rm -rf public/_includes
+          ./markup.sh public
+          rsync -avz --delete public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:~/${{ secrets.DEPLOY_FCK_PATH }}
+
+      - name: Build and deploy goshdarnformatstyle.com
+        run: |
+          hugo --config config-gosh.toml
+          rm -rf public/_includes
+          ./markup.sh public
+          rsync -avz --delete public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:~/${{ secrets.DEPLOY_GOSH_PATH }}
