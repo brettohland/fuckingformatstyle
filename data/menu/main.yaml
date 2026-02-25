@@ -47,6 +47,9 @@ main:
       - name: Verbatim Style
         ref: "/date-styles/#verbatim-date-style-single-date"
         external: true
+      - name: HTTP Date Style
+        ref: "/date-styles/#http-date-style-single-date"
+        external: true
   - name: Date Range Styles
     ref: "/date-range-styles/"
     external: false

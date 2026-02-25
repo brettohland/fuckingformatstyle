@@ -103,6 +103,22 @@ Unlike the older methods, the format string that you pass into the format style 
 
 {{< include file="/_includes/verbatimDate.md" type="page" >}}
 
+---
+
+<h2 id="http-date-style-single-date">HTTP Date Style {{< xcode26-badge >}}</h2>
+
+{{< api-links docs="foundation/date/httpformatstyle" source="FoundationEssentials/Formatting/Date+HTTPFormatStyle.swift" >}}
+
+{{< hint type=tip title=TL;DR >}}
+
+Format and parse HTTP dates per <a href="https://www.rfc-editor.org/rfc/rfc9110.html#http.date" target="_blank" rel="noopener">RFC 9110</a>.
+
+{{< /hint >}}
+
+A fixed-format style that produces date strings for use in HTTP headers, like `"Tue, 22 Feb 2022 09:22:22 GMT"`.
+
+{{< include file="/_includes/httpDate.md" type="page" >}}
+
 <div class="gdoc-page__footer flex flex-wrap justify-between">
   <span class="gdoc-page__nav">
     <a class="gdoc-page__nav--prev flex align-center" href="/numeric-styles" title="Numeric Styles">

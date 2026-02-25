@@ -96,6 +96,10 @@ a.version-badge:visited {
   background: #FF6B1A;
 }
 
+.version-badge.xcode26 {
+  background: #9B59B6;
+}
+
 .hovertext {
   position: relative;
 }
