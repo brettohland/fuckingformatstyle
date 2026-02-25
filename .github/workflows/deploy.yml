@@ -11,9 +11,13 @@ jobs:
       contents: write
 
     steps:
+      - name: Configure git to use HTTPS for GitHub
+        run: git config --global url."https://github.com/".insteadOf "git@github.com:"
+
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          ref: main
           submodules: true
           fetch-depth: 0
 
@@ -27,19 +31,19 @@ jobs:
           # Format the date as YYYY-MM-DD
           DATE=$(echo "$RELEASE_DATE" | cut -c1-10)
 
-          # Build the new changelog entry
-          ENTRY="## [${TAG_NAME}](${RELEASE_URL}) (${DATE})
+          # Write the new changelog entry to a temp file
+          ENTRY_FILE=$(mktemp)
+          printf '\n## [%s](%s) (%s)\n\n%s\n' "$TAG_NAME" "$RELEASE_URL" "$DATE" "$RELEASE_BODY" > "$ENTRY_FILE"
 
-          ${RELEASE_BODY}"
-
-          # Insert the new entry after the frontmatter (after the second ---)
-          awk -v entry="$ENTRY" '
+          # Insert the entry after the frontmatter (after the second ---)
+          awk -v entry_file="$ENTRY_FILE" '
             BEGIN { frontmatter_count = 0; inserted = 0 }
             /^---$/ {
               frontmatter_count++
               print
               if (frontmatter_count == 2 && !inserted) {
-                printf "\n%s\n", entry
+                while ((getline line < entry_file) > 0) print line
+                close(entry_file)
                 inserted = 1
               }
               next
@@ -47,6 +51,7 @@ jobs:
             { print }
           ' content/changelog.md > content/changelog.md.tmp
           mv content/changelog.md.tmp content/changelog.md
+          rm -f "$ENTRY_FILE"
 
           echo "Changelog updated with ${TAG_NAME}"
 
@@ -60,11 +65,25 @@ jobs:
         env:
           TAG_NAME: ${{ github.event.release.tag_name }}
 
-      - name: Install Hugo
-        uses: peaceiris/actions-hugo@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          hugo-version: 'latest'
-          extended: true
+          node-version: '20'
+
+      - name: Build theme assets
+        run: |
+          cd themes/hugo-geekdoc
+          npm ci
+          npm run build
+
+      - name: Install Hugo
+        env:
+          HUGO_VERSION: "0.152.2"
+        run: |
+          wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_darwin-universal.tar.gz" -O hugo.tar.gz
+          tar -xzf hugo.tar.gz hugo
+          sudo mv hugo /usr/local/bin/hugo
+          hugo version
 
       - name: Cache SplashHTMLGen
         id: cache-splash
