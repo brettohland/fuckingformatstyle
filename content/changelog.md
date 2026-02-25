@@ -2,6 +2,16 @@
 draft: false
 ---
 
+## [v1.9.1](https://github.com/brettohland/fuckingformatstyle/releases/tag/v1.9.1) (2026-02-25)
+
+## What's Changed
+* Duration Styles Cannot Be Accessed by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/45
+* Document Date.HTTPFormatStyle (Xcode 26+) by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/46
+* GitHub Runner by @brettohland in https://github.com/brettohland/fuckingformatstyle/pull/48
+
+
+**Full Changelog**: https://github.com/brettohland/fuckingformatstyle/compare/v1.9...v1.9.1
+
 ## v1.9 (2026-02-16)
 
 **Merged pull requests:**
