@@ -1,0 +1,45 @@
+name: Check Links
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Deploy Sites"]
+    types: [completed]
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      - name: Check fuckingformatstyle.com
+        id: check-fck
+        continue-on-error: true
+        uses: ScholliYT/Broken-Links-Crawler-Action@v3
+        with:
+          website_url: 'https://fuckingformatstyle.com'
+          exclude_url_prefix: 'mailto:,tel:'
+          verbose: 'true'
+          max_retry_time: 30
+          max_retries: 5
+
+      - name: Check goshdarnformatstyle.com
+        id: check-gosh
+        continue-on-error: true
+        uses: ScholliYT/Broken-Links-Crawler-Action@v3
+        with:
+          website_url: 'https://goshdarnformatstyle.com'
+          exclude_url_prefix: 'mailto:,tel:'
+          verbose: 'true'
+          max_retry_time: 30
+          max_retries: 5
+
+      - name: Fail if broken links found
+        if: steps.check-fck.outcome == 'failure' || steps.check-gosh.outcome == 'failure'
+        run: |
+          echo "Broken links detected:"
+          [[ "${{ steps.check-fck.outcome }}" == "failure" ]] && echo "  - fuckingformatstyle.com"
+          [[ "${{ steps.check-gosh.outcome }}" == "failure" ]] && echo "  - goshdarnformatstyle.com"
+          exit 1
